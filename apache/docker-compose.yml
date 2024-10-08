@@ -1,19 +1,15 @@
 services:
-  web:
-    image: nginx:latest
+  www:
+    build: .
     ports:
       - "80:80"
     volumes:
-      - ./src:/var/www/html
-      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./www:/var/www/html
+      - ./httpd.conf:/etc/apache2/sites-enabled/000-default.conf
     links:
-      - php-fpm
+      - db
     networks:
       - default
-  php-fpm:
-    image: php:8-fpm
-    volumes:
-      - ./src:/var/www/html
   db:
     image: mysql:8.0
     ports:
@@ -30,10 +26,8 @@ services:
       - persistent:/var/lib/mysql
     networks:
       - default
-  pma:
+  phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    volumes:
-      - ./config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
     links:
       - db:db
     ports:
@@ -44,6 +38,6 @@ services:
       MYSQL_USER: macetero
       MYSQL_PASSWORD: pi--2018
       MYSQL_ROOT_PASSWORD: pi--2018
-      PMA_ABSOLUTE_URI: http://localhost/pma/
+      PMA_ABSOLUTE_URI: http://localhost/phpmyadmin/
 volumes:
   persistent:
