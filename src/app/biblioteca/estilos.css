@@ -1,0 +1,71 @@
+body {
+	font-family: sans-serif;
+}
+
+.icono {
+	max-height: 60px;
+}
+
+h1 {
+	background-color: #004466;
+    color: white;
+    padding: 0.2em;
+	margin-bottom: 0px;
+	
+	background-image: url(carmen.jpg);
+    background-repeat: no-repeat;
+    background-size: 54px;
+    padding-left: 58px;
+}
+
+h2 {
+    font-size: 20px;
+    background-color: #005577;
+    color: white;
+    padding: 0.1em;
+    margin-top: 0px;
+}
+
+.valor {
+	font-size: 140%;
+	color: red;
+}
+
+.valor5 {
+	color: #006600;
+}
+
+.valor4 {
+	color: #444400;
+}
+
+.valor3 {
+	color: #662200;
+}
+
+.generoNarrativa {
+	color: #004400;
+}
+
+/* ----- Estilos de ficha ---------*/
+.ficha {
+box-shadow: 4px 4px 5px #888888;
+    border-radius: 8px;
+    border: solid 1px;
+    padding: 1em;
+    margin: 1em;
+    background-color: #EEEEEE;
+    float: left;
+}
+
+.ficha5 {
+	background-color: #DDFFEE;
+}
+
+.titulo {
+    font-size: 120%;
+}
+
+.autor {
+    font-style: italic;
+}
