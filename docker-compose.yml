@@ -46,5 +46,21 @@ services:
       MYSQL_PASSWORD: pi--2018
       MYSQL_ROOT_PASSWORD: pi--2018
       PMA_ABSOLUTE_URI: http://localhost/pma/
+  nextcloud:
+    image: nextcloud
+    volumes:
+      - nextcloud:/var/www/html/data
+      - ./conf/nextcloud.php:/var/www/html/config/config.php
+    ports:
+      - 9000:80
+    links:
+      - db
+    environment:
+      MYSQL_PASSWORD: pi--2018
+      MYSQL_DATABASE: nextcloud
+      MYSQL_USER: root
+      MYSQL_HOST: db
+
 volumes:
   persistent:
+  nextcloud:
