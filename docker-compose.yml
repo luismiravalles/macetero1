@@ -5,7 +5,7 @@ services:
       - "80:80"
     volumes:
       - ./src:/var/www/html
-      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf
     links:
       - php
     networks:
@@ -34,7 +34,7 @@ services:
   pma:
     image: phpmyadmin/phpmyadmin
     volumes:
-      - ./config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+      - ./conf/phpmyadmin.php:/etc/phpmyadmin/config.user.inc.php
     links:
       - db:db
     ports:

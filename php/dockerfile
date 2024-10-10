@@ -1,3 +1,4 @@
 FROM php:5.6.38-fpm
 
-# RUN docker-php-ext-install mysqlidock
+RUN docker-php-ext-install mysql 
+RUN docker-php-ext-enable mysql
