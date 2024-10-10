@@ -1,7 +1,7 @@
 <?php
 function conectar() {
 	$link = mysql_connect("db:3306",
-						  "macetero", "pi--2018");
+						  "root", "pi--2018");
 	if( ! $link ) {
 		echo "No se ha podido conectar a la base de datos.<br>";
 	}
