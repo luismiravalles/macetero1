@@ -1,0 +1,2 @@
+# Configuracion de arranque del duckdns periodicamente
+*/5 * * * * bash /home/luis/macetero/duckdns/duck.sh >/dev/null 2>&1

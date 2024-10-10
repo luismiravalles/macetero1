@@ -1,6 +1,9 @@
 <?php
 function conectar() {
-	$link = mysql_connect("$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT",
+
+	date_default_timezone_set("Europe/Madrid");
+
+	$link = mysql_connect("db:3306",
 						  "root", "pi--2018");
 	if( ! $link ) {
 		echo "No se ha podido conectar a la base de datos.<br>";
