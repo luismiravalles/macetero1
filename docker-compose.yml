@@ -11,11 +11,15 @@ services:
       - php
     networks:
       - default
+    environment:
+      TZ: "Europe/Madrid"
   php:
     build: php    
     volumes:
       - ./src/app:/var/www/html
       - ./php/conf:/usr/local/etc/php
+    environment:
+      TZ: "Europe/Madrid"
   db:
     image: mysql:8.0
     ports:
@@ -26,6 +30,7 @@ services:
       MYSQL_USER: macetero
       MYSQL_PASSWORD: ${BDPASS}
       MYSQL_ROOT_PASSWORD: ${BDPASS}
+      TZ: "Europe/Madrid"
     volumes:
       - ./dump:/docker-entrypoint-initdb.d
       - ./conf:/etc/mysql/conf.d
@@ -47,6 +52,7 @@ services:
       MYSQL_PASSWORD: ${BDPASS}
       MYSQL_ROOT_PASSWORD: ${BDPASS}
       PMA_ABSOLUTE_URI: http://localhost/pma/
+      TZ: "Europe/Madrid"
   nextcloud:
     image: nextcloud
     volumes:
@@ -56,6 +62,7 @@ services:
     links:
       - db
     environment:      
+      TZ: "Europe/Madrid"
       MYSQL_PASSWORD: ${BDPASS}
       MYSQL_DATABASE: nextcloud
       MYSQL_USER: root

@@ -37,9 +37,9 @@ while ($row = mysql_fetch_row($result)) {
 		$result=mysql_query($sql);
 		if(!$result) {
 			$error=mysql_error();
-			echo $error . "???";
+			echo $error . "???\n";
 		}
 	}
-	echo $estado;
+	echo $estado . "\n";
 }
 ?>

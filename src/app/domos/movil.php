@@ -186,7 +186,7 @@ header("Pragma: no-cache");
 		echo "\n\t\t['Hora', 'Temperatura'],";
 
 		$sql = <<<EOT
-		  select date_format(l.hora, '%H') as shora, avg(l.valor + s.suma) 
+		  select date_format(l.hora, '%m-%d %H') as shora, avg(l.valor + s.suma) 
 		  from lectura l
 		  left join sensor s on s.id=l.idsensor
 		  where l.idsensor=$id
@@ -196,6 +196,11 @@ header("Pragma: no-cache");
 EOT;
 
 		$result=mysql_query($sql);
+
+		if (!$result) {
+			echo 'Could not run query: ' . mysql_error();
+		}
+
 		$coma="";
 		$alguno=false;
 		while ($row = mysql_fetch_row($result)) { 
