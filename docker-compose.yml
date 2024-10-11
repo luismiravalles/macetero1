@@ -24,8 +24,8 @@ services:
     environment:
       MYSQL_DATABASE: macetero
       MYSQL_USER: macetero
-      MYSQL_PASSWORD: pi--2018
-      MYSQL_ROOT_PASSWORD: pi--2018
+      MYSQL_PASSWORD: ${BDPASS}
+      MYSQL_ROOT_PASSWORD: ${BDPASS}
     volumes:
       - ./dump:/docker-entrypoint-initdb.d
       - ./conf:/etc/mysql/conf.d
@@ -44,8 +44,8 @@ services:
       - default
     environment:
       MYSQL_USER: macetero
-      MYSQL_PASSWORD: pi--2018
-      MYSQL_ROOT_PASSWORD: pi--2018
+      MYSQL_PASSWORD: ${BDPASS}
+      MYSQL_ROOT_PASSWORD: ${BDPASS}
       PMA_ABSOLUTE_URI: http://localhost/pma/
   nextcloud:
     image: nextcloud
@@ -56,7 +56,7 @@ services:
     links:
       - db
     environment:      
-      MYSQL_PASSWORD: pi--2018
+      MYSQL_PASSWORD: ${BDPASS}
       MYSQL_DATABASE: nextcloud
       MYSQL_USER: root
       MYSQL_HOST: db
