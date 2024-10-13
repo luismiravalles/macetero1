@@ -4,7 +4,7 @@ function conectar() {
 	date_default_timezone_set("Europe/Madrid");
 
 	$link = mysql_connect("db:3306",
-						  "root", "pi--2018");
+						  "root", getenv('BDPASS'));
 	if( ! $link ) {
 		echo "No se ha podido conectar a la base de datos.<br>";
 	}
