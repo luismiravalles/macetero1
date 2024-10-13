@@ -1,5 +1,6 @@
 # Ejecutar desde el directorio principal
+. ./.env
 user=root
-password=pi--2018
+password=$BDPASS
 echo "drop database php;" | \
     docker compose exec -T db mysql --user=$user --password=$password

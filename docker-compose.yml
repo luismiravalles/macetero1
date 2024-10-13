@@ -1,6 +1,7 @@
 services:
   web:
     image: nginx:latest
+    restart: always
     ports:
       - "80:80"
     volumes:
@@ -15,6 +16,7 @@ services:
       TZ: "Europe/Madrid"
   php:
     build: php    
+    restart: always
     volumes:
       - ./src/app:/var/www/html
       - ./php/conf:/usr/local/etc/php
@@ -22,6 +24,7 @@ services:
       TZ: "Europe/Madrid"
   db:
     image: mysql:8.0
+    restart: always
     ports:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
@@ -39,6 +42,7 @@ services:
       - default
   pma:
     image: phpmyadmin/phpmyadmin
+    restart: always
     volumes:
       - ./conf/phpmyadmin.php:/etc/phpmyadmin/config.user.inc.php
     links:
@@ -55,6 +59,7 @@ services:
       TZ: "Europe/Madrid"
   nextcloud:
     image: nextcloud
+    restart: always
     volumes:
         - nextcloud:/var/www/html
     ports:
