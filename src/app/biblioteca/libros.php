@@ -100,9 +100,7 @@ $paramAutor=$_GET["autor"];
 					</td>";
 				echo "<td class='genero$row[3]'>$row[3]</td>";
 				echo "<td class='valor valor{$row[4]}'>";
-				for($x=0; $x<$row[4]; $x++) {
-						echo "☆";
-				}
+				echo "$row[4]"."☆";
 				echo "</td>";
 				echo "<td>
 						$row[0]
