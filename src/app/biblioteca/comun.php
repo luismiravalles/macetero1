@@ -1,5 +1,7 @@
 <?php
 function conectar() {
+
+	date_default_timezone_set("Europe/Madrid");
 	$link = mysql_connect("db:3306",
 						  "root", getenv('BDPASS'));
 	if( ! $link ) {

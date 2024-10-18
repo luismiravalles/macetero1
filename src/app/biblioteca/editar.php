@@ -35,7 +35,7 @@ conectar();
 		
 			if(array_key_exists('id', $_GET)) {
 				$id=$_GET["id"];
-				$sql="select id, autor, titulo, valoracion, genero, comentarios, isbn, url from libro where id=${id}";
+				$sql="select id, autor, titulo, valoracion, genero, comentarios, isbn, url, fecha from libro where id=${id}";
 				$result=mysql_query($sql);
 				$row = mysql_fetch_row($result);
 				$autor=$row[1];
@@ -45,6 +45,7 @@ conectar();
 				$comentarios=$row[5];
 				$isbn=$row[6];
 				$url=$row[7];
+				$fecha=$row[8];
 			}
 		
 			if($_POST) {

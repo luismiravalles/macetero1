@@ -130,4 +130,13 @@
 						<input name="url"  maxlength="255" size="32" value="<?php echo $url;?>"></input>
 					</div>
 				</div>
+
+				<div class="form-group">
+					<div class="col-md-2">
+						<label>Fecha</label>
+					</div>
+					<div class="col-md-10">
+						<input name="fecha"  maxlength="255" size="32" value="<?php echo $fecha;?>" readonly="readonly"></input>
+					</div>
+				</div>				
 				

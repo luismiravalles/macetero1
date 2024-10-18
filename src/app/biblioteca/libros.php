@@ -59,7 +59,7 @@ $paramAutor=$_GET["autor"];
 					<th class="sorting">Título</th>
 					<th class="sorting">Género</th>
 					<th class="sorting">Valor</th>
-					<th class="sorting">Id</th>
+					<th class="sorting">Fecha</th>
 					<th class=""></th>
 				</tr>
 			</thead>
@@ -70,7 +70,7 @@ $paramAutor=$_GET["autor"];
 			ini_set("display_errors", 1);
 			conectar();
 
-			$sql = "select id,autor,titulo,genero,valoracion,isbn,url from libro";
+			$sql = "select id,autor,titulo,genero,valoracion,isbn,url,fecha from libro";
 			if( $paramAutor != null) {
 				$sql = $sql . " where autor ='$paramAutor'";
 			}
@@ -81,6 +81,8 @@ $paramAutor=$_GET["autor"];
 				$isbn=$row[5];
 				$img=null;
 				$url=$row[6];
+				$f=new DateTime($row[7]);
+				$fecha=$f->format("Y-m-d");
 				$enlace="https://www.entrelectores.com/busqueda?term=$urlTitulo";
 				if($url!=null && $url!="") {
 					$enlace=$url;
@@ -102,9 +104,7 @@ $paramAutor=$_GET["autor"];
 				echo "<td class='valor valor{$row[4]}'>";
 				echo "$row[4]"."☆";
 				echo "</td>";
-				echo "<td>
-						$row[0]
-					 </td>";				
+				echo "<td>$fecha</td>";
 				echo "<td>
 						<a href='editar.php?id=$row[0]'>Editar</a>
 					 </td>";
