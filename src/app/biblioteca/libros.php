@@ -29,6 +29,7 @@ $paramAutor=$_GET["autor"];
 								previous: "Anterior"
 							}
 						},
+						order: [[4, "desc"]],
 						buttons: [ 'excel','pdf' ]
 						
 	
@@ -41,7 +42,7 @@ $paramAutor=$_GET["autor"];
 
 <body >
 	
-	<div class="container">
+	<div class="">
 		<?php include('cabecera.php'); ?>
 	
 	
@@ -52,7 +53,7 @@ $paramAutor=$_GET["autor"];
 		</div>
 
 
-		<table id="tabla" class="stripe">
+		<table id="tabla" class="stripe" >
 			<thead>
 				<tr role='row'>
 					<th class="sorting_asc">Autor</th>

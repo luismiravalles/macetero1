@@ -84,3 +84,11 @@ box-shadow: 4px 4px 5px #888888;
 .autor {
     font-style: italic;
 }
+
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 2px 2px !important;
+}
+
+#Tabla {
+    font-size: 0.6em;
+}
