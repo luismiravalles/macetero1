@@ -31,7 +31,12 @@ $paramAutor=$_GET["autor"];
 						},
 
 						order: [[4, "desc"]],
-						buttons: [ 'excel','pdf' ]
+						buttons: [ 'excel','pdf' ],
+
+						
+						scrollCollapse: true,
+    					scroller: true,
+    					scrollY: 500
 						
 	
 	
@@ -96,7 +101,7 @@ $paramAutor=$_GET["autor"];
 							<span class='glyphicon glyphicon-cloud'></span>
 						</a>";
 				}
-				echo "<td><a href='https://www.entrelectores.com/busqueda?term=$urlAutor'>$row[1]</a></td>";
+				echo "<td><a href='https://www.google.com/search?q=libros+de+$urlAutor'>$row[1]</a></td>";
 				echo "<td class='tdtitulo'>
 						$img
 						<a href='$enlace'>$row[2]

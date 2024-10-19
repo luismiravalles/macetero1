@@ -97,6 +97,8 @@ tr.even {
     font-size: 1.2em;
 }
 
-#Tabla {
-    font-size: 0.7em;
+@media (max-width: 600px) {
+    #Tabla {
+        font-size: 0.7em;
+    }
 }

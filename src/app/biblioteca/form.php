@@ -112,24 +112,6 @@
 						<textarea rows="4" cols="50"  maxlength="4000" name="comentarios"><?php echo $comentarios;?></textarea>
 					</div>
 				</div>
-				
-				<div class="form-group">
-					<div class="col-md-2">
-						<label>ISBN</label>
-					</div>
-					<div class="col-md-10">				
-						<input name="isbn"  maxlength="13" size="32" value="<?php echo $isbn;?>"></input>
-					</div>
-				</div>				
-				
-				<div class="form-group">
-					<div class="col-md-2">
-						<label>Enlace</label>
-					</div>
-					<div class="col-md-10">
-						<input name="url"  maxlength="255" size="32" value="<?php echo $url;?>"></input>
-					</div>
-				</div>
 
 				<div class="form-group">
 					<div class="col-md-2">
