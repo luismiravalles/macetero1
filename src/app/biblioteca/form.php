@@ -1,4 +1,4 @@
-				<div class="form-group" style="visibility: hidden;">
+				<div class="form-group" style="visibility: hidden; height:0px;">
 					<div class="col-md-2">
 						<label>Id</label>
 					</div>

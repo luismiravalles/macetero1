@@ -63,20 +63,16 @@ conectar();
 		?>
 	
 
-			<div class="form-group">
-				<a class="btn btn-primary" href="libros.php">Volver a la lista</a>
-			</div>
-	
-	
 			<form action="nuevo.php" method="POST" class="form-horizontal">
-			
+				<div class="form-group">
+					<a class="btn btn-primary btn-danger" href="libros.php">Volver a la lista</a>
+
+					<button type="submit" name="button" class="btn btn-primary btn-success" >Guardar</button>
+				</div>
+
 				<?php include('form.php'); ?>
 				
-				<div class="form-group">
-					<div class="col-md-2">
-						<button type="submit" name="button" class="btn btn-primary" >Guardar</button>
-					</div>
-				</div>
+
 				
 			</form>
 	</div>

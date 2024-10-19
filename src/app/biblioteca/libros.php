@@ -29,6 +29,7 @@ $paramAutor=$_GET["autor"];
 								previous: "Anterior"
 							}
 						},
+
 						order: [[4, "desc"]],
 						buttons: [ 'excel','pdf' ]
 						
@@ -47,9 +48,9 @@ $paramAutor=$_GET["autor"];
 	
 	
 		<div class="form-group">
-				<a class="btn btn-primary col-md-2" href="nuevo.php">Nuevo</a>
+				<a class="btn btn-primary btn-success col-md-2" href="nuevo.php">Nuevo</a>
 				<a class="btn btn-primary col-md-2" href="autores.php">Autores</a>
-				<a class="btn btn-primary col-md-2" href="imprimir.php">Imprimir</a>
+				<a class="btn btn-primary btn-info col-md-2" href="imprimir.php">Imprimir</a>
 		</div>
 
 
@@ -59,7 +60,7 @@ $paramAutor=$_GET["autor"];
 					<th class="sorting_asc">Autor</th>
 					<th class="sorting">Título</th>
 					<th class="sorting">Género</th>
-					<th class="sorting">Valor</th>
+					<th class="sorting">V</th>
 					<th class="sorting">Fecha</th>
 					<th class=""></th>
 				</tr>
@@ -84,7 +85,7 @@ $paramAutor=$_GET["autor"];
 				$url=$row[6];
 				$f=new DateTime($row[7]);
 				$fecha=$f->format("Y-m-d");
-				$enlace="https://www.entrelectores.com/busqueda?term=$urlTitulo";
+				$enlace="https://www.google.com/search?q=$urlAutor+$urlTitulo";
 				if($url!=null && $url!="") {
 					$enlace=$url;
 				}
@@ -96,7 +97,7 @@ $paramAutor=$_GET["autor"];
 						</a>";
 				}
 				echo "<td><a href='https://www.entrelectores.com/busqueda?term=$urlAutor'>$row[1]</a></td>";
-				echo "<td>
+				echo "<td class='tdtitulo'>
 						$img
 						<a href='$enlace'>$row[2]
 						</a>
