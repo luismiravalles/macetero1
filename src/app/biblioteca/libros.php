@@ -29,17 +29,12 @@ $paramAutor=$_GET["autor"];
 								previous: "Anterior"
 							}
 						},
+						// columns: [{ width: '20%' }, { width: '30%' }, { width: '10%' }, { width: '15%' }, { width: '15%' }, { width: '10%' }],
 
 						order: [[4, "desc"]],
 						buttons: [ 'excel','pdf' ],
 
-						
-						scrollCollapse: true,
-    					scroller: true,
-    					scrollY: 500
-						
-	
-	
+
 				});
 	});			
 	</script>	
@@ -81,6 +76,7 @@ $paramAutor=$_GET["autor"];
 			if( $paramAutor != null) {
 				$sql = $sql . " where autor ='$paramAutor'";
 			}
+			// $sql = $sql . " order by id desc limit 50 ";
 			$result=mysql_query($sql);			
 			while ($row = mysql_fetch_row($result)) { 
 				$urlAutor=urlencode($row[1]);

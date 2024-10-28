@@ -97,8 +97,12 @@ tr.even {
     font-size: 1.2em;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     #Tabla {
         font-size: 0.7em;
+    }
+
+    #Tabla_filter, #Tabla_length {
+        font-size: 0.8em;
     }
 }
