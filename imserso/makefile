@@ -4,7 +4,7 @@ down:
 	sudo docker compose down
 
 up:
-	sudo docker compose up -d
+	sudo docker compose  up -d --remove-orphans
 
 compile:
 	sudo docker run -it --rm --name maven \
@@ -14,6 +14,7 @@ compile:
 
 test:
 	sudo docker run -it --rm --name maven \
+		--network imserso_default \
 		-v /maven-repo:/maven-repo -v ./:/project \
 		-w /project maven:3.3-jdk-8 \
 		mvn -Dmaven.repo.local=/maven-repo test
@@ -21,6 +22,7 @@ test:
 
 bash:
 	sudo docker run -it --rm --name maven \
-		-v /maven-repo:/root/m2 -v ./:/project \
+		--network imserso_default \
+		-v /maven-repo:/maven-repo -v ./:/project \
 		-w /project maven:3.3-jdk-8 \
 		bash

@@ -68,7 +68,7 @@ public class TestTurismoSocial {
 	private static final String ISLAS = "Costa-Insular";
 
 	
-	private PrintWriter salida;
+	private PrintWriter salida=null;
 	
 	
 	
@@ -110,8 +110,10 @@ public class TestTurismoSocial {
 		
 	
 	@After public void end() {
-		salida.println("</table></body></html>");
-		salida.close();
+		if(salida!=null) {
+			salida.println("</table></body></html>");
+			salida.close();
+		}
 		webTest.closeAndQuit();
 	}	
 	
@@ -121,7 +123,7 @@ public class TestTurismoSocial {
 	
 	
 	@Test public void testInteresante()  throws InterruptedException, IOException {
-		abrirSalida("/Users/luis/Nextcloud/Compartir/Viajes/destinos-imserso.html");
+		abrirSalida("/project/destinos-imserso.html");
 		
 		Busqueda.instance(salida)
 				.modalidad(ISLAS)
