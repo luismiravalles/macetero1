@@ -20,7 +20,8 @@ run:
 		--env TZ=Europe/Madrid \
 		-v /maven-repo:/maven-repo -v ./:/project \
 		-w /project maven:3.3-jdk-8 \
-		mvn -Dmaven.repo.local=/maven-repo \ test
+		mvn -Dmaven.repo.local=/maven-repo \
+		test
 	cp destinos-imserso.html index.html
 
 
