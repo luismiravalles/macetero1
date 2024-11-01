@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +23,7 @@ import org.openqa.selenium.By.ByClassName;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 
 
 
@@ -41,6 +44,8 @@ import org.openqa.selenium.WebElement;
  *
  */
 public class TestTurismoSocial {	
+
+	private static final Log LOGGER = LogFactory.getLog(WebTest.class);
 
 	
 	private static final String CIRCUITOS = "Turismo-de-Escapada";
@@ -68,7 +73,7 @@ public class TestTurismoSocial {
 	private static final String ISLAS = "Costa-Insular";
 
 	
-	private PrintWriter salida=null;
+	private PrintWriter salida;
 	
 	
 	
@@ -110,10 +115,8 @@ public class TestTurismoSocial {
 		
 	
 	@After public void end() {
-		if(salida!=null) {
-			salida.println("</table></body></html>");
-			salida.close();
-		}
+		salida.println("</table></body></html>");
+		salida.close();
 		webTest.closeAndQuit();
 	}	
 	
@@ -123,7 +126,9 @@ public class TestTurismoSocial {
 	
 	
 	@Test public void testInteresante()  throws InterruptedException, IOException {
-		abrirSalida("/project/destinos-imserso.html");
+		//abrirSalida("/Users/luis/Nextcloud/Compartir/public/destinos-imserso.html");
+		//abrirSalida("C:\\Users\\luis\\OneDrive - Universidad de Oviedo\\destinos-imserso.html");
+		abrirSalida("destinos-imserso.html");
 		
 		Busqueda.instance(salida)
 				.modalidad(ISLAS)
@@ -132,32 +137,34 @@ public class TestTurismoSocial {
 				.transporte(SI)
 				.buscar(webTest);
 		
-		Busqueda.instance(salida)
-				.modalidad(ISLAS)
-				.zona(CANARIAS)
-				.provincia(TENERIFE)
-				.transporte(NO)
-				.buscar(webTest);		
+		/**
+		 * Sin transporte NO INTERESA porque es muy caro...
+		 */
+//		Busqueda.instance(salida)
+//				.modalidad(ISLAS)
+//				.zona(CANARIAS)
+//				.provincia(TENERIFE)
+//				.transporte(NO)
+//				.buscar(webTest);		
 		
 		Busqueda.instance(salida)
 				.modalidad(ISLAS)
 				.zona(BALEARES)
 				.transporte(SI)
-				// .fechaMin("21/03/2024")
+				// .fechaMin("21/03/2025")
 				.buscar(webTest);		
 		
 		Busqueda.instance(salida)
 				.modalidad(COSTAS)
 				.zona(ANDALUCIA)
 				.transporte(SI)
-				.fechaMin("21/03/2024")
 				.buscar(webTest);
 		
 		// Ya no interesa ir a Andalucia sin Transporte pq ya vamos a Conil :-)
 		Busqueda.instance(salida)
 				.modalidad(COSTAS)
 				.zona(ANDALUCIA)
-				.fechaMin("21/03/2024")
+				.fechaMin("21/03/2025")
 				.transporte(NO)
 				// .listaEspera(true)
 				.buscar(webTest);
@@ -169,13 +176,15 @@ public class TestTurismoSocial {
 					.modalidad(COSTAS)
 					.zona(zona)
 					.transporte(SI)
-					// .fechaMin("21/03/2024")
+					// .fechaMin("21/03/2025")
 					.buscar(webTest);
+			
+			// No interesa sin transporte a no ser que sea a partir de marzo
 			Busqueda.instance(salida)
 					.modalidad(COSTAS)
 					.zona(zona)
 					.transporte(NO)
-					// .fechaMin("21/03/2024")
+					.fechaMin("15/03/2025")
 					.buscar(webTest);			
 		}
 			
@@ -183,7 +192,7 @@ public class TestTurismoSocial {
 		// Buscar En Circuitos a partir de Primavera también
 		Busqueda.instance(salida)
 				.modalidad(CIRCUITOS)
-				// .fechaMin("01/02/2024")
+				// .fechaMin("01/02/2025")
 				.buscar(webTest);
 
 		
@@ -198,7 +207,7 @@ public class TestTurismoSocial {
 	
 	
 	public static class Busqueda {
-		private static final int TIEMPO_CORTO = 1000;
+		private static final int TIEMPO_CORTO = 1500;
 		private static final int TIEMPO_MUY_CORTO = 200;
 		
 		private String modalidad;
@@ -229,12 +238,19 @@ public class TestTurismoSocial {
 		public void buscar(WebTest w) throws MalformedURLException {
 			WebDriver driver=w.getDriver();
 			
+			LOGGER.info("Buscando " + this.zona + " " + this.provincia + " " + this.modalidad 
+						+ " Transporte " + this.transporte 
+						+ " listaEspera " + this.listaEspera
+						+ " disponible " + this.disponible
+						+ " fechaMin " + this.fechaMin
+						+ " ...");
+			
 			driver.get("https://reservasacc.turismosocial.com/");
 			
 			driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 			
 			// Aceptar las Cookies
-			sleep(TIEMPO_CORTO);
+			sleep(2 * TIEMPO_CORTO);
 			try  {
 				WebElement botonAceptarCookies=driver.findElement(w.byId("onetrust-accept-btn-handler"));
 				botonAceptarCookies.click();
@@ -342,8 +358,18 @@ public class TestTurismoSocial {
 						for(int i=0; i<campos.length; i++) {
 							campos[i]=campos[i].trim();
 						}
-						String result=StringUtils.join(campos, "</td><td>");					
-						imprimir("<tr><td>" + result + "</td><td>" + transporte + "</td><td>" + zona + "</td></tr>");
+						String result=StringUtils.join(campos, "</td><td>");
+
+						String estilo="";
+						if("Si".equals(transporte)) {
+							estilo +=" background: lightgreen;";
+						} else {
+							estilo +=" background: beige;";							
+						}
+						if(result.contains("Disponible")) {
+							estilo += "color: darkred; font-weight: bold;";
+						}
+						imprimir("<tr style='" + estilo + "'><td>" + result + "</td><td>" + transporte + "</td><td>" + zona + "</td></tr>");
 					}
 				}
 				

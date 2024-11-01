@@ -1,6 +1,9 @@
 
+help:
+	echo "Este es el Make"
 
 web:
+	sudo docker compose down web
 	sudo docker compose up web -d
 
 

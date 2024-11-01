@@ -3,3 +3,4 @@ secrets.env
 public
 local
 imserso/destinos-imserso.html
+imserso/crontab.log
