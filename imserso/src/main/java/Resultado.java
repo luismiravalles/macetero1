@@ -22,7 +22,8 @@ public class Resultado {
             + "<tr><td>Estado</td><td>" + estado + "</td></tr>"
             + "<tr><td>Hotel</td><td>" + hotel + "</td></tr>"
             + "<tr><td>Precio</td><td>" + precio + "</td></tr>"
-            + "<tr><td>Precio</td><td>" + zona + "</td></tr>"
+            + "<tr><td>Transporte</td><td>" + transporte + "</td></tr>"
+            + "<tr><td>Zona</td><td>" + zona + "</td></tr>"
         ;
     }
 
