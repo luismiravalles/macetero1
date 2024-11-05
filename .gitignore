@@ -4,3 +4,4 @@ public
 local
 imserso/destinos-imserso.html
 imserso/crontab.log
+imserso/src/test/resources/mailsender.properties

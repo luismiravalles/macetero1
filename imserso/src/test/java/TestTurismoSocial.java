@@ -8,8 +8,10 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
@@ -74,9 +76,8 @@ public class TestTurismoSocial {
 
 	
 	private PrintWriter salida;
-	
-	
-	
+
+	MailSender mailSender=new MailSender("luismiravalles@gmail.com");
 
 	
 	// Fw-Uniovi de Testing.
@@ -115,22 +116,41 @@ public class TestTurismoSocial {
 		
 	
 	@After public void end() {
-		salida.println("</table></body></html>");
-		salida.close();
-		webTest.closeAndQuit();
-	}	
-	
+		if(salida!=null) {
+			salida.println("</table></body></html>");
+			salida.close();
+			webTest.closeAndQuit();
+		}
+	}
 
-	
+	@Test public void testEnviarResultados() {
+		System.out.println("Ejecutando test enviar resultados");
 
+		Resultado res=new Resultado();
+		res.setFecha("24/12/2024");
+		res.setDestino("Tenerife");
+		res.setDias("8");
+		res.setEstado("Lista de espera");
+		res.setHotel("Reconquista");
+		res.setPrecio("100");
+		res.setTransporte("Si");
+		res.setZona("Canarias");
+		List<Resultado> resultados=new ArrayList<>();
+		resultados.add(res);
+		resultados.add(res);
+
+		enviarResultados(resultados);
+	}
 	
 	
-	@Test public void testInteresante()  throws InterruptedException, IOException {
+	@Test public void run()  throws InterruptedException, IOException {
 		//abrirSalida("/Users/luis/Nextcloud/Compartir/public/destinos-imserso.html");
 		//abrirSalida("C:\\Users\\luis\\OneDrive - Universidad de Oviedo\\destinos-imserso.html");
 		abrirSalida("destinos-imserso.html");
+
+		List<Resultado> resultados=new ArrayList<>();
 		
-		Busqueda.instance(salida)
+		Busqueda.instance(salida, resultados)
 				.modalidad(ISLAS)
 				.zona(CANARIAS)
 				// .provincia(TENERIFE)
@@ -147,21 +167,21 @@ public class TestTurismoSocial {
 //				.transporte(NO)
 //				.buscar(webTest);		
 		
-		Busqueda.instance(salida)
+		Busqueda.instance(salida, resultados)
 				.modalidad(ISLAS)
 				.zona(BALEARES)
 				.transporte(SI)
 				// .fechaMin("21/03/2025")
 				.buscar(webTest);		
 		
-		Busqueda.instance(salida)
+		Busqueda.instance(salida,resultados)
 				.modalidad(COSTAS)
 				.zona(ANDALUCIA)
 				.transporte(SI)
 				.buscar(webTest);
 		
 		// Ya no interesa ir a Andalucia sin Transporte pq ya vamos a Conil :-)
-		Busqueda.instance(salida)
+		Busqueda.instance(salida, resultados)
 				.modalidad(COSTAS)
 				.zona(ANDALUCIA)
 				.fechaMin("21/03/2025")
@@ -172,7 +192,7 @@ public class TestTurismoSocial {
 		// ---- Busueda en COSTAS minimo en Primavera, aunque sean sin transporte 
 		// Ya no me vale sin transporte. Tiene que ser CON transporte 
 		for(String zona: Arrays.asList(COMUNIDAD_VALENCIANA, CATALUNYA, ANDALUCIA)) {
-			Busqueda.instance(salida)
+			Busqueda.instance(salida, resultados)
 					.modalidad(COSTAS)
 					.zona(zona)
 					.transporte(SI)
@@ -180,7 +200,7 @@ public class TestTurismoSocial {
 					.buscar(webTest);
 			
 			// No interesa sin transporte a no ser que sea a partir de marzo
-			Busqueda.instance(salida)
+			Busqueda.instance(salida, resultados)
 					.modalidad(COSTAS)
 					.zona(zona)
 					.transporte(NO)
@@ -190,20 +210,40 @@ public class TestTurismoSocial {
 			
 		
 		// Buscar En Circuitos a partir de Primavera también
-		Busqueda.instance(salida)
+		Busqueda.instance(salida, resultados)
 				.modalidad(CIRCUITOS)
 				// .fechaMin("01/02/2025")
 				.buscar(webTest);
 
 		
+		// Finalmente, si tenemos resltados especiales en resultados entonces los enviamos por correo.
+		if(resultados.size()>0) {
+			enviarResultados(resultados);
+		}
 
 	}
 	
+	private void enviarResultados(List<Resultado> resultados) {
+		StringBuilder cuerpo=new StringBuilder();
 
-	
+		cuerpo.append("<html>");
+		cuerpo.append("<body>");
+		cuerpo.append("<p>Se han encontrado viajes del Imserso</p>");
+		for(Resultado res:resultados) {
+			cuerpo.append("<table>");
+			cuerpo.append(res.toHtmlTable());
+			cuerpo.append("</table>");
+			cuerpo.append("<hr>");
+		}
+		cuerpo.append("</body>");
+		cuerpo.append("</html>");
 
-	
-
+		try {
+			mailSender.sendEmail("luismiravalles@gmail.com", "Resultados Imserso", cuerpo.toString());
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	public static class Busqueda {
@@ -215,6 +255,7 @@ public class TestTurismoSocial {
 		private String transporte;
 		private String provincia;
 		private PrintWriter salida;
+		private List<Resultado> resultados;
 		private boolean listaEspera=true;
 		private boolean disponible=true;
 		
@@ -222,9 +263,10 @@ public class TestTurismoSocial {
 		
 		SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");		
 		
-		public static Busqueda instance(PrintWriter salida) { 
+		public static Busqueda instance(PrintWriter salida, List<Resultado> resultados) { 
 			Busqueda busqueda=new Busqueda();
 			busqueda.salida=salida;
+			busqueda.resultados=resultados;
 			return busqueda;
 		}
 		public Busqueda modalidad(String modalidad) 	{	this.modalidad=modalidad; return this;	}		
@@ -327,6 +369,13 @@ public class TestTurismoSocial {
 			salida.println(contenido.replaceAll("-[0-9]", ""));
 			salida.flush();
 		}
+
+		private boolean esEspecial(Resultado res) {
+			return
+				res.conTransporte() && res.esNavidad() ||
+				res.esTenerife() ||
+				res.esPrimavera() && res.conTransporte();
+		}
 		
 		private void buscarFecha(WebTest w, WebDriver driver, final String tipo, final String debeContener) {	
 			final String eliminar="Transporte Folleto PDF Añadir";
@@ -369,6 +418,21 @@ public class TestTurismoSocial {
 						if(result.contains("Disponible")) {
 							estilo += "color: darkred; font-weight: bold;";
 						}
+
+						Resultado res=new Resultado();
+						res.setFecha(campos[0]);
+						res.setDestino(campos[1]);
+						res.setDias(campos[2]);
+						res.setEstado(campos[3]);
+						res.setHotel(campos[4]);
+						res.setPrecio(campos[5]);
+						res.setTransporte(transporte);
+						res.setZona(zona);
+
+						if(esEspecial(res)) {
+							resultados.add(res);	
+						}
+
 						imprimir("<tr style='" + estilo + "'><td>" + result + "</td><td>" + transporte + "</td><td>" + zona + "</td></tr>");
 					}
 				}
@@ -377,6 +441,5 @@ public class TestTurismoSocial {
 					
 		}
 	}
-
 	
 }

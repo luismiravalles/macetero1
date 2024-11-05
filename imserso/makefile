@@ -21,8 +21,21 @@ run:
 		-v /maven-repo:/maven-repo -v ./:/project \
 		-w /project maven:3.3-jdk-8 \
 		mvn -Dmaven.repo.local=/maven-repo \
+		-D test="TestTurismoSocial#run" \
 		test
 	cp destinos-imserso.html index.html
+
+# Ejecutar un test diferente
+test:
+	docker run --rm --name maven \
+		--network imserso_default \
+		--env TZ=Europe/Madrid \
+		-v /maven-repo:/maven-repo -v ./:/project \
+		-w /project maven:3.3-jdk-8 \
+		mvn -Dmaven.repo.local=/maven-repo \
+		-D test="TestTurismoSocial#testEnviarResultados" \
+		test
+
 
 
 # Abrir una shell dentro del contenedor de Maven para hacer pruebas.
