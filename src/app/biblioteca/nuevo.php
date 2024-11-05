@@ -17,10 +17,11 @@ conectar();
 </head>
 
 <body >
-
+	<?php include('cabecera.php'); ?>
+	<h2>Nuevo Libro</h2>
 	<div class="container">	
-		<?php include('cabecera.php'); ?>
-		<h2>Nuevo Libro</h2>
+		
+	
 		
 		<?php
 			$autor=null;

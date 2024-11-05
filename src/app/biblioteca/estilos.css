@@ -6,6 +6,7 @@ body {
 	max-height: 60px;
 }
 
+
 h1 {
 	background-color: #004466;
     color: white;
@@ -47,10 +48,7 @@ h2 {
 	color: #004400;
 }
 
-.container {
-    padding: 0px !important;
-    margin: 0px !important;
-}
+
 
 h1 {
     margin: 0px;
@@ -104,5 +102,10 @@ tr.even {
 
     #Tabla_filter, #Tabla_length {
         font-size: 0.8em;
+    }
+
+    .container {
+        margin: 0px !important;
+        padding: 0px !important;
     }
 }

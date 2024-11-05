@@ -7,7 +7,7 @@
 	<link href="css/bootstrap.css" rel="stylesheet"/>
 	<link href="css/bootstrap-theme.css" rel="stylesheet"/>	
 
-	<link rel="stylesheet" type="text/css" href="estilos.css?v=2"> </link>
+	<link rel="stylesheet" type="text/css" href="estilos.css?v=3"> </link>
 	<script type="text/javascript" src="jquery-latest.min.js"> </script>
 	
 	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">  </link>

@@ -43,8 +43,10 @@ $paramAutor=$_GET["autor"];
 
 <body >
 	
-	<div class="">
-		<?php include('cabecera.php'); ?>
+	<?php include('cabecera.php'); ?>
+	
+	<div class="container">
+		
 	
 	
 		<div class="form-group">

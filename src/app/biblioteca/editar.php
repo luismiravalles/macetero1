@@ -18,8 +18,9 @@ conectar();
 
 <body >
 
+	<?php include('cabecera.php'); ?>
 	<div class="container">	
-		<?php include('cabecera.php'); ?>
+		
 		<h2>Editar Libro</h2>
 		
 		<?php
