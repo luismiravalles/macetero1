@@ -239,7 +239,7 @@ public class TestTurismoSocial {
 		cuerpo.append("</html>");
 
 		try {
-			mailSender.sendEmail("luismiravalles@gmail.com", "Resultados Imserso", cuerpo.toString());
+			mailSender.sendEmail("luismiravalles@gmail.com;vizcarrmen@gmail.com", "Resultados Imserso", cuerpo.toString());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -371,7 +371,7 @@ public class TestTurismoSocial {
 		}
 
 		private boolean esEspecial(Resultado res) {
-			return
+			return 
 				res.conTransporte() && res.esNavidad() ||
 				res.esTenerife() ||
 				res.esPrimavera() && res.conTransporte();
