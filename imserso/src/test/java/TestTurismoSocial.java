@@ -6,12 +6,18 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
@@ -74,6 +80,8 @@ public class TestTurismoSocial {
 
 	private static final String ISLAS = "Costa-Insular";
 
+	private static Locale SPANISH = Locale.forLanguageTag("ES");
+
 	
 	private PrintWriter salida;
 
@@ -111,7 +119,7 @@ public class TestTurismoSocial {
 		salida.println("<p>Datos obtenidos a fecha : " + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()) + "</p>");
 		salida.println("<table>");
 		salida.println("<tr>");
-		salida.println("<th></th><th>Fecha</th><th>Destino</th><th>Dias</th><th>Estado</th><th>Hotel</th><th>Precio</th><th>Transporte</th><th>Zona</th>");
+		salida.println("<th>Fecha</th><th>Destino</th><th>Dias</th><th>Estado</th><th>Hotel</th><th>Precio</th><th>Transporte</th><th>Zona</th>");
 	}
 		
 	
@@ -141,6 +149,8 @@ public class TestTurismoSocial {
 
 		enviarResultados(resultados);
 	}
+	
+
 	
 	
 	@Test public void run()  throws InterruptedException, IOException {
@@ -419,6 +429,8 @@ public class TestTurismoSocial {
 							estilo += "color: darkred; font-weight: bold;";
 						}
 
+						String fecha=diaSemana(campos[1])+ " " + campos[1];
+
 						Resultado res=new Resultado();
 						res.setFecha(campos[1]);
 						res.setDestino(campos[2]);
@@ -432,13 +444,46 @@ public class TestTurismoSocial {
 						if(esEspecial(res)) {
 							resultados.add(res);	
 						}
-
-						imprimir("<tr style='" + estilo + "'><td>" + result + "</td><td>" + transporte + "</td><td>" + zona + "</td></tr>");
-					}
-				}
-				
-			}
 					
+						imprimir("<tr style='" + estilo + "'>" + 
+							td(fecha) + 
+							td(google(res.getDestino())) +
+							td(res.getDias()) +
+							td(res.getEstado()) +
+							td(google(res.getHotel(), res.getHotel() + " " + res.getDestino())) +
+							td(res.getPrecio()) +
+							td(transporte) +
+							td(zona) +
+							"</tr>");
+					}
+				}				
+			}					
+		}
+
+		private String google(String contenido) {
+			return google(contenido, contenido);
+		}
+
+		private String google(String contenido, String busqueda) {
+			String enlace=URLEncoder.encode(busqueda);
+			return "<a href='https://www.google.com/search?q=" + enlace + "'>" + contenido + "</a>";
+		}
+
+		private String td(String cadena) {
+			return "<td>" + cadena + "</td>";
+		}
+
+		public static String diaSemana(String fecha) {
+			// Definir el formato de la fecha
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	
+			// Convertir la cadena a LocalDate
+			LocalDate localDate = LocalDate.parse(fecha, formatter);
+			
+			// Obtener el día de la semana
+			DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+
+			return dayOfWeek.getDisplayName(TextStyle.FULL, SPANISH);
 		}
 	}
 	

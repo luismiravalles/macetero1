@@ -39,7 +39,9 @@ public class Resultado {
     }
 
     public boolean esNavidad() {
-        return StringUtils.startsWith(fecha, "20/12")
+        return StringUtils.startsWith(fecha, "06/12") // Inicio del puente de la consti.
+            || StringUtils.startsWith(fecha, "19/12")
+            || StringUtils.startsWith(fecha, "20/12")
             || StringUtils.startsWith(fecha, "21/12")
             || StringUtils.startsWith(fecha, "22/12")
             || StringUtils.startsWith(fecha, "23/12")
