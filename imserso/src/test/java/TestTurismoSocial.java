@@ -372,7 +372,7 @@ public class TestTurismoSocial {
 
 		private boolean esEspecial(Resultado res) {
 			return 
-				res.conTransporte() && res.esNavidad() ||
+				res.esNavidad() ||
 				res.esTenerife() ||
 				res.esPrimavera() && res.conTransporte();
 		}
@@ -420,12 +420,12 @@ public class TestTurismoSocial {
 						}
 
 						Resultado res=new Resultado();
-						res.setFecha(campos[0]);
-						res.setDestino(campos[1]);
-						res.setDias(campos[2]);
-						res.setEstado(campos[3]);
-						res.setHotel(campos[4]);
-						res.setPrecio(campos[5]);
+						res.setFecha(campos[1]);
+						res.setDestino(campos[2]);
+						res.setDias(campos[3]);
+						res.setEstado(campos[4]);
+						res.setHotel(campos[5]);
+						res.setPrecio(campos[6]);
 						res.setTransporte(transporte);
 						res.setZona(zona);
 
