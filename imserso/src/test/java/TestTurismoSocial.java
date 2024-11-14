@@ -121,12 +121,19 @@ public class TestTurismoSocial {
 		salida.println("<tr>");
 		salida.println("<th>Fecha</th><th>Destino</th><th>Dias</th><th>Estado</th><th>Hotel</th><th>Precio</th><th>Transporte</th><th>Zona</th>");
 	}
-		
 	
-	@After public void end() {
+	
+	private void cerrarSalida() {
 		if(salida!=null) {
 			salida.println("</table></body></html>");
 			salida.close();
+			salida=null;
+		}		
+	}
+	
+	@After public void end() {
+		if(salida!=null) {
+			cerrarSalida();
 			webTest.closeAndQuit();
 		}
 	}
@@ -147,13 +154,58 @@ public class TestTurismoSocial {
 		resultados.add(res);
 		resultados.add(res);
 
-		enviarResultados(resultados);
+		enviarResultados(resultados, "Oviedo");
+	}
+
+	public void runDesde(String origen) throws InterruptedException, IOException {
+		abrirSalida(StringUtils.substringBefore(origen, "-")  + ".html");
+		List<Resultado> resultados=new ArrayList<>();
+
+		Busqueda base=Busqueda.instance(salida, resultados)
+			.origen(origen)
+			.transporte(SI);
+
+		base.modalidad(ISLAS)
+			.zona(CANARIAS)			
+			.buscar(webTest);
+
+		base.modalidad(COSTAS)
+			.zona(CATALUNYA)			
+			.buscar(webTest);
+
+		base.modalidad(COSTAS)
+			.zona(ANDALUCIA)			
+			.buscar(webTest);			
+
+		base.modalidad(COSTAS)
+			.zona(COMUNIDAD_VALENCIANA)			
+			.buscar(webTest);			
+		
+		// Finalmente, si tenemos resltados especiales en resultados entonces los enviamos por correo.
+		if(resultados.size()>0) {
+			enviarResultados(resultados, StringUtils.substringBefore(origen, "-"));
+		}
+		
+		cerrarSalida();
+
 	}
 	
 
-	
-	
+	@Test public void runSantander()  throws InterruptedException, IOException {
+		runDesde(Busqueda.SANTANDER);		
+	}
+
+	@Test public void runBilbao()  throws InterruptedException, IOException {
+		runDesde(Busqueda.BILBAO);
+	}
+		
 	@Test public void run()  throws InterruptedException, IOException {
+		runBilbao();
+		runSantander();
+		runOviedo();
+	}
+	
+	@Test public void runOviedo()  throws InterruptedException, IOException {
 		//abrirSalida("/Users/luis/Nextcloud/Compartir/public/destinos-imserso.html");
 		//abrirSalida("C:\\Users\\luis\\OneDrive - Universidad de Oviedo\\destinos-imserso.html");
 		abrirSalida("destinos-imserso.html");
@@ -228,17 +280,17 @@ public class TestTurismoSocial {
 		
 		// Finalmente, si tenemos resltados especiales en resultados entonces los enviamos por correo.
 		if(resultados.size()>0) {
-			enviarResultados(resultados);
+			enviarResultados(resultados, "Oviedo");
 		}
 
 	}
 	
-	private void enviarResultados(List<Resultado> resultados) {
+	private void enviarResultados(List<Resultado> resultados, String origen) {
 		StringBuilder cuerpo=new StringBuilder();
 
 		cuerpo.append("<html>");
 		cuerpo.append("<body>");
-		cuerpo.append("<p>Se han encontrado viajes del Imserso</p>");
+		cuerpo.append("<p>Se han encontrado viajes del Imserso desde " + origen + " </p>");
 		for(Resultado res:resultados) {
 			cuerpo.append("<table>");
 			cuerpo.append(res.toHtmlTable());
@@ -249,7 +301,7 @@ public class TestTurismoSocial {
 		cuerpo.append("</html>");
 
 		try {
-			mailSender.sendEmail("luismiravalles@gmail.com;vizcarrmen@gmail.com", "Resultados Imserso", cuerpo.toString());
+			mailSender.sendEmail("luismiravalles@gmail.com;vizcarrmen@gmail.com", "Resultados Imserso desde " + origen, cuerpo.toString());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -259,6 +311,9 @@ public class TestTurismoSocial {
 	public static class Busqueda {
 		private static final int TIEMPO_CORTO = 1500;
 		private static final int TIEMPO_MUY_CORTO = 200;
+
+		public final static String SANTANDER="Santander-42";
+		public final static String BILBAO="Bilbao-7";
 		
 		private String modalidad;
 		private String zona;
@@ -268,6 +323,7 @@ public class TestTurismoSocial {
 		private List<Resultado> resultados;
 		private boolean listaEspera=true;
 		private boolean disponible=true;
+		private String origen="Oviedo-(Asturias)-35";
 		
 		private String fechaMin;
 		
@@ -286,6 +342,7 @@ public class TestTurismoSocial {
 		public Busqueda listaEspera(boolean valor)		{	this.listaEspera=valor; return this; }
 		public Busqueda disponible(boolean valor)		{	this.disponible=valor; return this; }
 		public Busqueda fechaMin(String fecha) 			{ 	this.fechaMin=fecha; return this; }
+		public Busqueda origen(String origen)			{ 	this.origen=origen; return this; }
 		
 		public void buscar(WebTest w) throws MalformedURLException {
 			WebDriver driver=w.getDriver();
@@ -312,7 +369,7 @@ public class TestTurismoSocial {
 			
 			sleep(TIEMPO_CORTO);
 			driver.findElement(w.byId("origenId-button")).click();
-			driver.findElement(w.byId("Oviedo-(Asturias)-35")).click();	
+			driver.findElement(w.byId(origen)).click();	
 			sleep(TIEMPO_CORTO);
 			
 			driver.findElement(w.byInputId("plazasId")).sendKeys("2");
@@ -382,7 +439,7 @@ public class TestTurismoSocial {
 
 		private boolean esEspecial(Resultado res) {
 			return 
-				res.esNavidad() ||
+				res.esNavidad() && res.conTransporte() ||
 				res.esTenerife() ||
 				res.esPrimavera() && res.conTransporte();
 		}
