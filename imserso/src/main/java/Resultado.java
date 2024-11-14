@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class Resultado {
 
+    private String origen;
     private String fecha;
     private String destino;
     private String dias;
@@ -17,6 +18,7 @@ public class Resultado {
     public String toHtmlTable() {
         return
             "<tr><td>Fecha</td><td>" + fecha + "</td></tr>"
+            + "<tr><td>Origen</td><td>" + origen + "</td></tr>"
             + "<tr><td>Destino</td><td>" + destino + "</td></tr>"
             + "<tr><td>dias</td><td>" + dias + "</td></tr>"
             + "<tr><td>Estado</td><td>" + estado + "</td></tr>"

@@ -6,19 +6,13 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -26,11 +20,6 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByClassName;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 
 
@@ -53,34 +42,34 @@ import org.openqa.selenium.WebElement;
  */
 public class TestTurismoSocial {	
 
-	private static final Log LOGGER = LogFactory.getLog(WebTest.class);
+	static final Log LOGGER = LogFactory.getLog(WebTest.class);
 
 	
-	private static final String CIRCUITOS = "Turismo-de-Escapada";
+	public static final String CIRCUITOS = "Turismo-de-Escapada";
 
-	private static final String CATALUNYA = "Cataluña";
+	public static final String CATALUNYA = "Cataluña";
 
-	private static final String COMUNIDAD_VALENCIANA = "Comunidad-Valenciana";
+	public static final String COMUNIDAD_VALENCIANA = "Comunidad-Valenciana";
 
-	private static final String MALLORCA = "Mallorca";
+	public static final String MALLORCA = "Mallorca";
 
-	private static final String BALEARES = "Baleares";
+	public static final String BALEARES = "Baleares";
 
-	private static final String NO = "No";
+	public static final String NO = "No";
 
-	private static final String COSTAS = "Costa-Peninsular";
+	public static final String COSTAS = "Costa-Peninsular";
 
-	private static final String ANDALUCIA = "Andalucía";
+	public static final String ANDALUCIA = "Andalucía";
 
-	private static final String SI = "Si";
+	public static final String SI = "Si";
 
-	private static final String TENERIFE = "Tenerife";
+	public static final String TENERIFE = "Tenerife";
 
-	private static final String CANARIAS = "Canarias";
+	public static final String CANARIAS = "Canarias";
 
-	private static final String ISLAS = "Costa-Insular";
+	public static final String ISLAS = "Costa-Insular";
 
-	private static Locale SPANISH = Locale.forLanguageTag("ES");
+	public static Locale SPANISH = Locale.forLanguageTag("ES");
 
 	
 	private PrintWriter salida;
@@ -101,6 +90,13 @@ public class TestTurismoSocial {
 	}
 	
 	private void abrirSalida(String nombre) throws FileNotFoundException {
+		/**
+		 * Si la salida ya está abierta, la dejamos como está para poder ejectar tests
+		 * que al final guarden todo en un unico fichero de salida.
+		 */
+		if(salida!=null) {
+			return;
+		}
 		if(nombre==null) {
 			salida=new PrintWriter(System.out);
 		} else {
@@ -119,13 +115,15 @@ public class TestTurismoSocial {
 		salida.println("<p>Datos obtenidos a fecha : " + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()) + "</p>");
 		salida.println("<table>");
 		salida.println("<tr>");
-		salida.println("<th>Fecha</th><th>Destino</th><th>Dias</th><th>Estado</th><th>Hotel</th><th>Precio</th><th>Transporte</th><th>Zona</th>");
+		salida.println("<th>Fecha</th><th>Origen</th><th>Destino</th><th>Dias</th><th>Estado</th><th>Hotel</th><th>Precio</th><th>Transporte</th><th>Zona</th>");
 	}
 	
 	
 	private void cerrarSalida() {
 		if(salida!=null) {
-			salida.println("</table></body></html>");
+			salida.println("</table>");
+			salida.println("<p>Fin de la búsqueda : " + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()) + "</p>");
+			salida.println("</body></html>");
 			salida.close();
 			salida=null;
 		}		
@@ -162,35 +160,22 @@ public class TestTurismoSocial {
 		List<Resultado> resultados=new ArrayList<>();
 
 		Busqueda base=Busqueda.instance(salida, resultados)
+			.webTest(webTest)
 			.origen(origen)
 			.transporte(SI);
 
-		base.modalidad(ISLAS)
-			.zona(CANARIAS)			
-			.buscar(webTest);
-
-		base.modalidad(COSTAS)
-			.zona(CATALUNYA)			
-			.buscar(webTest);
-
-		base.modalidad(COSTAS)
-			.zona(ANDALUCIA)			
-			.buscar(webTest);			
-
-		base.modalidad(COSTAS)
-			.zona(COMUNIDAD_VALENCIANA)			
-			.buscar(webTest);			
+		base.modalidad(ISLAS).zona(CANARIAS).buscar();
+		base.modalidad(ISLAS).zona(BALEARES).buscar();			
+		base.modalidad(COSTAS).zona(CATALUNYA).buscar();
+		base.modalidad(COSTAS).zona(ANDALUCIA).buscar();			
+		base.modalidad(COSTAS).zona(COMUNIDAD_VALENCIANA).buscar();			
 		
 		// Finalmente, si tenemos resltados especiales en resultados entonces los enviamos por correo.
 		if(resultados.size()>0) {
 			enviarResultados(resultados, StringUtils.substringBefore(origen, "-"));
 		}
-		
-		cerrarSalida();
-
 	}
 	
-
 	@Test public void runSantander()  throws InterruptedException, IOException {
 		runDesde(Busqueda.SANTANDER);		
 	}
@@ -200,14 +185,14 @@ public class TestTurismoSocial {
 	}
 		
 	@Test public void run()  throws InterruptedException, IOException {
+		abrirSalida("destinos-imserso.html");
 		runBilbao();
 		runSantander();
+		runDesde(Busqueda.LEON);
 		runOviedo();
 	}
 	
 	@Test public void runOviedo()  throws InterruptedException, IOException {
-		//abrirSalida("/Users/luis/Nextcloud/Compartir/public/destinos-imserso.html");
-		//abrirSalida("C:\\Users\\luis\\OneDrive - Universidad de Oviedo\\destinos-imserso.html");
 		abrirSalida("destinos-imserso.html");
 
 		List<Resultado> resultados=new ArrayList<>();
@@ -215,19 +200,8 @@ public class TestTurismoSocial {
 		Busqueda.instance(salida, resultados)
 				.modalidad(ISLAS)
 				.zona(CANARIAS)
-				// .provincia(TENERIFE)
 				.transporte(SI)
 				.buscar(webTest);
-		
-		/**
-		 * Sin transporte NO INTERESA porque es muy caro...
-		 */
-//		Busqueda.instance(salida)
-//				.modalidad(ISLAS)
-//				.zona(CANARIAS)
-//				.provincia(TENERIFE)
-//				.transporte(NO)
-//				.buscar(webTest);		
 		
 		Busqueda.instance(salida, resultados)
 				.modalidad(ISLAS)
@@ -304,243 +278,6 @@ public class TestTurismoSocial {
 			mailSender.sendEmail("luismiravalles@gmail.com;vizcarrmen@gmail.com", "Resultados Imserso desde " + origen, cuerpo.toString());
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
-	}
-	
-	
-	public static class Busqueda {
-		private static final int TIEMPO_CORTO = 1500;
-		private static final int TIEMPO_MUY_CORTO = 200;
-
-		public final static String SANTANDER="Santander-42";
-		public final static String BILBAO="Bilbao-7";
-		
-		private String modalidad;
-		private String zona;
-		private String transporte;
-		private String provincia;
-		private PrintWriter salida;
-		private List<Resultado> resultados;
-		private boolean listaEspera=true;
-		private boolean disponible=true;
-		private String origen="Oviedo-(Asturias)-35";
-		
-		private String fechaMin;
-		
-		SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");		
-		
-		public static Busqueda instance(PrintWriter salida, List<Resultado> resultados) { 
-			Busqueda busqueda=new Busqueda();
-			busqueda.salida=salida;
-			busqueda.resultados=resultados;
-			return busqueda;
-		}
-		public Busqueda modalidad(String modalidad) 	{	this.modalidad=modalidad; return this;	}		
-		public Busqueda zona(String valor) 				{	this.zona=valor; return this;	}
-		public Busqueda provincia(String valor) 		{	this.provincia=valor; return this;	}
-		public Busqueda transporte(String valor) 		{	this.transporte=valor; return this;	}
-		public Busqueda listaEspera(boolean valor)		{	this.listaEspera=valor; return this; }
-		public Busqueda disponible(boolean valor)		{	this.disponible=valor; return this; }
-		public Busqueda fechaMin(String fecha) 			{ 	this.fechaMin=fecha; return this; }
-		public Busqueda origen(String origen)			{ 	this.origen=origen; return this; }
-		
-		public void buscar(WebTest w) throws MalformedURLException {
-			WebDriver driver=w.getDriver();
-			
-			LOGGER.info("Buscando " + this.zona + " " + this.provincia + " " + this.modalidad 
-						+ " Transporte " + this.transporte 
-						+ " listaEspera " + this.listaEspera
-						+ " disponible " + this.disponible
-						+ " fechaMin " + this.fechaMin
-						+ " ...");
-			
-			driver.get("https://reservasacc.turismosocial.com/");
-			
-			driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-			
-			// Aceptar las Cookies
-			sleep(2 * TIEMPO_CORTO);
-			try  {
-				WebElement botonAceptarCookies=driver.findElement(w.byId("onetrust-accept-btn-handler"));
-				botonAceptarCookies.click();
-			} catch(NoSuchElementException e) {
-				// NO pasa nada.
-			}
-			
-			sleep(TIEMPO_CORTO);
-			driver.findElement(w.byId("origenId-button")).click();
-			driver.findElement(w.byId(origen)).click();	
-			sleep(TIEMPO_CORTO);
-			
-			driver.findElement(w.byInputId("plazasId")).sendKeys("2");
-			sleep(TIEMPO_CORTO);
-				
-			if(modalidad!=null) {
-				driver.findElement(byId("modelidadId-button")).click();
-				sleep(TIEMPO_MUY_CORTO);
-				driver.findElement(byId(modalidad + "-")).click();	
-				sleep(TIEMPO_CORTO);
-			}		
-			if(zona!=null) {
-				driver.findElement(byId("zonaId-button")).click();
-				sleep(TIEMPO_MUY_CORTO);
-				driver.findElement(byId(zona + "-")).click();
-				sleep(TIEMPO_CORTO);
-			}
-			if(transporte!=null) {
-				driver.findElement(byId("transporteId-button")).click();
-				sleep(TIEMPO_MUY_CORTO);
-				driver.findElement(byId(transporte + "-")).click();
-				sleep(TIEMPO_CORTO);
-			}			
-			if(provincia!=null) {
-				driver.findElement(byId("provinciaId-button")).click();
-				sleep(TIEMPO_MUY_CORTO);
-				driver.findElement(byId(provincia + "-")).click();
-				sleep(TIEMPO_CORTO);
-			}
-			
-			if(fechaMin!=null) {
-				driver.findElement(w.byInputId("fechaDesdeIdDiv")).sendKeys(fechaMin);
-			}
-			
-			WebElement el	=driver.findElement(By.xpath("//button[contains(@aria-label,'Buscar')]"));
-			el.sendKeys("");
-			sleep(2000);
-			el.submit();			
-			
-			w.sleep(5);
-			if(listaEspera) {
-				buscarFecha(w, driver, "waitinglist", "Lista de espera");
-			}
-			if(disponible) {
-				buscarFecha(w, driver, "available", "Disponible");
-			}
-		}
-		
-		private void sleep(int milis) {
-			try {
-				TimeUnit.MILLISECONDS.sleep(milis);
-			} catch (InterruptedException e) {
-				Thread.currentThread().interrupt();
-				throw new IllegalStateException(e);
-			}
-		}
-		
-		public By byId(String id) {
-			return By.xpath("//*[starts-with(@id,'" + id + "')]");
-		}
-		
-		public void imprimir(String contenido) {
-			System.out.println(contenido);
-			salida.println(contenido.replaceAll("-[0-9]", ""));
-			salida.flush();
-		}
-
-		private boolean esEspecial(Resultado res) {
-			return 
-				res.esNavidad() && res.conTransporte() ||
-				res.esTenerife() ||
-				res.esPrimavera() && res.conTransporte();
-		}
-		
-		private void buscarFecha(WebTest w, WebDriver driver, final String tipo, final String debeContener) {	
-			final String eliminar="Transporte Folleto PDF Añadir";
-			final String eliminarOrigen="Origen: (Oviedo \\(Asturias\\)|Sin transporte)";
-			final String eliminarHabInd="Hab.Ind: ..";
-			final String eliminarAccesibilidad="Accesibilidad UNE: ..";
-			final String eliminarGuiones="-[0-9]";
-		
-			
-			for(WebElement el:driver.findElements(ByClassName.className(tipo))) {
-				el.click();
-				w.sleep(1);
-				
-				
-				for(WebElement campo:driver.findElements(By.xpath("//span[contains(text(),'Fecha:')]/parent::div/parent::div/parent::div"))) {
-					String contenido=campo.getText().replaceAll("[€\n]", " ").replaceAll(eliminar, "")
-							.replaceAll(eliminarOrigen, "")
-							.replaceAll(eliminarHabInd, "")
-							.replaceAll(eliminarAccesibilidad, "")
-							.replaceAll(eliminarGuiones, "")
-							.trim();
-					if(contenido.contains(debeContener)) {
-						String []campos=contenido.split("(Fecha|Origen|Destino|Días|Estado|Accesibilidad UNE|Hotel|Precio|Hab.Ind):");
-						
-						final int PRECIO=6;
-						campos[PRECIO]=campos[PRECIO].replace(".", ",");
-
-						
-						for(int i=0; i<campos.length; i++) {
-							campos[i]=campos[i].trim();
-						}
-						String result=StringUtils.join(campos, "</td><td>");
-
-						String estilo="";
-						if("Si".equals(transporte)) {
-							estilo +=" background: lightgreen;";
-						} else {
-							estilo +=" background: beige;";							
-						}
-						if(result.contains("Disponible")) {
-							estilo += "color: darkred; font-weight: bold;";
-						}
-
-						String fecha=diaSemana(campos[1])+ " " + campos[1];
-
-						Resultado res=new Resultado();
-						res.setFecha(campos[1]);
-						res.setDestino(campos[2]);
-						res.setDias(campos[3]);
-						res.setEstado(campos[4]);
-						res.setHotel(campos[5]);
-						res.setPrecio(campos[6]);
-						res.setTransporte(transporte);
-						res.setZona(zona);
-
-						if(esEspecial(res)) {
-							resultados.add(res);	
-						}
-					
-						imprimir("<tr style='" + estilo + "'>" + 
-							td(fecha) + 
-							td(google(res.getDestino())) +
-							td(res.getDias()) +
-							td(res.getEstado()) +
-							td(google(res.getHotel(), res.getHotel() + " " + res.getDestino())) +
-							td(res.getPrecio()) +
-							td(transporte) +
-							td(zona) +
-							"</tr>");
-					}
-				}				
-			}					
-		}
-
-		private String google(String contenido) {
-			return google(contenido, contenido);
-		}
-
-		private String google(String contenido, String busqueda) {
-			String enlace=URLEncoder.encode(busqueda);
-			return "<a href='https://www.google.com/search?q=" + enlace + "'>" + contenido + "</a>";
-		}
-
-		private String td(String cadena) {
-			return "<td>" + cadena + "</td>";
-		}
-
-		public static String diaSemana(String fecha) {
-			// Definir el formato de la fecha
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-	
-			// Convertir la cadena a LocalDate
-			LocalDate localDate = LocalDate.parse(fecha, formatter);
-			
-			// Obtener el día de la semana
-			DayOfWeek dayOfWeek = localDate.getDayOfWeek();
-
-			return dayOfWeek.getDisplayName(TextStyle.FULL, SPANISH);
 		}
 	}
 	
