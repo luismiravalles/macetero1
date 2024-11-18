@@ -83,8 +83,23 @@ services:
       OVERWRITEWEBROOT: /nextcloud
       OVERWRITECLIURL: http://macetero.duckdns.org/nextcloud
       NEXTCLOUD_TRUSTED_DOMAINS: macetero.duckdns.org 
+  svn:
+    image: iaean/subversion
+    restart: ${RESTART}
+    ports:
+      - 9001:80
+      - 3690:3690
+    volumes:
+      - svn:/data/svn
+    environment:
+      SVN_LOCAL_ADMIN_USER: ${SVN_LOCAL_ADMIN_USER}
+      SVN_LOCAL_ADMIN_PASS: ${SVN_LOCAL_ADMIN_PASS}
+      SUBVERSION_REPOS: dev/apps
+    networks:
+      - default    
         
 
 volumes:
   persistent:
   nextcloud:
+  svn:

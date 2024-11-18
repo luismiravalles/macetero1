@@ -6,6 +6,11 @@ web:
 	sudo docker compose down web
 	sudo docker compose up web -d
 
+svn:
+	sudo docker compose down svn
+	sudo docker compose up svn -d	
+	sudo docker compose logs svn
+
 
 reup:
 	sudo docker compose down
