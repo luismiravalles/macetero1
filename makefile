@@ -5,6 +5,7 @@ help:
 web:
 	sudo docker compose down web
 	sudo docker compose up web -d
+	sudo docker compose logs web
 
 svn:
 	sudo docker compose down svn

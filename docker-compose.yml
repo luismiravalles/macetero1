@@ -15,6 +15,7 @@ services:
       - php
       - pma
       - nextcloud
+      - svn
     networks:
       - default
     environment:
@@ -82,7 +83,19 @@ services:
       NEXTCLOUD_ADMIN_PASSWORD: luis 
       OVERWRITEWEBROOT: /nextcloud
       OVERWRITECLIURL: http://macetero.duckdns.org/nextcloud
-      NEXTCLOUD_TRUSTED_DOMAINS: macetero.duckdns.org 
+      NEXTCLOUD_TRUSTED_DOMAINS: macetero.duckdns.org
+  #--------------------------------------------------------------------- 
+  # Servidor de SVN. Se pueden importar los proyectos que tenga de otro servidor
+  # mediante la siguiente expresión:
+  #   svnrdump --file=riouxsvn.dump --username=luis --password=pi--2018 load svn://192.168.1.139/dev/apps
+  #
+  # Para acceder a él siempre hay que usar el protocolo svn://xxxx , que va por el puerto 3690 que tendremos
+  # que abrir en el Router.
+  #
+  # Para navegar via web en el repositorio utilizar http://xxx:9001/websvn
+  #
+  #
+  #---------------------------------------------------------------------
   svn:
     image: iaean/subversion
     restart: ${RESTART}
