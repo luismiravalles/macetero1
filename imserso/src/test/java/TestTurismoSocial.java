@@ -207,7 +207,7 @@ public class TestTurismoSocial {
 				.modalidad(ISLAS)
 				.zona(BALEARES)
 				.transporte(SI)
-				// .fechaMin("21/03/2025")
+				.fechaMin("21/03/2025")
 				.buscar(webTest);		
 		
 		Busqueda.instance(salida,resultados)
@@ -227,7 +227,7 @@ public class TestTurismoSocial {
 		
 		// ---- Busueda en COSTAS minimo en Primavera, aunque sean sin transporte 
 		// Ya no me vale sin transporte. Tiene que ser CON transporte 
-		for(String zona: Arrays.asList(COMUNIDAD_VALENCIANA, CATALUNYA, ANDALUCIA)) {
+		for(String zona: Arrays.asList(COMUNIDAD_VALENCIANA,  ANDALUCIA)) {
 			Busqueda.instance(salida, resultados)
 					.modalidad(COSTAS)
 					.zona(zona)
@@ -248,7 +248,7 @@ public class TestTurismoSocial {
 		// Buscar En Circuitos a partir de Primavera también
 		Busqueda.instance(salida, resultados)
 				.modalidad(CIRCUITOS)
-				// .fechaMin("01/02/2025")
+				.fechaMin("01/03/2025")
 				.buscar(webTest);
 
 		
