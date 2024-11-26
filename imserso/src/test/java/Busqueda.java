@@ -16,6 +16,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By.ByClassName;
 
+import lombok.extern.apachecommons.CommonsLog;
+
+@CommonsLog
 public class Busqueda {
 	private static final int TIEMPO_CORTO = 1000;
 	private static final int TIEMPO_MUY_CORTO = 200;
@@ -135,6 +138,7 @@ public class Busqueda {
 		if(disponible) {
 			buscarFecha(w, driver, "available", "Disponible");
 		}
+		log.info("-----");
 	}
 	
 	private void sleep(int milis) {
