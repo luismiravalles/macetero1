@@ -16,6 +16,7 @@ services:
       - pma
       - nextcloud
       - svn
+      - navidrome
     networks:
       - default
     environment:
@@ -109,10 +110,31 @@ services:
       SVN_LOCAL_ADMIN_PASS: ${SVN_LOCAL_ADMIN_PASS}
       SUBVERSION_REPOS: dev/apps
     networks:
-      - default    
-        
+      - default  
+  # ----------------------------------------------------------
+  # Servidor de musica On-line tipo Spotify
+  #
+  navidrome:      
+    image: deluan/navidrome:latest
+    restart: ${RESTART}   
+    # NO se necesita exportar ports si voy por Nginx pero para pruebas puede venir bien.
+    ports:
+      - 4533:80
+    environment:
+      ND_LOGLEVEL: info
+      ND_SCANSCHEDULE: 1h
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: /navidrome
+      ND_PORT: 80
+    volumes:
+      - /media/discos:/music:ro
+      - navidrome:/data
+    networks:
+      - default  
+
 
 volumes:
   persistent:
   nextcloud:
   svn:
+  navidrome:
