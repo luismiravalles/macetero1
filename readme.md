@@ -4,4 +4,9 @@
 - Naver a http://192.168.1.xxx:9000
 
 
-# --- Preparar Snap docker para poder acceder a Media
+# --- Aumentar el filesystem
+- sudo vgdisplay  
+
+- sudo lvextend -L +50G /dev/mapper/ubuntu--vg-ubuntu--lv
+
+- sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
