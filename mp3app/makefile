@@ -1,6 +1,6 @@
 # La carpeta de los discos.
-DIR="/mnt/c/tmp"
-OUT=/mnt/c/tmp/result.txt
+DIR="/media/discos/Clasic"
+OUT=/media/discos/result-clasic.txt
 
 #
 # La ejecución por defecto. Puede cambiar segun lo que este desarrollando
@@ -11,6 +11,9 @@ default:
 
 PonerTag:
 	@mvn -q -Dcmd=PonerTag -Ddir=$(DIR)  -Dout=$(OUT) exec:java	
+
+VerGenero:
+	@mvn -q -Dcmd=VerGenero -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
 
 #
 # Comando Contar. Muestra el numero  total de archivos .mp3.

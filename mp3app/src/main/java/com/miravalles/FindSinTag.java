@@ -2,8 +2,7 @@ package com.miravalles;
 
 import java.nio.file.Path;
 
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang3.RegExUtils;
+
 import org.apache.commons.lang3.StringUtils;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
@@ -22,9 +21,7 @@ public class FindSinTag extends AbstractCommand {
 
         if(StringUtils.isBlank(album) || StringUtils.isBlank(artist) || StringUtils.isBlank(title)) {    
             
-            String nuevoTitulo=
-                FilenameUtils.removeExtension(path.getFileName().toString());
-            nuevoTitulo=RegExUtils.removePattern(nuevoTitulo, "^[0-9 -]+");
+            String nuevoTitulo=tituloFromPath(path);
            
             String nuevoAlbum=
                 path.getParent().getFileName().toString();

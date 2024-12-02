@@ -9,6 +9,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -32,6 +34,25 @@ public abstract class AbstractCommand {
 
     protected String subpath(Path path) {
         return StringUtils.removeStart(path.toString(), getDir());
+    }
+
+    protected String tituloFromPath(Path path) {
+        String nuevoTitulo=
+                FilenameUtils.removeExtension(path.getFileName().toString());
+        nuevoTitulo=RegExUtils.removePattern(nuevoTitulo, "^[0-9 -\\.]+");
+        nuevoTitulo=StringUtils.replace(nuevoTitulo,".mp3", "");
+
+        // Si alguna parte del título contiene el artista o el album pues se elimina.
+        for(int i=0; i<path.getNameCount()-1; i++) {
+            String carpeta=path.getName(i).toString();
+            if(carpeta.length()>2) {
+                nuevoTitulo=StringUtils.replace(nuevoTitulo, path.getName(i).toString(), "");
+            }            
+        }
+
+        nuevoTitulo=RegExUtils.removePattern(nuevoTitulo, "^[0-9 -\\.]+");
+
+        return nuevoTitulo;
     }
 
     /**

@@ -27,9 +27,7 @@ public class PonerTag extends FindSinTag {
             return;
         }
         
-        String nuevoTitulo=
-            FilenameUtils.removeExtension(path.getFileName().toString());
-            nuevoTitulo=RegExUtils.removePattern(nuevoTitulo, "^[0-9 -]+");
+        String nuevoTitulo=tituloFromPath(path);
             
         String nuevoAlbum=
                 path.getParent().getFileName().toString();
