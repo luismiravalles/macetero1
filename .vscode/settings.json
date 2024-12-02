@@ -1,4 +1,8 @@
 {
     "svn.ignoreMissingSvnWarning": true,
+<<<<<<< HEAD
     "makefile.configureOnOpen": false
+=======
+    "java.configuration.updateBuildConfiguration": "interactive"
+>>>>>>> ec440c025d46a482bc62cc9239114ae7b613e72b
 }
