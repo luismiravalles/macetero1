@@ -1,6 +1,7 @@
 package com.miravalles;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.file.FileVisitResult;
 import java.nio.file.FileVisitor;
 import java.nio.file.Files;
@@ -16,6 +17,13 @@ import org.apache.commons.lang3.StringUtils;
  */
 public abstract class AbstractCommand {
 
+
+    protected PrintStream writer;
+
+    public void setWriter(PrintStream writer) {
+        this.writer=writer;
+    }    
+
     abstract public void run() throws Exception;
 
     protected String getDir() {
@@ -24,6 +32,16 @@ public abstract class AbstractCommand {
 
     protected String subpath(Path path) {
         return StringUtils.removeStart(path.toString(), getDir());
+    }
+
+    /**
+     * Escribe en el writer y en el System.out-
+     */
+    protected void println(String cadena) {
+        if(writer!=null) {
+            writer.println(cadena);
+        }
+        System.out.println(cadena);
     }
 
 

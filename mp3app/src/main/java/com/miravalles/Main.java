@@ -1,9 +1,9 @@
 package com.miravalles;
 
+import java.io.PrintStream;
+import java.nio.charset.Charset;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import org.jaudiotagger.audio.mp3.MP3File;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,8 +19,6 @@ public class Main {
        }
     }
 
-
-
     private static void run() throws Exception {
         String cmd=System.getProperty("cmd");
         if(cmd==null) {
@@ -33,10 +31,17 @@ public class Main {
                                     .getDeclaredConstructor()
                                     .newInstance();
         if(comando==null) {
+
             System.out.println("NO se encuentra clase/Comando com.miravalles." + cmd);
             return;
         } 
-        
+
+        String out=System.getProperty("out");
+        if(out!=null) {
+            comando.setWriter(new PrintStream(System.getProperty("out"), Charset.forName("ISO-8859-1")));
+        }
+
+
         comando.run();
     }
 }
