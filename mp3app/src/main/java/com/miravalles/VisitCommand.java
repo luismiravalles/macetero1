@@ -26,6 +26,6 @@ public abstract class VisitCommand extends AbstractCommand {
         return true;
     }
 
-    abstract void visit(AudioFile audio);
+    abstract void visit(AudioFile audio) throws Exception;
 
 }

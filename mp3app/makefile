@@ -1,5 +1,5 @@
 # La carpeta de los discos.
-DIR="/media/discos/Clasic"
+DIR="/media/discos/English"
 OUT=/media/discos/result-clasic.txt
 
 #
@@ -14,6 +14,9 @@ PonerTag:
 
 VerGenero:
 	@mvn -q -Dcmd=VerGenero -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
+
+Arreglar:
+	@mvn -q -Dcmd=Arreglar -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
 
 #
 # Comando Contar. Muestra el numero  total de archivos .mp3.
