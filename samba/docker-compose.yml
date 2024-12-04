@@ -1,0 +1,14 @@
+services:
+  samba:
+    restart: always
+    image: dperson/samba
+    ports:
+      - 139:139
+      - 445:445
+    volumes:
+      - /media/discos:/discos
+    environment:
+      SHARE: discos;/discos;yes;no;no 
+      USER: luis;luis
+      USERID: 1000
+      GROUPID: 1000
