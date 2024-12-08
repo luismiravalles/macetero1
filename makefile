@@ -3,9 +3,9 @@ help:
 	echo "Este es el Make"
 
 web:
-	sudo docker compose down web
-	sudo docker compose up web -d
-	sudo docker compose logs web
+	docker compose down web
+	docker compose up web -d
+	docker compose logs web
 
 svn:
 	sudo docker compose down svn

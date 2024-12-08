@@ -239,21 +239,21 @@ public class TestTurismoSocial {
 					.buscar(webTest);
 			
 			// No interesa sin transporte a no ser que sea a partir de marzo
-			Busqueda.instance(salida, resultados)
-					.modalidad(COSTAS)
-					.zona(zona)
-					.transporte(NO)
-					.fechaMin("15/03/2025")
-					.buscar(webTest);			
+			//Busqueda.instance(salida, resultados)
+			//		.modalidad(COSTAS)
+			//		.zona(zona)
+			//		.transporte(NO)
+			//		.fechaMin("15/03/2025")
+			//		.buscar(webTest);			
 		}
 			
 		
 		// Buscar En Circuitos a partir de Primavera también
 		// Comentado por sospechoso de fallar.
-		//Busqueda.instance(salida, resultados)
-		//		.modalidad(CIRCUITOS)
-		//		.fechaMin("01/03/2025")
-		//		.buscar(webTest);
+		Busqueda.instance(salida, resultados)
+				.modalidad(CIRCUITOS)
+				.fechaMin("01/03/2025")
+				.buscar(webTest);
 
 		
 		// Finalmente, si tenemos resltados especiales en resultados entonces los enviamos por correo.
