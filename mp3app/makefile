@@ -15,6 +15,9 @@ PonerTag:
 VerGenero:
 	@mvn -q -Dcmd=VerGenero -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
 
+BitRate:
+	@mvn -q -Dcmd=BitRate -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
+
 Arreglar:
 	@mvn -q -Dcmd=Arreglar -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
 
@@ -23,3 +26,4 @@ Arreglar:
 #
 Contar:
 	@mvn -q -Dcmd=Contar -Ddir=$(DIR) -Dout=$(OUT) exec:java	
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Shell para ejecutar el ffmpeg a través de docker.
+#
+docker run --rm -v /media/discos:/media/discos linuxserver/ffmpeg "$@"
