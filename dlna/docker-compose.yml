@@ -1,0 +1,10 @@
+services:
+  dlna:
+    image: vladgh/minidlna
+    restart: unless-stopped
+    volumes:
+      - /media/discos/incoming:/pelis
+    network_mode: host
+    environment:
+      MINIDLNA_MEDIA_DIR: /pelis
+      MINIDLNA_FRIENDLY_NAME: pcluis

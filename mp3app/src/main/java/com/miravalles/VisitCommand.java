@@ -12,6 +12,10 @@ public abstract class VisitCommand extends AbstractCommand {
     @Override
     public void run() throws Exception {
         walk(this::visit);
+        end();
+    }
+
+    public void end() {
         
     }
 

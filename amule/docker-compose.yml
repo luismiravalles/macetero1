@@ -1,7 +1,7 @@
 services:
   amule:
     image: ngosang/amule
-    restart: unless-stopped
+    restart: always
     environment:
       - GUI_PWD=${EMULE_PASS}
       - WEBUI_PWD=${EMULE_PASS}

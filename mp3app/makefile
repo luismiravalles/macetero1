@@ -1,5 +1,5 @@
 # La carpeta de los discos.
-DIR="/media/discos/English"
+DIR="/media/discos/2024-12"
 OUT=/media/discos/result-clasic.txt
 
 #
@@ -16,7 +16,10 @@ VerGenero:
 	@mvn -q -Dcmd=VerGenero -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
 
 BitRate:
-	@mvn -q -Dcmd=BitRate -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
+	@mvn -q -Dcmd=BitRate -Ddir=$(DIR)  -Dout=$(OUT) exec:java	
+
+Repetidos:
+	@mvn -q -Dcmd=Repetidos -Ddir=$(DIR)  -Dout=$(OUT) exec:java				
 
 Arreglar:
 	@mvn -q -Dcmd=Arreglar -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
