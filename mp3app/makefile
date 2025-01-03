@@ -15,6 +15,9 @@ PonerTag:
 VerGenero:
 	@mvn -q -Dcmd=VerGenero -Ddir=$(DIR)  -Dout=$(OUT) exec:java		
 
+#
+# Convierte de 320 a 192 el bitrate de los archivos de la carpeta DIR
+#
 BitRate:
 	@mvn -q -Dcmd=BitRate -Ddir=$(DIR)  -Dout=$(OUT) exec:java	
 
