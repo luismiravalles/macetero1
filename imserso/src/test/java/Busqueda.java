@@ -161,10 +161,11 @@ public class Busqueda {
 	}
 
 	private boolean esEspecial(Resultado res) {
-		return 
-			res.esNavidad() && res.conTransporte() ||
+		return res.getOrigen().contains("Oviedo") && res.conTransporte() &&
+			(		
 			res.esTenerife() ||
-			res.esPrimavera() && res.conTransporte();
+			res.esPrimavera()
+			);
 	}
 	
 	private void buscarFecha(WebTest w, WebDriver driver, final String tipo, final String debeContener) {	

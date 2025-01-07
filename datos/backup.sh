@@ -1,5 +1,5 @@
-. ./.env
 cd /home/luis/macetero
+. ./.env
 DEST=/mnt/copia
 mkdir -p $DEST/biblioteca
 fecha=$(date +%y-%m-%d)
