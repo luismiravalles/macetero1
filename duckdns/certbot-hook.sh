@@ -8,7 +8,10 @@
 # Establecer la variable DUCKDNS_TOKEN en el .env
 . ./.env
 
-
+if [[ ! $DUCKDNS_TOKEN ]]; then
+    echo "Token no proporcionado. Hay que establecer la variable DUCKDNS_TOKEN"
+    exit 1
+fi
 
 # Se verifica que Certbot proporcione el parámetro con el valor del dominio que se está validando
 if [[ ! $CERTBOT_DOMAIN ]]; then
@@ -33,10 +36,14 @@ elif [[ $CERTBOT_VALIDATION ]]; then
     cmd="https://www.duckdns.org/update?domains=${CERTBOT_DOMAIN}&token=${DUCKDNS_TOKEN}&txt=${CERTBOT_VALIDATION}"
     echo "--- Comando = ${cmd}"
     curl -s "$cmd"
+    echo ""
 else
     echo "Error: No se ha proporcionado código de validación"
     exit 1
 fi
 
 # Se espera un tiempo para que se propague el cambio en el DNS
-sleep 10s
+tiempo=60s
+echo "---- Esperando $tiempo a que se propague el cambio.----"
+sleep $tiempo
+echo "---- Fin de la espera ---"
