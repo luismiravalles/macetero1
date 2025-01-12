@@ -65,6 +65,28 @@ services:
       MYSQL_ROOT_PASSWORD: ${BDPASS}
       PMA_ABSOLUTE_URI: http://localhost/pma/
       TZ: "Europe/Madrid"
+  #
+  # Ver cómo instalar otro blog de Wordpress en 
+  #    
+  guajiros:
+    image: wordpress
+    restart: ${RESTART}
+    links:
+      - db
+    ports:
+      - 8001:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: ${BDPASS}
+      WORDPRESS_DB_NAME: guajiros
+      WORDPRESS_CONFIG_EXTRA: |
+         define('FORCE_SSL_ADMIN', false);
+#         define('WP_HOME', 'https://macetero.duckdns.org/guajiros');
+#         define('WP_SITEURL', 'https://macetero.duckdns.org/guajiros');
+    volumes:
+      - guajiros:/var/www/html
+
   nextcloud:
     image: nextcloud
     restart: ${RESTART}
@@ -88,10 +110,10 @@ services:
   #--------------------------------------------------------------------- 
   # Servidor de SVN. Se pueden importar los proyectos que tenga de otro servidor
   # mediante la siguiente expresión:
-  #   svnrdump --file=riouxsvn.dump --username=luis --password=pi--2018 load svn://192.168.1.139/dev/apps
+  #   svnrdump --file=riouxsvn.dump --username=luis --password=xxxxxx load svn://192.168.1.139/dev/apps
   #
   # Para acceder a él siempre hay que usar el protocolo svn://xxxx , que va por el puerto 3690 que tendremos
-  # que abrir en el Router.
+  # que abrir en el Router. Hay que usar la url svn://macetero.duckdns.org/dev/apps
   #
   # Para navegar via web en el repositorio utilizar http://xxx:9001/websvn
   #
@@ -138,3 +160,4 @@ volumes:
   nextcloud:
   svn:
   navidrome:
+  guajiros:
