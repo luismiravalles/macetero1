@@ -1,0 +1,6 @@
+#
+# Copiar las pelis bajadas a lapiz USB
+#
+sudo mount /dev/sdc1 /mnt/usb
+rsync -uav /media/discos/incoming/*.mkv /mnt/usb/pelis
+sudo umount /mnt/usb

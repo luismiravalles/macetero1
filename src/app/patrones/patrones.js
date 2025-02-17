@@ -2,10 +2,12 @@
 
 
 const paleta = [ 
-    0xc24819,   // Teja
+    0Xe29b29,   // Mostaza
+    
     0x758220,   // Verde
     0xd3cb9e,   // Marron claro
-    0xb2935b,   // Marron oscuro
+    0x6b250b,   // Marron oscuro
+    0xc24819,   // Teja    
     0x777777,   // Gris
     0x4d5614,   // Verde oscuro
     0x732b0e,   // Rojo oscuro
@@ -241,6 +243,8 @@ function bloquesAzar() {
     const svg=crearSvg();
     const anchoMaximo= +document.getElementById("anchoMaximo").value;
     const anchoMinimo= +document.getElementById("anchoMinimo").value;
+    const altoMaximo= +document.getElementById("altoMaximo").value;
+    const altoMinimo= +document.getElementById("altoMinimo").value;
 
     lastColor = Math.floor(Math.random() * colores); 
     // Generar rectángulos en un patrón
@@ -254,19 +258,20 @@ function bloquesAzar() {
 
             // Al azar elegimos si el bloque es vertical u horizontal.
             var horizontal=false;
-            if(Math.floor(Math.random()*2)==0) {
+            if(Math.floor(Math.random()*2)==0 || altoMaximo==1) {
                 horizontal=true;
                 for(let i=0; i<ancho && i<columnas; i++) {
                     if(ocupado(fila, col+i)) {
                         horizontal=false;
                     }
                 }
+            }            
 
-            }
             if(horizontal) {
                 svg.appendChild(parche(col, fila, ancho, 1));
             } else {
-                svg.appendChild(parche(col, fila, 1, ancho));
+                alto=altoMinimo + Math.floor(Math.random()*(altoMaximo-altoMinimo+1));
+                svg.appendChild(parche(col, fila, ancho, alto));
             }       
         }
     }
