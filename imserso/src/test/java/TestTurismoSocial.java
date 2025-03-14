@@ -281,7 +281,8 @@ public class TestTurismoSocial {
 		cuerpo.append("</html>");
 
 		try {
-			mailSender.sendEmail("luismiravalles@gmail.com;vizcarrmen@gmail.com", "Resultados Imserso desde " + origen, cuerpo.toString());
+			// Deshabilitamos lo de enviar pq ya no merece la pena.
+			// mailSender.sendEmail("luismiravalles@gmail.com;vizcarrmen@gmail.com", "Resultados Imserso desde " + origen, cuerpo.toString());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
