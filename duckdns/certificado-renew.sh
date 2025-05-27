@@ -4,6 +4,8 @@
 #
 # Ejecutaremos 
 #     sudo certbot renew situados en /home/macetero.
+#     sudo duckdns/certificado-renew.sh
+#     make web  
 # 
 # Esto  nos deja un fichero /etc/letsencrypt/live/macetero.duckdns.org/fullchain.pem actualizado
 # que podemos copiar a su destino
