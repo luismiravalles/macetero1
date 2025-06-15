@@ -34,3 +34,14 @@ curl https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/dns_records/
     -d "{\"content\": \"$MIIP\"}"
 echo     
 echo "==========================================================================================="
+
+id_biblioteca=4bafc9d35195ff4e23a21b346aad3ced
+echo "Actualizando IP para el biblioteca.macetero.org"
+curl https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/dns_records/$id_biblioteca \
+    -X PATCH \
+    -H 'Content-Type: application/json' \
+    -H "X-Auth-Email: $CLOUDFLARE_EMAIL" \
+    -H "X-Auth-Key: $CLOUDFLARE_GLOBAL_API_KEY" \
+    -d "{\"content\": \"$MIIP\"}"
+echo     
+echo "==========================================================================================="
