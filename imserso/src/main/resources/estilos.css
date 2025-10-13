@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+
+table,
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.sr-only {
+  display: none;
+}
+
+.mp-with-icon {
+  display:none;
+}
+
+thead {
+  background: #666;
+}
+
+thead th {
+  color: #fff;
+}
+
+/*
+ * Iconos
+ */
+
+/* Estados */
+[class^="mp-icon-state-"] {
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+}
+
+.mp-icon-state-CANCELED {
+  background: #b20000;
+}
+
+.mp-icon-state-COMPLETE {
+  background: #cc0000;
+}
+
+.mp-icon-state-CONFIRMATION-PENDING {
+  background: #b75f00;
+}
+
+.mp-icon-state-CONFIRMED {
+  background: #598206;
+}
+
+.mp-icon-state-DEPCANCELED {
+  background: #5A3F11;
+}
+
+.mp-icon-state-WAITINGLIST {
+  background: #9c27b0;
+}
+

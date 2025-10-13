@@ -1,0 +1,9 @@
+sudo docker run -it --rm --name maven \
+	--network imserso_default \
+	--env TZ=Europe/Madrid \
+	-v /maven-repo:/maven-repo -v ./:/project \
+	-w /project maven:3.3-jdk-8 \
+	mvn -Dmaven.repo.local=/maven-repo test
+sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+sudo: a password is required
+make: *** [makefile:16: test] Error 1

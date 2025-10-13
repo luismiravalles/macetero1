@@ -6,4 +6,4 @@
 # mount /dev/sdb1 /mnt/copia
 #
 #
-rsync -uav /media/discos /mnt/copia 
+rsync -uav --exclude 'incoming/' /media/discos /mnt/copia 

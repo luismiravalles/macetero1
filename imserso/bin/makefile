@@ -5,7 +5,6 @@ down:
 
 # Arrancar el Selenium
 up:
-	docker compose stop
 	docker compose  up -d --remove-orphans
 
 compile:
@@ -14,16 +13,16 @@ compile:
 		-w /project maven:3.3-jdk-8 \
 		mvn -Dmaven.repo.local=/maven-repo clean compile
 
-run2025 sinTransporte islas:
-	docker compose stop
-	docker compose  up -d --remove-orphans	
-	@docker run --rm --name maven \
+
+
+run2025:
+	docker run --rm --name maven \
 		--network imserso_default \
 		--env TZ=Europe/Madrid \
 		-v /maven-repo:/maven-repo -v ./:/project \
 		-w /project maven:3.3-jdk-8 \
-		mvn -q -Dmaven.repo.local=/maven-repo \
-		-D test="TestTurismoSocial#$@" \
+		mvn -Dmaven.repo.local=/maven-repo \
+		-D test="TestTurismoSocial#run2025" \
 		clean test
 	cp destinos-imserso.html index.html	
 

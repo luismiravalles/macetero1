@@ -15,8 +15,11 @@ public class Resultado {
     private String transporte;
     private String zona;
 
+    private String htmlCompleto;
+
     public String toHtmlTable() {
-        return
+        StringBuffer result=new StringBuffer();
+        result.append(
             "<tr><td>Fecha</td><td>" + fecha + "</td></tr>"
             + "<tr><td>Origen</td><td>" + origen + "</td></tr>"
             + "<tr><td>Destino</td><td>" + destino + "</td></tr>"
@@ -26,7 +29,13 @@ public class Resultado {
             + "<tr><td>Precio</td><td>" + precio + "</td></tr>"
             + "<tr><td>Transporte</td><td>" + transporte + "</td></tr>"
             + "<tr><td>Zona</td><td>" + zona + "</td></tr>"
-        ;
+        );
+        if(htmlCompleto!=null) {
+            result.append(htmlCompleto);
+        }
+        return result.toString();
+
+
     }
 
     public boolean conTransporte() {

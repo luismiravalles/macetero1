@@ -137,12 +137,15 @@ public class WebTest {
 			this.driver=new FirefoxDriver();
 		} else  {
 			URL url=getDriverURL();
-			LOGGER.info("Obteniendo driver remoto de la URL " + url);
-			ChromeOptions options=new ChromeOptions();
+			LOGGER.info("Obteniendo driver remoto de la URL " + url);			
+			
+			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--lang=es");
-			DesiredCapabilities dc=DesiredCapabilities.chrome();
-			dc.setCapability(ChromeOptions.CAPABILITY, options);
-			this.driver=new RemoteWebDriver(url, dc);
+			options.addArguments("--headless"); // opcional, sin interfaz gráfica
+			options.addArguments("--disable-gpu");
+			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--no-sandbox");
+			this.driver=new RemoteWebDriver(url, options);
 			LOGGER.info("Driver remoto obtenido " + url);
 		}		
 		return this.driver;

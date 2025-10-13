@@ -1,8 +1,8 @@
-
-
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
@@ -12,9 +12,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
+import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.After;
@@ -22,6 +21,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import lombok.extern.apachecommons.CommonsLog;
+
 
 
 
@@ -47,34 +47,8 @@ public class TestTurismoSocial {
 
 	static final Log LOGGER = LogFactory.getLog(WebTest.class);
 
-	
-	public static final String CIRCUITOS = "Turismo-de-Escapada";
+	static final String DESTINATARIOS = "luismiravalles@gmail.com;vizcarrmen@gmail.com";
 
-	public static final String CATALUNYA = "Cataluña";
-
-	public static final String COMUNIDAD_VALENCIANA = "Comunidad-Valenciana";
-
-	public static final String MALLORCA = "Mallorca";
-
-	public static final String BALEARES = "Baleares";
-
-	public static final String NO = "No";
-
-	public static final String COSTAS = "Costa-Peninsular";
-
-	public static final String ANDALUCIA = "Andalucía";
-
-	public static final String SI = "Si";
-
-	public static final String TENERIFE = "Tenerife";
-
-	public static final String CANARIAS = "Canarias";
-
-	public static final String ISLAS = "Costa-Insular";
-
-	public static Locale SPANISH = Locale.forLanguageTag("ES");
-
-	
 	private PrintWriter salida;
 
 	MailSender mailSender=new MailSender("luismiravalles@gmail.com");
@@ -139,141 +113,121 @@ public class TestTurismoSocial {
 		}
 	}
 
-	@Test public void testEnviarResultados() {
-		System.out.println("Ejecutando test enviar resultados");
 
-		Resultado res=new Resultado();
-		res.setFecha("24/12/2024");
-		res.setDestino("Tenerife");
-		res.setDias("8");
-		res.setEstado("Lista de espera");
-		res.setHotel("Reconquista");
-		res.setPrecio("100");
-		res.setTransporte("Si");
-		res.setZona("Canarias");
+	@Test public void sinTransporte() {
 		List<Resultado> resultados=new ArrayList<>();
-		resultados.add(res);
-		resultados.add(res);
-
-		enviarResultados(resultados, "Oviedo");
-	}
-
-	public void runDesde(String origen) throws InterruptedException, IOException {
-		abrirSalida(StringUtils.substringBefore(origen, "-")  + ".html");
-		List<Resultado> resultados=new ArrayList<>();
-
-		Busqueda base=Busqueda.instance(salida, resultados)
-			.webTest(webTest)
-			.origen(origen)
-			.transporte(SI);
-
-		base.modalidad(ISLAS).zona(CANARIAS).buscar();
-		base.modalidad(ISLAS).zona(BALEARES).buscar();			
-		base.modalidad(COSTAS).zona(CATALUNYA).buscar();
-		base.modalidad(COSTAS).zona(ANDALUCIA).buscar();			
-		base.modalidad(COSTAS).zona(COMUNIDAD_VALENCIANA).buscar();			
-		
-		// Finalmente, si tenemos resltados especiales en resultados entonces los enviamos por correo.
-		if(resultados.size()>0) {
-			enviarResultados(resultados, StringUtils.substringBefore(origen, "-"));
-		}
-	}
-	
-	@Test public void runSantander()  throws InterruptedException, IOException {
-		runDesde(Busqueda.SANTANDER);		
-	}
-
-	@Test public void runBilbao()  throws InterruptedException, IOException {
-		runDesde(Busqueda.BILBAO);
-	}
-		
-	@Test public void run()  throws InterruptedException, IOException {
-		abrirSalida("destinos-imserso.html");
-		runBilbao();
-		runSantander();
-		runDesde(Busqueda.LEON);
-		runOviedo();
-	}
-	
-	@Test public void runOviedo()  throws InterruptedException, IOException {
-		abrirSalida("destinos-imserso.html");
-
-		List<Resultado> resultados=new ArrayList<>();
-		
-		Busqueda.instance(salida, resultados)
-				.modalidad(ISLAS)
-				.zona(CANARIAS)
-				.transporte(SI)
-				.buscar(webTest);
-		
-		Busqueda.instance(salida, resultados)
-				.modalidad(ISLAS)
-				.zona(BALEARES)
-				.transporte(SI)
-				.fechaMin("21/03/2025")
-				.buscar(webTest);		
-		
-		Busqueda.instance(salida,resultados)
-				.modalidad(COSTAS)
-				.zona(ANDALUCIA)
-				.transporte(SI)
-				.buscar(webTest);
-		
-		// Ya no interesa ir a Andalucia sin Transporte pq ya vamos a Conil :-)
-		Busqueda.instance(salida, resultados)
-				.modalidad(COSTAS)
-				.zona(ANDALUCIA)
-				.fechaMin("21/03/2025")
-				.transporte(NO)
-				// .listaEspera(true)
-				.buscar(webTest);
-		
-		// ---- Busueda en COSTAS minimo en Primavera, aunque sean sin transporte 
-		// Ya no me vale sin transporte. Tiene que ser CON transporte 
-		for(String zona: Arrays.asList(COMUNIDAD_VALENCIANA,  ANDALUCIA)) {
-			Busqueda.instance(salida, resultados)
-					.modalidad(COSTAS)
-					.zona(zona)
-					.transporte(SI)
-					// .fechaMin("21/03/2025")
+		EProvincia.costas().forEach(
+			provincia ->  {
+				Busqueda.instance(salida,resultados)
+					.transporte(ETransporte.NO)
+					.zona(EZona.COSTAS)
+					.provincia(provincia)
+					.listaEspera(false)
 					.buscar(webTest);
-			
-			// No interesa sin transporte a no ser que sea a partir de marzo
-			//Busqueda.instance(salida, resultados)
-			//		.modalidad(COSTAS)
-			//		.zona(zona)
-			//		.transporte(NO)
-			//		.fechaMin("15/03/2025")
-			//		.buscar(webTest);			
-		}
-			
-		
-		// Buscar En Circuitos a partir de Primavera también
-		// Comentado por sospechoso de fallar.
-		Busqueda.instance(salida, resultados)
-				.modalidad(CIRCUITOS)
-				.fechaMin("01/03/2025")
-				.buscar(webTest);
 
-		
-		// Finalmente, si tenemos resltados especiales en resultados entonces los enviamos por correo.
-		if(resultados.size()>0) {
-			enviarResultados(resultados, "Oviedo");
+			}
+		);
+		enviarResultados(resultados, "Sin Transporte");				
+	}
+
+
+	@Test public void islas() {
+		// Canarias
+		for(EOrigen origen: Arrays.asList(EOrigen.OVIEDO_ISLAS, EOrigen.CANTABRIA_ISLAS)) {			
+			List<Resultado> resultados=new ArrayList<>();
+			EProvincia.canarias().forEach(
+				provincia ->  {
+					Busqueda.instance(salida,resultados)
+						.web("mundicolor.es")
+						.origen(origen)
+						.zona(EZona.CANARIAS)
+						.provincia(provincia)
+						.listaEspera(false)
+						.buscar(webTest);
+
+				}
+			);
+			enviarResultados(resultados, origen.getNombre());				
 		}
 
-		log.info("---> Fin desde Oviedo");
+		// Baleares
+		for(EOrigen origen: Arrays.asList(EOrigen.OVIEDO_ISLAS, EOrigen.CANTABRIA_ISLAS)) {			
+			List<Resultado> resultados=new ArrayList<>();
+			EProvincia.baleares().forEach(
+				provincia ->  {
+					Busqueda.instance(salida,resultados)
+						.web("mundicolor.es")
+						.origen(origen)
+						.zona(EZona.BALEARES)
+						.provincia(provincia)
+						.listaEspera(false)
+						.buscar(webTest);
+
+				}
+			);
+			enviarResultados(resultados, origen.getNombre());				
+		}		
+	}
+
+	@Test public void run2025() throws InterruptedException, IOException {
+		abrirSalida("destinos-imserso.html");		
+
+		for(EOrigen origen: Arrays.asList( EOrigen.OVIEDO, EOrigen.CANTABRIA )) {
+			List<Resultado> resultados=new ArrayList<>();
+			EProvincia.costas().forEach(
+				provincia ->  {
+					Busqueda.instance(salida,resultados)
+						.origen(origen)			
+						.zona(EZona.COSTAS)
+						.provincia(provincia)
+						.listaEspera(true)
+						.buscar(webTest);
+
+				}
+			);
+			resultados.forEach(System.out::println);
+			enviarResultados(resultados, origen.getNombre());				
+		}
 
 	}
+
+	private void cargar(String fichero, StringBuilder cuerpo) {
+		try(BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(fichero),
+                        StandardCharsets.UTF_8))) {
+			cuerpo.append(reader.lines().collect(Collectors.joining("\n")));
+		} catch(IOException e) {
+			// Nada que hacer,
+		}
+	}
+	
 	
 	private void enviarResultados(List<Resultado> resultados, String origen) {
+
+		if(resultados.isEmpty()) {
+			try {
+				// mailSender.sendEmail(DESTINATARIOS, "No hay destinos IMSERSO desde " + origen, "");
+			} catch(Exception e) {
+				LOGGER.error(e);
+			}
+			return;
+		}
+
 		StringBuilder cuerpo=new StringBuilder();
 
 		cuerpo.append("<html>");
+		cuerpo.append("<head>");
+		
+		cuerpo.append("<style>");
+		cargar("estilos.css", cuerpo);
+		cuerpo.append("</style>");
+		cuerpo.append("</head>");
+		
+
 		cuerpo.append("<body>");
 		cuerpo.append("<p>Se han encontrado viajes del Imserso desde " + origen + " </p>");
 		for(Resultado res:resultados) {
 			cuerpo.append("<table>");
-			cuerpo.append(res.toHtmlTable());
+			cuerpo.append(res.getHtmlCompleto());
 			cuerpo.append("</table>");
 			cuerpo.append("<hr>");
 		}
@@ -282,7 +236,7 @@ public class TestTurismoSocial {
 
 		try {
 			// Deshabilitamos lo de enviar pq ya no merece la pena.
-			// mailSender.sendEmail("luismiravalles@gmail.com;vizcarrmen@gmail.com", "Resultados Imserso desde " + origen, cuerpo.toString());
+			mailSender.sendEmail(DESTINATARIOS, "Resultados Imserso desde " + origen, cuerpo.toString());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

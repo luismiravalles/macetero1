@@ -1,0 +1,5 @@
+{
+    "makefile.configureOnOpen": false,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "svn.ignoreMissingSvnWarning": true
+}
