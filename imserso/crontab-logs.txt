@@ -1,4 +1,4 @@
-lun 13 oct 2025 10:00:01 CEST
+lun 13 oct 2025 13:00:01 CEST
 docker compose stop
  Container imserso-selenium-1  Stopping
  Container imserso-selenium-1  Stopped
@@ -14,7 +14,7 @@ Running TestTurismoSocial
 Construyendo WebTest con entorno 'IC'
 Obteniendo el driver...
 Obteniendo driver remoto de la URL http://selenium:4444/wd/hub
-Oct 13, 2025 10:00:27 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+Oct 13, 2025 1:00:29 PM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
 INFO: Using OpenTelemetry for tracing
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -44,6 +44,7 @@ Buscando desde QOC_ORI:Oviedo en COS:Costas ALMERIA_COS:Almería Transporte null
 ==> Eligiendo provincia ALMERIA_COS:Almería
 ==> Elegida provincia ALMERIA_COS:Almería
 ==> Pulsado Buscar
+==> ATENCION: Hay algo disponible en ALMERIA_COS:Almería fecha: 2026-03-13
 -----
 
 =============================================================================
@@ -103,8 +104,6 @@ Buscando desde QOC_ORI:Oviedo en COS:Costas HUELVA_COS:Huelva Transporte null li
 ==> Eligiendo provincia HUELVA_COS:Huelva
 ==> Elegida provincia HUELVA_COS:Huelva
 ==> Pulsado Buscar
-==> ATENCION: Hay algo disponible en HUELVA_COS:Huelva fecha: 2026-03-09
-==> ATENCION: Hay algo disponible en HUELVA_COS:Huelva fecha: 2026-03-23
 -----
 
 =============================================================================
@@ -154,6 +153,646 @@ Buscando desde QOC_ORI:Oviedo en COS:Costas VALENCIA_COS:Valencia Transporte nul
 ==> Elegida provincia VALENCIA_COS:Valencia
 ==> Pulsado Buscar
 -----
+Resultado(origen=Oviedo, fecha=2026-03-13, destino=Almería, dias=?, estado=?, hotel=null, precio=null, transporte=Sí, zona=Costas, htmlCompleto=<section class="availability section-bg-grey">
+        <h2 class="sr-only">Disponibilidad para el día seleccionado</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="h3">Elige tu viaje</div>
+                    <div class="h3">Salidas para la fecha <strong>13/03/2026</strong></div>
+                    <div class="h4">
+                        <strong>ALMERÍA COSTAS</strong>
+                        
+                            
+                                Transporte incluido (desde OVIEDO)
+                            
+                            
+                        
+                         - 
+                        
+                            
+                                precio por persona en habitación doble
+                            
+                            
+                        
+                    </div>
+                    
+
+
+
+
+
+
+
+
+
+
+<div class="availability-wrapper">
+    <table class="mp-table mp-product-list-table mp-custom-table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    Estado
+                </th>
+                <th>
+                    Destino
+                </th>
+                <th>
+                    Días
+                </th>
+                <th>
+                    Hora salida
+                </th>
+                <th>
+                    Transporte
+                </th>
+                <th>
+                    Hotel
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    Mascotas
+                </th>
+                <th class="mp-price-col">
+                    Importe
+                </th>
+                <th class="mp-actions-col">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+
+                
+                
+
+                <tr>
+                    
+                    <td>
+                        
+                            
+                                <div class="myTooltip" title="" data-placement="bottom" data-original-title="Número de plazas en lista de espera: 14">
+                                    <span class="mp-icon-state-WAITINGLIST"></span>
+                                    <span id="product-list-item-0" tabindex="0">Lista de espera</span>
+                                    <span class="sr-only">Número de plazas en lista de espera: 14</span>
+                                </div>
+                            
+                            
+                            
+                        
+                    </td>
+
+                    
+                    <td>
+                        
+
+                            
+                            <div><span>ROQUETAS DE MAR</span></div>
+                        
+                    </td>
+
+                    
+                    <td>
+                        <span>10 días</span>
+                    </td>
+
+                    
+                    
+                    <td>
+                        
+                            
+                            
+                            
+                            
+                                
+                                    
+                                        17:45
+                                    
+                                    
+                                
+                            
+                        
+                    </td>
+
+                    
+                    <td>
+                        
+                        
+                            
+                            
+                                
+                                    
+                                    
+                                        <a id="linkModalTransfer-0" class="mp-with-icon" data-target="#myModalTransfers-0" data-id="0" data-toggle="modal" aria-label="Abrir modal con los detalles de los transportes" data-title="Abrir modal con los detalles de los transportes" href="javascript:void(0)">
+                                            
+
+
+
+
+
+
+
+    
+        
+        
+            
+
+
+
+
+
+
+    
+    
+        <span class="mp-icon-transport mp-icon-flight"></span>
+    
+    
+    
+    
+
+
+        
+    
+        
+        
+    
+    
+        
+        
+            
+            
+
+
+
+
+
+<span>Vuelo</span>
+
+        
+    
+        
+        
+    
+
+
+
+                                        </a>
+                                        
+                                        
+                                        
+                                        
+                                        
+
+
+
+
+
+
+ 
+ 
+<div id="myModalTransfers-0" class="modal fade trap modal-transfers" aria-hidden="true" aria-labelledby="" role="dialog" tabindex="-1" style="">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
+            <div class="modal-header ">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar modal">
+                        <span class="fas fa-times" aria-hidden="true"></span>
+                    </button>
+                    <h1 id="myModalTransfers-0-title" class="modal-title ims-light-text ">
+                        <spring:message code="avail.transfer.title"></spring:message> (<c:out value="OVIEDO"></c:out>-<c:out value="ROQUETAS DE MAR COSTAS"></c:out>)</h1>
+                </div>
+            <div id="myModalTransfers-0-body" class="modal-body ">
+                
+    <div class="transfer-service">
+        <table class="mp-table mp-white-table mp-custom-table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        Trayecto
+                    </th>
+                    <th>
+                        Transporte
+                    </th>
+                    <th>
+                        Fecha y hora
+                    </th>
+                    <th>
+                        Compañía
+                    </th>
+                    <th>
+                        Número
+                    </th>
+                    <th>
+                        Almuerzo en ruta
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    
+                        <tr>
+                            
+                            <td>
+                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
+                                 - 
+                                AEROP. DE ALMERÍA (ALMERÍA)
+                            </td>
+
+                            
+                            <td>
+                                
+                                
+
+
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+        <span class="mp-icon-transport mp-icon-flight"></span>
+    
+    
+    
+    
+
+
+    
+
+
+
+
+
+<span>Vuelo</span>
+
+
+
+                            </td>
+
+                            
+                            <td>
+                                13/03/2026 (17:45 - 19:10)
+                            </td>
+
+                            
+                            <td>
+                                IBEROJET
+                            </td>
+
+                            
+                            <td>
+                                7313
+                            </td>
+
+                            
+                            <td>
+                                
+                                    
+                                    
+                                        No
+                                    
+                                
+                            </td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            
+                            <td>
+                                AEROP. DE ALMERÍA (ALMERÍA)
+                                 - 
+                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
+                            </td>
+
+                            
+                            <td>
+                                
+                                
+
+
+
+
+
+
+    
+
+
+
+
+
+
+    
+    
+        <span class="mp-icon-transport mp-icon-flight"></span>
+    
+    
+    
+    
+
+
+    
+
+
+
+
+
+<span>Vuelo</span>
+
+
+
+                            </td>
+
+                            
+                            <td>
+                                22/03/2026 (10:30 - 11:55)
+                            </td>
+
+                            
+                            <td>
+                                IBEROJET
+                            </td>
+
+                            
+                            <td>
+                                7310
+                            </td>
+
+                            
+                            <td>
+                                
+                                    
+                                    
+                                        No
+                                    
+                                
+                            </td>
+                        </tr>
+                    
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+<script>
+$(function() {
+    var modal = $("#myModalTransfers-0");
+    var modalElement = modal.get(0);
+    var trap = focusTrap.createFocusTrap(modalElement, {
+        escapeDeactivates: false,
+        fallbackFocus: modalElement
+    });
+    modal.on("show.bs.modal", trap.activate);
+    modal.on("hide.bs.modal", trap.deactivate);
+});
+</script></div>
+
+
+                                    
+                                
+                            
+                        
+                    </td>
+
+                    
+                    <td>
+                        
+
+                            
+                            <div>
+                                <a id="linkModalHotel-7514" data-target="#myModalHotelCard" data-toggle="modal" data-hotel-code="7514" data-title="Abrir modal con los detalles del hotel HOTEL PLAYASOL 4* (ALMERÍA)" aria-label="Abrir modal con los detalles del hotel HOTEL PLAYASOL 4* (ALMERÍA)" href="javascript:void(0)">
+                                    HOTEL PLAYASOL 4* (ALMERÍA)
+                                </a>
+                            </div>
+                        
+                    </td>
+
+                    
+                    <td>
+                        
+                            <a href="javascript:void(0)" id="linkModalDestination-0" class="mp-with-icon" aria-label="Ver detalles del producto" data-zone-code="ALMERIA_COS" data-hotel-codes="7514" data-toggle="modal" data-target="#myModalFichaDestino">
+                                <span class="mp-icon-details"></span>
+                                <span>ver detalles</span>
+                            </a>
+                        
+                        
+                    </td>
+
+                    
+                    <td>
+                        <span>
+                            
+                                
+                                No
+                            
+                        </span>
+                    </td>
+
+                    
+                    <td class="mp-price-col mp-price-text">
+                        <span>
+                            309,22 €
+                        </span>
+                    </td>
+
+                    
+                    <td class="mp-actions-col">
+                        
+                    </td>
+                </tr>
+
+            
+
+                
+                
+
+                <tr>
+                    
+                    <td>
+                        
+                            
+                            
+                            
+                                <span class="mp-icon-state-COMPLETE"></span>
+                                <span id="product-list-item-1" tabindex="0">Completo</span>
+                            
+                        
+                    </td>
+
+                    
+                    <td>
+                        
+
+                            
+                            <div><span>ROQUETAS DE MAR</span></div>
+                        
+                    </td>
+
+                    
+                    <td>
+                        <span>10 días</span>
+                    </td>
+
+                    
+                    
+                    <td>
+                        
+                            
+                            
+                            
+                            
+                                
+                                    
+                                        17:45
+                                    
+                                    
+                                
+                            
+                        
+                    </td>
+
+                    
+                    <td>
+                        
+                        
+                            
+                            
+                                
+                                    
+                                        
+
+
+
+
+
+
+
+    
+        
+        
+            
+
+
+
+
+
+
+    
+    
+        <span class="mp-icon-transport mp-icon-flight"></span>
+    
+    
+    
+    
+
+
+        
+    
+        
+        
+    
+    
+        
+        
+            
+            
+
+
+
+
+
+<span>Vuelo</span>
+
+        
+    
+        
+        
+    
+
+
+
+                                    
+                                    
+                                
+                            
+                        
+                    </td>
+
+                    
+                    <td>
+                        
+
+                            
+                            <div>
+                                <a id="linkModalHotel-13916" data-target="#myModalHotelCard" data-toggle="modal" data-hotel-code="13916" data-title="Abrir modal con los detalles del hotel HOTEL EVENIA ZORAIDA RESORT 4* (ALMERÍA)" aria-label="Abrir modal con los detalles del hotel HOTEL EVENIA ZORAIDA RESORT 4* (ALMERÍA)" href="javascript:void(0)">
+                                    HOTEL EVENIA ZORAIDA RESORT 4* (ALMERÍA)
+                                </a>
+                            </div>
+                        
+                    </td>
+
+                    
+                    <td>
+                        
+                            <a href="javascript:void(0)" id="linkModalDestination-1" class="mp-with-icon" aria-label="Ver detalles del producto" data-zone-code="ALMERIA_COS" data-hotel-codes="13916" data-toggle="modal" data-target="#myModalFichaDestino">
+                                <span class="mp-icon-details"></span>
+                                <span>ver detalles</span>
+                            </a>
+                        
+                        
+                    </td>
+
+                    
+                    <td>
+                        <span>
+                            
+                                
+                                No
+                            
+                        </span>
+                    </td>
+
+                    
+                    <td class="mp-price-col mp-price-text">
+                        <span>
+                            309,22 €
+                        </span>
+                    </td>
+
+                    
+                    <td class="mp-actions-col">
+                        
+                    </td>
+                </tr>
+
+            
+        </tbody>
+    </table>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>)
 Resultado(origen=Oviedo, fecha=2026-02-20, destino=Barcelona, dias=?, estado=?, hotel=null, precio=null, transporte=Sí, zona=Costas, htmlCompleto=<section class="availability section-bg-grey">
         <h2 class="sr-only">Disponibilidad para el día seleccionado</h2>
         <div class="container">
@@ -630,958 +1269,6 @@ $(function() {
             </div>
         </div>
     </section>)
-Resultado(origen=Oviedo, fecha=2026-03-09, destino=Huelva, dias=?, estado=?, hotel=null, precio=null, transporte=Sí, zona=Costas, htmlCompleto=<section class="availability section-bg-grey">
-        <h2 class="sr-only">Disponibilidad para el día seleccionado</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="h3">Elige tu viaje</div>
-                    <div class="h3">Salidas para la fecha <strong>09/03/2026</strong></div>
-                    <div class="h4">
-                        <strong>HUELVA COSTAS</strong>
-                        
-                            
-                                Transporte incluido (desde OVIEDO)
-                            
-                            
-                        
-                         - 
-                        
-                            
-                                precio por persona en habitación doble
-                            
-                            
-                        
-                    </div>
-                    
-
-
-
-
-
-
-
-
-
-
-<div class="availability-wrapper">
-    <table class="mp-table mp-product-list-table mp-custom-table-responsive">
-        <thead>
-            <tr>
-                <th>
-                    Estado
-                </th>
-                <th>
-                    Destino
-                </th>
-                <th>
-                    Días
-                </th>
-                <th>
-                    Hora salida
-                </th>
-                <th>
-                    Transporte
-                </th>
-                <th>
-                    Hotel
-                </th>
-                <th>
-                    
-                </th>
-                <th>
-                    Mascotas
-                </th>
-                <th class="mp-price-col">
-                    Importe
-                </th>
-                <th class="mp-actions-col">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            
-
-                
-                
-
-                <tr>
-                    
-                    <td>
-                        
-                            
-                                <div class="myTooltip" title="" data-placement="bottom" data-original-title="Número de plazas en lista de espera: 14">
-                                    <span class="mp-icon-state-WAITINGLIST"></span>
-                                    <span id="product-list-item-0" tabindex="0">Lista de espera</span>
-                                    <span class="sr-only">Número de plazas en lista de espera: 14</span>
-                                </div>
-                            
-                            
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div><span>MATALASCAÑAS</span></div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>8 días</span>
-                    </td>
-
-                    
-                    
-                    <td>
-                        
-                            
-                            
-                            
-                            
-                                
-                                    
-                                        10:45
-                                    
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                        
-                            
-                            
-                                
-                                    
-                                    
-                                        <a id="linkModalTransfer-0" class="mp-with-icon" data-target="#myModalTransfers-0" data-id="0" data-toggle="modal" aria-label="Abrir modal con los detalles de los transportes" data-title="Abrir modal con los detalles de los transportes" href="javascript:void(0)">
-                                            
-
-
-
-
-
-
-
-    
-        
-        
-            
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-        
-    
-        
-        
-    
-    
-        
-        
-            
-            
-
-
-
-
-
-<span>Vuelo</span>
-
-        
-    
-        
-        
-    
-
-
-
-                                        </a>
-                                        
-                                        
-                                        
-                                        
-                                        
-
-
-
-
-
-
- 
- 
-<div id="myModalTransfers-0" class="modal fade trap modal-transfers" aria-hidden="true" aria-labelledby="" role="dialog" tabindex="-1" style="">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content ">
-            <div class="modal-header ">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar modal">
-                        <span class="fas fa-times" aria-hidden="true"></span>
-                    </button>
-                    <h1 id="myModalTransfers-0-title" class="modal-title ims-light-text ">
-                        <spring:message code="avail.transfer.title"></spring:message> (<c:out value="OVIEDO"></c:out>-<c:out value="MATALASCAÑAS COSTAS"></c:out>)</h1>
-                </div>
-            <div id="myModalTransfers-0-body" class="modal-body ">
-                
-    <div class="transfer-service">
-        <table class="mp-table mp-white-table mp-custom-table-responsive">
-            <thead>
-                <tr>
-                    <th>
-                        Trayecto
-                    </th>
-                    <th>
-                        Transporte
-                    </th>
-                    <th>
-                        Fecha y hora
-                    </th>
-                    <th>
-                        Compañía
-                    </th>
-                    <th>
-                        Número
-                    </th>
-                    <th>
-                        Almuerzo en ruta
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                    
-                        <tr>
-                            
-                            <td>
-                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
-                                 - 
-                                AEROP. DE SEVILLA-SAN PABLO (SEVILLA)
-                            </td>
-
-                            
-                            <td>
-                                
-                                
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-    
-
-
-
-
-
-<span>Vuelo</span>
-
-
-
-                            </td>
-
-                            
-                            <td>
-                                09/03/2026 (10:45 - 12:10)
-                            </td>
-
-                            
-                            <td>
-                                VOLOTEA
-                            </td>
-
-                            
-                            <td>
-                                3831
-                            </td>
-
-                            
-                            <td>
-                                
-                                    
-                                    
-                                        No
-                                    
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            
-                            <td>
-                                AEROP. DE SEVILLA-SAN PABLO (SEVILLA)
-                                 - 
-                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
-                            </td>
-
-                            
-                            <td>
-                                
-                                
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-    
-
-
-
-
-
-<span>Vuelo</span>
-
-
-
-                            </td>
-
-                            
-                            <td>
-                                16/03/2026 (12:45 - 14:10)
-                            </td>
-
-                            
-                            <td>
-                                VOLOTEA
-                            </td>
-
-                            
-                            <td>
-                                3830
-                            </td>
-
-                            
-                            <td>
-                                
-                                    
-                                    
-                                        No
-                                    
-                                
-                            </td>
-                        </tr>
-                    
-                
-            </tbody>
-        </table>
-    </div>
-</div>
-        </div>
-    </div>
-    
-
-
-
-
-
-
-
-
-
-<script>
-$(function() {
-    var modal = $("#myModalTransfers-0");
-    var modalElement = modal.get(0);
-    var trap = focusTrap.createFocusTrap(modalElement, {
-        escapeDeactivates: false,
-        fallbackFocus: modalElement
-    });
-    modal.on("show.bs.modal", trap.activate);
-    modal.on("hide.bs.modal", trap.deactivate);
-});
-</script></div>
-
-
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div>
-                                <a id="linkModalHotel-7537" data-target="#myModalHotelCard" data-toggle="modal" data-hotel-code="7537" data-title="Abrir modal con los detalles del hotel HOTEL GRAN DEL COTO 4* (HUELVA)" aria-label="Abrir modal con los detalles del hotel HOTEL GRAN DEL COTO 4* (HUELVA)" href="javascript:void(0)">
-                                    HOTEL GRAN DEL COTO 4* (HUELVA)
-                                </a>
-                            </div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                            <a href="javascript:void(0)" id="linkModalDestination-0" class="mp-with-icon" aria-label="Ver detalles del producto" data-zone-code="HUELVA_COS" data-hotel-codes="7537" data-toggle="modal" data-target="#myModalFichaDestino">
-                                <span class="mp-icon-details"></span>
-                                <span>ver detalles</span>
-                            </a>
-                        
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>
-                            
-                                
-                                No
-                            
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-price-col mp-price-text">
-                        <span>
-                            244,04 €
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-actions-col">
-                        
-                    </td>
-                </tr>
-
-            
-        </tbody>
-    </table>
-</div>
-                </div>
-            </div>
-        </div>
-    </section>)
-Resultado(origen=Oviedo, fecha=2026-03-23, destino=Huelva, dias=?, estado=?, hotel=null, precio=null, transporte=Sí, zona=Costas, htmlCompleto=<section class="availability section-bg-grey">
-        <h2 class="sr-only">Disponibilidad para el día seleccionado</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="h3">Elige tu viaje</div>
-                    <div class="h3">Salidas para la fecha <strong>23/03/2026</strong></div>
-                    <div class="h4">
-                        <strong>HUELVA COSTAS</strong>
-                        
-                            
-                                Transporte incluido (desde OVIEDO)
-                            
-                            
-                        
-                         - 
-                        
-                            
-                                precio por persona en habitación doble
-                            
-                            
-                        
-                    </div>
-                    
-
-
-
-
-
-
-
-
-
-
-<div class="availability-wrapper">
-    <table class="mp-table mp-product-list-table mp-custom-table-responsive">
-        <thead>
-            <tr>
-                <th>
-                    Estado
-                </th>
-                <th>
-                    Destino
-                </th>
-                <th>
-                    Días
-                </th>
-                <th>
-                    Hora salida
-                </th>
-                <th>
-                    Transporte
-                </th>
-                <th>
-                    Hotel
-                </th>
-                <th>
-                    
-                </th>
-                <th>
-                    Mascotas
-                </th>
-                <th class="mp-price-col">
-                    Importe
-                </th>
-                <th class="mp-actions-col">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            
-
-                
-                
-
-                <tr>
-                    
-                    <td>
-                        
-                            
-                                <div class="myTooltip" title="" data-placement="bottom" data-original-title="Número de plazas en lista de espera: 14">
-                                    <span class="mp-icon-state-WAITINGLIST"></span>
-                                    <span id="product-list-item-0" tabindex="0">Lista de espera</span>
-                                    <span class="sr-only">Número de plazas en lista de espera: 14</span>
-                                </div>
-                            
-                            
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div><span>MATALASCAÑAS</span></div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>8 días</span>
-                    </td>
-
-                    
-                    
-                    <td>
-                        
-                            
-                            
-                            
-                            
-                                
-                                    
-                                        10:45
-                                    
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                        
-                            
-                            
-                                
-                                    
-                                    
-                                        <a id="linkModalTransfer-0" class="mp-with-icon" data-target="#myModalTransfers-0" data-id="0" data-toggle="modal" aria-label="Abrir modal con los detalles de los transportes" data-title="Abrir modal con los detalles de los transportes" href="javascript:void(0)">
-                                            
-
-
-
-
-
-
-
-    
-        
-        
-            
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-        
-    
-        
-        
-    
-    
-        
-        
-            
-            
-
-
-
-
-
-<span>Vuelo</span>
-
-        
-    
-        
-        
-    
-
-
-
-                                        </a>
-                                        
-                                        
-                                        
-                                        
-                                        
-
-
-
-
-
-
- 
- 
-<div id="myModalTransfers-0" class="modal fade trap modal-transfers" aria-hidden="true" aria-labelledby="" role="dialog" tabindex="-1" style="">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content ">
-            <div class="modal-header ">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar modal">
-                        <span class="fas fa-times" aria-hidden="true"></span>
-                    </button>
-                    <h1 id="myModalTransfers-0-title" class="modal-title ims-light-text ">
-                        <spring:message code="avail.transfer.title"></spring:message> (<c:out value="OVIEDO"></c:out>-<c:out value="MATALASCAÑAS COSTAS"></c:out>)</h1>
-                </div>
-            <div id="myModalTransfers-0-body" class="modal-body ">
-                
-    <div class="transfer-service">
-        <table class="mp-table mp-white-table mp-custom-table-responsive">
-            <thead>
-                <tr>
-                    <th>
-                        Trayecto
-                    </th>
-                    <th>
-                        Transporte
-                    </th>
-                    <th>
-                        Fecha y hora
-                    </th>
-                    <th>
-                        Compañía
-                    </th>
-                    <th>
-                        Número
-                    </th>
-                    <th>
-                        Almuerzo en ruta
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                    
-                        <tr>
-                            
-                            <td>
-                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
-                                 - 
-                                AEROP. DE SEVILLA-SAN PABLO (SEVILLA)
-                            </td>
-
-                            
-                            <td>
-                                
-                                
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-    
-
-
-
-
-
-<span>Vuelo</span>
-
-
-
-                            </td>
-
-                            
-                            <td>
-                                23/03/2026 (10:45 - 12:10)
-                            </td>
-
-                            
-                            <td>
-                                VOLOTEA
-                            </td>
-
-                            
-                            <td>
-                                3831
-                            </td>
-
-                            
-                            <td>
-                                
-                                    
-                                    
-                                        No
-                                    
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            
-                            <td>
-                                AEROP. DE SEVILLA-SAN PABLO (SEVILLA)
-                                 - 
-                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
-                            </td>
-
-                            
-                            <td>
-                                
-                                
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-    
-
-
-
-
-
-<span>Vuelo</span>
-
-
-
-                            </td>
-
-                            
-                            <td>
-                                30/03/2026 (13:10 - 14:35)
-                            </td>
-
-                            
-                            <td>
-                                VOLOTEA
-                            </td>
-
-                            
-                            <td>
-                                3830
-                            </td>
-
-                            
-                            <td>
-                                
-                                    
-                                    
-                                        No
-                                    
-                                
-                            </td>
-                        </tr>
-                    
-                
-            </tbody>
-        </table>
-    </div>
-</div>
-        </div>
-    </div>
-    
-
-
-
-
-
-
-
-
-
-<script>
-$(function() {
-    var modal = $("#myModalTransfers-0");
-    var modalElement = modal.get(0);
-    var trap = focusTrap.createFocusTrap(modalElement, {
-        escapeDeactivates: false,
-        fallbackFocus: modalElement
-    });
-    modal.on("show.bs.modal", trap.activate);
-    modal.on("hide.bs.modal", trap.deactivate);
-});
-</script></div>
-
-
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div>
-                                <a id="linkModalHotel-7537" data-target="#myModalHotelCard" data-toggle="modal" data-hotel-code="7537" data-title="Abrir modal con los detalles del hotel HOTEL GRAN DEL COTO 4* (HUELVA)" aria-label="Abrir modal con los detalles del hotel HOTEL GRAN DEL COTO 4* (HUELVA)" href="javascript:void(0)">
-                                    HOTEL GRAN DEL COTO 4* (HUELVA)
-                                </a>
-                            </div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                            <a href="javascript:void(0)" id="linkModalDestination-0" class="mp-with-icon" aria-label="Ver detalles del producto" data-zone-code="HUELVA_COS" data-hotel-codes="7537" data-toggle="modal" data-target="#myModalFichaDestino">
-                                <span class="mp-icon-details"></span>
-                                <span>ver detalles</span>
-                            </a>
-                        
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>
-                            
-                                
-                                No
-                            
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-price-col mp-price-text">
-                        <span>
-                            244,04 €
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-actions-col">
-                        
-                    </td>
-                </tr>
-
-            
-        </tbody>
-    </table>
-</div>
-                </div>
-            </div>
-        </div>
-    </section>)
 
 =============================================================================
 Buscando desde SDR_ORI:Santander en COS:Costas ALICANTE_COS:Alicante Transporte null listaEspera true disponible true ...
@@ -1665,3 +1352,263 @@ Buscando desde SDR_ORI:Santander en COS:Costas HUELVA_COS:Huelva Transporte null
 ==> Eligiendo provincia HUELVA_COS:Huelva
 ==> Elegida provincia HUELVA_COS:Huelva
 ==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde SDR_ORI:Santander en COS:Costas MALAGA_COS:Málaga Transporte null listaEspera true disponible true ...
+==> Hemos navegado a turismosocial.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen SDR_ORI:Santander
+==> Eligiendo zona COS:Costas
+==> Elegiza zona COS:Costas
+==> Eligiendo provincia MALAGA_COS:Málaga
+==> No existen destinos para la provincia Málaga
+
+=============================================================================
+Buscando desde SDR_ORI:Santander en COS:Costas MURCIA_COS:Murcia Transporte null listaEspera true disponible true ...
+==> Hemos navegado a turismosocial.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen SDR_ORI:Santander
+==> Eligiendo zona COS:Costas
+==> Elegiza zona COS:Costas
+==> Eligiendo provincia MURCIA_COS:Murcia
+==> Elegida provincia MURCIA_COS:Murcia
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde SDR_ORI:Santander en COS:Costas TARRAGONA_COS:Tarragona Transporte null listaEspera true disponible true ...
+==> Hemos navegado a turismosocial.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen SDR_ORI:Santander
+==> Eligiendo zona COS:Costas
+==> Elegiza zona COS:Costas
+==> Eligiendo provincia TARRAGONA_COS:Tarragona
+==> Elegida provincia TARRAGONA_COS:Tarragona
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde SDR_ORI:Santander en COS:Costas VALENCIA_COS:Valencia Transporte null listaEspera true disponible true ...
+==> Hemos navegado a turismosocial.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen SDR_ORI:Santander
+==> Eligiendo zona COS:Costas
+==> Elegiza zona COS:Costas
+==> Eligiendo provincia VALENCIA_COS:Valencia
+==> No existen destinos para la provincia Valencia
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 335.03 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+cp destinos-imserso.html index.html	
+docker compose stop
+ Container imserso-selenium-1  Stopping
+ Container imserso-selenium-1  Stopped
+docker compose  up -d --remove-orphans	
+ Container imserso-selenium-1  Created
+ Container imserso-selenium-1  Starting
+ Container imserso-selenium-1  Started
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestTurismoSocial
+Construyendo WebTest con entorno 'IC'
+Obteniendo el driver...
+Obteniendo driver remoto de la URL http://selenium:4444/wd/hub
+Oct 13, 2025 1:06:32 PM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+INFO: Using OpenTelemetry for tracing
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Driver remoto obtenido http://selenium:4444/wd/hub
+
+=============================================================================
+Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_FUE_ISL:Fuerteventura Transporte null listaEspera false disponible true ...
+==> Hemos navegado a mundicolor.es
+==> Aceptadas las cookies.
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen OVD:Oviedo
+==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
+==> Elegiza zona ISL_ZONCAN_ISL:Canarias
+==> Eligiendo provincia ISL_FUE_ISL:Fuerteventura
+==> Elegida provincia ISL_FUE_ISL:Fuerteventura
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_LPA_ISL:Gran Canaria Transporte null listaEspera false disponible true ...
+==> Hemos navegado a mundicolor.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen OVD:Oviedo
+==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
+==> Elegiza zona ISL_ZONCAN_ISL:Canarias
+==> Eligiendo provincia ISL_LPA_ISL:Gran Canaria
+==> Elegida provincia ISL_LPA_ISL:Gran Canaria
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_TEN_ISL:Tenerife Transporte null listaEspera false disponible true ...
+==> Hemos navegado a mundicolor.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen OVD:Oviedo
+==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
+==> Elegiza zona ISL_ZONCAN_ISL:Canarias
+==> Eligiendo provincia ISL_TEN_ISL:Tenerife
+==> Elegida provincia ISL_TEN_ISL:Tenerife
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_FUE_ISL:Fuerteventura Transporte null listaEspera false disponible true ...
+==> Hemos navegado a mundicolor.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen SDR:Santander
+==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
+==> Elegiza zona ISL_ZONCAN_ISL:Canarias
+==> Eligiendo provincia ISL_FUE_ISL:Fuerteventura
+==> Elegida provincia ISL_FUE_ISL:Fuerteventura
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_LPA_ISL:Gran Canaria Transporte null listaEspera false disponible true ...
+==> Hemos navegado a mundicolor.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen SDR:Santander
+==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
+==> Elegiza zona ISL_ZONCAN_ISL:Canarias
+==> Eligiendo provincia ISL_LPA_ISL:Gran Canaria
+==> Elegida provincia ISL_LPA_ISL:Gran Canaria
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_TEN_ISL:Tenerife Transporte null listaEspera false disponible true ...
+==> Hemos navegado a mundicolor.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen SDR:Santander
+==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
+==> Elegiza zona ISL_ZONCAN_ISL:Canarias
+==> Eligiendo provincia ISL_TEN_ISL:Tenerife
+==> Elegida provincia ISL_TEN_ISL:Tenerife
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde OVD:Oviedo en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Transporte null listaEspera false disponible true ...
+==> Hemos navegado a mundicolor.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen OVD:Oviedo
+==> Eligiendo zona ISL_ZONBAL_ISL:Baleares
+==> Elegiza zona ISL_ZONBAL_ISL:Baleares
+==> Eligiendo provincia ISL_MAL_ISL:Mallorca
+==> Elegida provincia ISL_MAL_ISL:Mallorca
+==> Pulsado Buscar
+==> ATENCION: Hay algo disponible en ISL_MAL_ISL:Mallorca fecha: 2025-12-07
+==> ATENCION: Hay algo disponible en ISL_MAL_ISL:Mallorca fecha: 2025-12-14
+==> ATENCION: Hay algo disponible en ISL_MAL_ISL:Mallorca fecha: 2026-02-23
+==> ATENCION: Hay algo disponible en ISL_MAL_ISL:Mallorca fecha: 2026-04-04
+-----
+
+=============================================================================
+Buscando desde SDR:Santander en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Transporte null listaEspera false disponible true ...
+==> Hemos navegado a mundicolor.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado origen SDR:Santander
+==> Eligiendo zona ISL_ZONBAL_ISL:Baleares
+==> Elegiza zona ISL_ZONBAL_ISL:Baleares
+==> Eligiendo provincia ISL_MAL_ISL:Mallorca
+==> Elegida provincia ISL_MAL_ISL:Mallorca
+==> Pulsado Buscar
+-----
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 161.179 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+cp destinos-imserso.html index.html	
+docker compose stop
+ Container imserso-selenium-1  Stopping
+ Container imserso-selenium-1  Stopped
+docker compose  up -d --remove-orphans	
+ Container imserso-selenium-1  Created
+ Container imserso-selenium-1  Starting
+ Container imserso-selenium-1  Started
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestTurismoSocial
+Construyendo WebTest con entorno 'IC'
+Obteniendo el driver...
+Obteniendo driver remoto de la URL http://selenium:4444/wd/hub
+Oct 13, 2025 1:09:42 PM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+INFO: Using OpenTelemetry for tracing
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Driver remoto obtenido http://selenium:4444/wd/hub
+
+=============================================================================
+Buscando desde null en CP:Capitales de provincia CANTABRIA_CP:Santander Transporte no:Sin Transporte listaEspera false disponible true ...
+==> Hemos navegado a turismosocial.es
+==> Aceptadas las cookies.
+==> Ahora estamos dentro de Programación
+==> Seleccionado Transporte no:Sin Transporte
+==> Eligiendo zona CP:Capitales de provincia
+==> Elegiza zona CP:Capitales de provincia
+==> Eligiendo provincia CANTABRIA_CP:Santander
+==> Elegida provincia CANTABRIA_CP:Santander
+==> Pulsado Buscar
+==> ATENCION: Hay algo disponible en CANTABRIA_CP:Santander fecha: 2025-11-21
+-----
+
+=============================================================================
+Buscando desde null en CP:Capitales de provincia ORENSE_CP:Orense Transporte no:Sin Transporte listaEspera false disponible true ...
+==> Hemos navegado a turismosocial.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado Transporte no:Sin Transporte
+==> Eligiendo zona CP:Capitales de provincia
+==> Elegiza zona CP:Capitales de provincia
+==> Eligiendo provincia ORENSE_CP:Orense
+==> Elegida provincia ORENSE_CP:Orense
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde null en CP:Capitales de provincia NAVARRA_CP:Navarra Transporte no:Sin Transporte listaEspera false disponible true ...
+==> Hemos navegado a turismosocial.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado Transporte no:Sin Transporte
+==> Eligiendo zona CP:Capitales de provincia
+==> Elegiza zona CP:Capitales de provincia
+==> Eligiendo provincia NAVARRA_CP:Navarra
+==> Elegida provincia NAVARRA_CP:Navarra
+==> Pulsado Buscar
+-----
+
+=============================================================================
+Buscando desde null en CP:Capitales de provincia CORUNA_CP:Coruña Transporte no:Sin Transporte listaEspera false disponible true ...
+==> Hemos navegado a turismosocial.es
+==> Ahora estamos dentro de Programación
+==> Seleccionado Transporte no:Sin Transporte
+==> Eligiendo zona CP:Capitales de provincia
+==> Elegiza zona CP:Capitales de provincia
+==> Eligiendo provincia CORUNA_CP:Coruña
+==> Elegida provincia CORUNA_CP:Coruña
+==> Pulsado Buscar
+-----
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 73.66 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+cp destinos-imserso.html index.html	
+lun 13 oct 2025 13:10:57 CEST

@@ -14,7 +14,7 @@ compile:
 		-w /project maven:3.3-jdk-8 \
 		mvn -Dmaven.repo.local=/maven-repo clean compile
 
-run2025 sinTransporte islas:
+run2025 sinTransporte islas capitales:
 	docker compose stop
 	docker compose  up -d --remove-orphans	
 	@docker run --rm --name maven \

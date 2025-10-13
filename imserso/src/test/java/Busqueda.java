@@ -223,6 +223,11 @@ public class Busqueda {
 		for(WebElement el:diasEncontrados) {
 			
 			Resultado nuevoResultado=crearResultado(el);
+
+			if(fechaMin!=null && fechaMin.compareTo(nuevoResultado.getFecha())>0) {
+				continue;
+			}
+
 			LOGGER.info("==> ATENCION: Hay algo disponible en " + this.provincia  + " fecha: " + nuevoResultado.getFecha());
 			
 

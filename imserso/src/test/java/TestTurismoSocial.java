@@ -113,6 +113,22 @@ public class TestTurismoSocial {
 		}
 	}
 
+	@Test public void capitales() {
+		List<Resultado> resultados=new ArrayList<>();
+		EProvincia.capitales().forEach(
+			provincia ->  {
+				Busqueda.instance(salida,resultados)
+					.transporte(ETransporte.NO)
+					.zona(EZona.CAPITALES)
+					.provincia(provincia)
+					.listaEspera(false)
+					.buscar(webTest);
+
+			}
+		);
+		enviarResultados(resultados, "Capitales Provincia Sin Transporte");				
+
+	}
 
 	@Test public void sinTransporte() {
 		List<Resultado> resultados=new ArrayList<>();
@@ -234,9 +250,12 @@ public class TestTurismoSocial {
 		cuerpo.append("</body>");
 		cuerpo.append("</html>");
 
+		SimpleDateFormat formato=new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
 		try {
 			// Deshabilitamos lo de enviar pq ya no merece la pena.
-			mailSender.sendEmail(DESTINATARIOS, "Resultados Imserso desde " + origen, cuerpo.toString());
+			mailSender.sendEmail(DESTINATARIOS, "Imserso desde " + origen + " " + formato.format(new Date()), 
+						cuerpo.toString() );
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

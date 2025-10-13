@@ -3,7 +3,8 @@ public enum EZona {
     COSTAS("COS", "Costas"),
     CIRCUITOS_CULTURALES("CC", "Circuitos Culturales"),
     CANARIAS("ISL_ZONCAN_ISL", "Canarias"),
-    BALEARES("ISL_ZONBAL_ISL", "Baleares");
+    BALEARES("ISL_ZONBAL_ISL", "Baleares"),
+    CAPITALES("CP", "Capitales de provincia");
 
     private String codigo;
     private String nombre;

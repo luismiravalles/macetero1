@@ -10,4 +10,5 @@ rm -f $logs
 date >>$logs
 make run2025 >>$logs 2>&1
 make islas >>$logs 2>&1
+make capitales >>$logs 2>&1
 date >>$logs

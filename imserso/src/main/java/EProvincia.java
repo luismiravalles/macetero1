@@ -22,6 +22,11 @@ public enum EProvincia {
 
     MALLORCA("ISL_MAL_ISL", "Mallorca"),
 
+    CANTABRIA_CP("CANTABRIA_CP", "Santander"),
+    ORENSE_CP("ORENSE_CP", "Orense"),
+    NAVARRA_CP("NAVARRA_CP", "Navarra"),
+    CORUNA_CP("CORUNA_CP", "Coruña"),
+
 
 
     CANTABRIA("CANTABRIA_CC", "Cantabria");
@@ -54,6 +59,11 @@ public enum EProvincia {
 
     public static List<EProvincia> baleares() {
         return Arrays.asList(EProvincia.MALLORCA);
+    }
+
+    public static List<EProvincia> capitales() {
+        return Arrays.stream(EProvincia.values()).filter(provincia -> provincia.getCodigo().contains("_CP"))
+            .collect(Collectors.toList());
     }
 
 
