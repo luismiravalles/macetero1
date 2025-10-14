@@ -47,7 +47,7 @@ public class TestTurismoSocial {
 
 	static final Log LOGGER = LogFactory.getLog(WebTest.class);
 
-	static final String DESTINATARIOS = "luismiravalles@gmail.com;vizcarrmen@gmail.com";
+	static final String DESTINATARIOS = System.getProperty("destinatarios");
 
 	private PrintWriter salida;
 
@@ -86,13 +86,12 @@ public class TestTurismoSocial {
 				+ "<head>"
 				+ " <meta charset='UTF-8'> "
 				+ "<style> body { font-family: Arial; } table, th, td {   border: 1px solid black;  border-collapse: collapse; padding:5px;	} </style>"
+				+ "<link rel='stylesheet' href='src/main/resources/estilos.css'>"
 				+ "</head>"
 				+ "<body>");
 		
 		salida.println("<p>Datos obtenidos a fecha : " + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()) + "</p>");
-		salida.println("<table>");
-		salida.println("<tr>");
-		salida.println("<th>Fecha</th><th>Origen</th><th>Destino</th><th>Dias</th><th>Estado</th><th>Hotel</th><th>Precio</th><th>Transporte</th><th>Zona</th>");
+
 	}
 	
 	
@@ -113,24 +112,20 @@ public class TestTurismoSocial {
 		}
 	}
 
-	@Test public void capitales() {
+	@Test public void capitales() throws IOException {
+		abrirSalida("capitales.html");	
 		List<Resultado> resultados=new ArrayList<>();
-		EProvincia.capitales().forEach(
-			provincia ->  {
-				Busqueda.instance(salida,resultados)
-					.transporte(ETransporte.NO)
-					.zona(EZona.CAPITALES)
-					.provincia(provincia)
-					.listaEspera(false)
-					.buscar(webTest);
-
-			}
-		);
+		Busqueda.instance(salida,resultados)
+			.transporte(ETransporte.NO)
+			.zona(EZona.CAPITALES)
+			.provincias(EProvincia.capitales())
+			.listaEspera(false)
+			.buscar(webTest);
 		enviarResultados(resultados, "Capitales Provincia Sin Transporte");				
-
 	}
 
-	@Test public void sinTransporte() {
+	@Test public void sinTransporte() throws IOException {
+		abrirSalida("sinTransporte.html");		
 		List<Resultado> resultados=new ArrayList<>();
 		EProvincia.costas().forEach(
 			provincia ->  {
@@ -147,7 +142,8 @@ public class TestTurismoSocial {
 	}
 
 
-	@Test public void islas() {
+	@Test public void islas() throws IOException {
+		abrirSalida("islas.html");		
 		// Canarias
 		for(EOrigen origen: Arrays.asList(EOrigen.OVIEDO_ISLAS, EOrigen.CANTABRIA_ISLAS)) {			
 			List<Resultado> resultados=new ArrayList<>();
@@ -185,23 +181,17 @@ public class TestTurismoSocial {
 		}		
 	}
 
-	@Test public void run2025() throws InterruptedException, IOException {
-		abrirSalida("destinos-imserso.html");		
+	@Test public void costas() throws InterruptedException, IOException {
+		abrirSalida("costas.html");		
 
 		for(EOrigen origen: Arrays.asList( EOrigen.OVIEDO, EOrigen.CANTABRIA )) {
 			List<Resultado> resultados=new ArrayList<>();
-			EProvincia.costas().forEach(
-				provincia ->  {
-					Busqueda.instance(salida,resultados)
-						.origen(origen)			
-						.zona(EZona.COSTAS)
-						.provincia(provincia)
-						.listaEspera(true)
-						.buscar(webTest);
-
-				}
-			);
-			resultados.forEach(System.out::println);
+			Busqueda.instance(salida,resultados)
+					.origen(origen)			
+					.zona(EZona.COSTAS)
+					.provincias(EProvincia.costas())
+					.listaEspera(true)
+					.buscar(webTest);
 			enviarResultados(resultados, origen.getNombre());				
 		}
 
@@ -254,8 +244,10 @@ public class TestTurismoSocial {
 
 		try {
 			// Deshabilitamos lo de enviar pq ya no merece la pena.
-			mailSender.sendEmail(DESTINATARIOS, "Imserso desde " + origen + " " + formato.format(new Date()), 
-						cuerpo.toString() );
+			if(DESTINATARIOS!=null) {
+				mailSender.sendEmail(DESTINATARIOS, "Imserso desde " + origen + " " + formato.format(new Date()), 
+							cuerpo.toString() );
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

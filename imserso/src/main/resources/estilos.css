@@ -71,3 +71,16 @@ thead th {
   background: #9c27b0;
 }
 
+
+.modal-transfers table {
+  font-size: 60%;
+}
+
+#myModalTransfers-title {
+  display:none;
+}
+
+.close {
+  display:none;
+}
+

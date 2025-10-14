@@ -6,6 +6,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
@@ -34,6 +35,7 @@ public class Busqueda {
 	private EZona zona;
 	private ETransporte transporte;
 	private EProvincia provincia;
+	private List<EProvincia> provincias;
 	private PrintWriter salida;
 	private List<Resultado> resultados;
 	private boolean listaEspera=true;
@@ -41,8 +43,7 @@ public class Busqueda {
 	private EOrigen origen;
 	private String web="turismosocial.es";
     private WebTest webTest;
-
-	
+		
 	private String fechaMin;
 
 	public static Locale SPANISH = Locale.forLanguageTag("ES");
@@ -58,6 +59,7 @@ public class Busqueda {
 	public Busqueda modalidad(String modalidad) 	{	this.modalidad=modalidad; return this;	}		
 	public Busqueda zona(EZona valor) 				{	this.zona=valor; return this;	}
 	public Busqueda provincia(EProvincia valor) 	{	this.provincia=valor; return this;	}
+	public Busqueda provincias(List<EProvincia> provincias) { this.provincias=provincias; return this; }
 	public Busqueda transporte(ETransporte valor) 		{	this.transporte=valor; return this;	}
 	public Busqueda listaEspera(boolean valor)		{	this.listaEspera=valor; return this; }
 	public Busqueda disponible(boolean valor)		{	this.disponible=valor; return this; }
@@ -65,6 +67,7 @@ public class Busqueda {
 	public Busqueda origen(EOrigen origen)			{ 	this.origen=origen; return this; }
     public Busqueda webTest(WebTest webTest)        {   this.webTest=webTest; return this; }
 	public Busqueda web(String web)					{ 	this.web=web; return this;}
+
 
 	static final Log LOGGER = LogFactory.getLog(WebTest.class);
 
@@ -138,34 +141,35 @@ public class Busqueda {
 			LOGGER.info("==> Elegiza zona " + zona);
 		}
 
-		if(provincia!=null) {
+		List<EProvincia> provs=provincias==null?Arrays.asList(this.provincia):provincias;
+
+		for(EProvincia prov:provs) {
+
 			sleep(TIEMPO_CORTO);
-			LOGGER.info("==> Eligiendo provincia " + provincia);
+			LOGGER.info("==> Eligiendo provincia " + prov);
 			WebElement we=driver.findElement(By.id(EProvincia.ID));
 			we.click();
 			Select select=new Select(we);
 			LOGGER.debug("Opciones de Provincia: " + select.getOptions());		
 			try {	
-				select.selectByValue(provincia.getCodigo());
+				select.selectByValue(prov.getCodigo());
 			} catch(NoSuchElementException e) {
-				LOGGER.info("==> No existen destinos para la provincia " + provincia.getNombre());
+				LOGGER.info("==> No existen destinos para la provincia " + prov.getNombre());
 				return;
 			}
-			LOGGER.info("==> Elegida provincia " + provincia);		
-
+			LOGGER.info("==> Elegida provincia " + prov);		
+			driver.findElement(By.id("product-searcher-btn-scheduler")).click();
+			LOGGER.info("==> Pulsado Buscar");
+			
+			sleep(3 * TIEMPO_CORTO);
+			if(listaEspera) {
+				buscarFecha(w, driver, prov, "lista-espera", "Lista de espera");
+			}
+			if(disponible) {
+				buscarFecha(w, driver, prov, "disponible", "Disponible");
+			}
 		}
-		
-		driver.findElement(By.id("product-searcher-btn-scheduler")).click();
-		LOGGER.info("==> Pulsado Buscar");
-		
-		w.sleep(5);
-		if(listaEspera) {
-			buscarFecha(w, driver, "lista-espera", "Lista de espera");
-		}
-		if(disponible) {
-			buscarFecha(w, driver, "disponible", "Disponible");
-		}
-		log.info("-----");
+		log.info("==> Fin Busqueda en zona " + zona);
 	}
 	
 	private void sleep(int milis) {
@@ -181,9 +185,8 @@ public class Busqueda {
 		return By.xpath("//*[starts-with(@id,'" + id + "')]");
 	}
 	
-	public void imprimir(String contenido) {
-		System.out.println(contenido);
-		salida.println(contenido.replaceAll("-[0-9]", ""));
+	private void imprimir(String contenido) {
+		salida.println(contenido);
 		salida.flush();
 	}
 
@@ -195,11 +198,11 @@ public class Busqueda {
 			);
 	}
 
-	private Resultado crearResultado(WebElement el) {
+	private Resultado crearResultado(EProvincia provincia, WebElement el) {
 		String fecha=el.getAttribute("data-date");
 		Resultado res=new Resultado();
 		res.setFecha(fecha);
-		res.setDestino(this.provincia.getNombre());
+		res.setDestino(provincia.getNombre());
 		res.setDias("?");
 		res.setEstado("?");
 		res.setTransporte(transporte==null?"Sí":transporte.getCodigo());
@@ -209,7 +212,7 @@ public class Busqueda {
 
 	}
 	
-	private void buscarFecha(WebTest w, WebDriver driver, final String tipo, final String debeContener) {	
+	private void buscarFecha(WebTest w, WebDriver driver, final EProvincia provincia, final String tipo, final String debeContener) {	
 		final String eliminar="Transporte Folleto PDF Añadir";
 		final String eliminarOrigen="Origen: (Oviedo \\(Asturias\\)|Sin transporte)";
 		final String eliminarHabInd="Hab.Ind: ..";
@@ -222,14 +225,13 @@ public class Busqueda {
 		
 		for(WebElement el:diasEncontrados) {
 			
-			Resultado nuevoResultado=crearResultado(el);
+			Resultado nuevoResultado=crearResultado(provincia, el);
 
 			if(fechaMin!=null && fechaMin.compareTo(nuevoResultado.getFecha())>0) {
 				continue;
 			}
 
-			LOGGER.info("==> ATENCION: Hay algo disponible en " + this.provincia  + " fecha: " + nuevoResultado.getFecha());
-			
+			LOGGER.info("==> ATENCION: Hay algo disponible en " + nuevoResultado.getDestino()  + " fecha: " + nuevoResultado.getFecha());		
 
 			el.click();
 			w.sleep(1);	
@@ -242,7 +244,7 @@ public class Busqueda {
 				LOGGER.info("=====> NO SE encontró nada disponible.");
 			}
 			resultados.add(nuevoResultado);
-
+			imprimir(nuevoResultado.getHtmlCompleto());
 		}					
 	}
 

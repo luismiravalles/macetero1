@@ -14,7 +14,8 @@ compile:
 		-w /project maven:3.3-jdk-8 \
 		mvn -Dmaven.repo.local=/maven-repo clean compile
 
-run2025 sinTransporte islas capitales:
+costas sinTransporte islas capitales:
+	echo "Destinatarios = $(DESTINATARIOS)"
 	docker compose stop
 	docker compose  up -d --remove-orphans	
 	@docker run --rm --name maven \
@@ -23,9 +24,10 @@ run2025 sinTransporte islas capitales:
 		-v /maven-repo:/maven-repo -v ./:/project \
 		-w /project maven:3.3-jdk-8 \
 		mvn -q -Dmaven.repo.local=/maven-repo \
-		-D test="TestTurismoSocial#$@" \
+		-D test="TestTurismoSocial#$@"  \
+		-D destinatarios=$(DESTINATARIOS) \
 		clean test
-	cp destinos-imserso.html index.html	
+	
 
 # Ejecutar un test diferente
 test:
@@ -37,8 +39,6 @@ test:
 		mvn -Dmaven.repo.local=/maven-repo \
 		-D test="TestTurismoSocial#testEnviarResultados" \
 		test
-
-
 
 # Abrir una shell dentro del contenedor de Maven para hacer pruebas.
 bash:

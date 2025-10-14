@@ -43,7 +43,7 @@ public class MailSender {
 
             message.setFrom(new InternetAddress(username));
 
-            for(String destinatario: StringUtils.split(to, ";")) {
+            for(String destinatario: StringUtils.split(to, ",;")) {
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));    
             }
             message.setSubject(subject);

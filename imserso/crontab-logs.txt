@@ -1,4 +1,6 @@
-lun 13 oct 2025 13:00:01 CEST
+mar 14 oct 2025 09:00:01 CEST
+echo "Destinatarios = luismiravalles@gmail.com"
+Destinatarios = luismiravalles@gmail.com
 docker compose stop
  Container imserso-selenium-1  Stopping
  Container imserso-selenium-1  Stopped
@@ -14,7 +16,7 @@ Running TestTurismoSocial
 Construyendo WebTest con entorno 'IC'
 Obteniendo el driver...
 Obteniendo driver remoto de la URL http://selenium:4444/wd/hub
-Oct 13, 2025 1:00:29 PM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+Oct 14, 2025 9:00:27 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
 INFO: Using OpenTelemetry for tracing
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -22,7 +24,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 Driver remoto obtenido http://selenium:4444/wd/hub
 
 =============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas ALICANTE_COS:Alicante Transporte null listaEspera true disponible true ...
+Buscando desde QOC_ORI:Oviedo en COS:Costas null Transporte null listaEspera true disponible true ...
 ==> Hemos navegado a turismosocial.es
 ==> Aceptadas las cookies.
 ==> Ahora estamos dentro de Programación
@@ -32,1246 +34,15 @@ Buscando desde QOC_ORI:Oviedo en COS:Costas ALICANTE_COS:Alicante Transporte nul
 ==> Eligiendo provincia ALICANTE_COS:Alicante
 ==> Elegida provincia ALICANTE_COS:Alicante
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas ALMERIA_COS:Almería Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
 ==> Eligiendo provincia ALMERIA_COS:Almería
 ==> Elegida provincia ALMERIA_COS:Almería
 ==> Pulsado Buscar
-==> ATENCION: Hay algo disponible en ALMERIA_COS:Almería fecha: 2026-03-13
------
-
-=============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas CADIZ_COS:Cádiz Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
+==> ATENCION: Hay algo disponible en Almería fecha: 2026-03-13
 ==> Eligiendo provincia CADIZ_COS:Cádiz
 ==> No existen destinos para la provincia Cádiz
 
 =============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas BARCELONA_COS:Barcelona Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia BARCELONA_COS:Barcelona
-==> Elegida provincia BARCELONA_COS:Barcelona
-==> Pulsado Buscar
-==> ATENCION: Hay algo disponible en BARCELONA_COS:Barcelona fecha: 2026-02-20
------
-
-=============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas CASTELLON_COS:Castellón Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia CASTELLON_COS:Castellón
-==> Elegida provincia CASTELLON_COS:Castellón
-==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas GIRONA_COS:Girona Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia GIRONA_COS:Girona
-==> Elegida provincia GIRONA_COS:Girona
-==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas HUELVA_COS:Huelva Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia HUELVA_COS:Huelva
-==> Elegida provincia HUELVA_COS:Huelva
-==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas MALAGA_COS:Málaga Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia MALAGA_COS:Málaga
-==> Elegida provincia MALAGA_COS:Málaga
-==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas MURCIA_COS:Murcia Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia MURCIA_COS:Murcia
-==> Elegida provincia MURCIA_COS:Murcia
-==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas TARRAGONA_COS:Tarragona Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia TARRAGONA_COS:Tarragona
-==> Elegida provincia TARRAGONA_COS:Tarragona
-==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde QOC_ORI:Oviedo en COS:Costas VALENCIA_COS:Valencia Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen QOC_ORI:Oviedo
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia VALENCIA_COS:Valencia
-==> Elegida provincia VALENCIA_COS:Valencia
-==> Pulsado Buscar
------
-Resultado(origen=Oviedo, fecha=2026-03-13, destino=Almería, dias=?, estado=?, hotel=null, precio=null, transporte=Sí, zona=Costas, htmlCompleto=<section class="availability section-bg-grey">
-        <h2 class="sr-only">Disponibilidad para el día seleccionado</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="h3">Elige tu viaje</div>
-                    <div class="h3">Salidas para la fecha <strong>13/03/2026</strong></div>
-                    <div class="h4">
-                        <strong>ALMERÍA COSTAS</strong>
-                        
-                            
-                                Transporte incluido (desde OVIEDO)
-                            
-                            
-                        
-                         - 
-                        
-                            
-                                precio por persona en habitación doble
-                            
-                            
-                        
-                    </div>
-                    
-
-
-
-
-
-
-
-
-
-
-<div class="availability-wrapper">
-    <table class="mp-table mp-product-list-table mp-custom-table-responsive">
-        <thead>
-            <tr>
-                <th>
-                    Estado
-                </th>
-                <th>
-                    Destino
-                </th>
-                <th>
-                    Días
-                </th>
-                <th>
-                    Hora salida
-                </th>
-                <th>
-                    Transporte
-                </th>
-                <th>
-                    Hotel
-                </th>
-                <th>
-                    
-                </th>
-                <th>
-                    Mascotas
-                </th>
-                <th class="mp-price-col">
-                    Importe
-                </th>
-                <th class="mp-actions-col">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            
-
-                
-                
-
-                <tr>
-                    
-                    <td>
-                        
-                            
-                                <div class="myTooltip" title="" data-placement="bottom" data-original-title="Número de plazas en lista de espera: 14">
-                                    <span class="mp-icon-state-WAITINGLIST"></span>
-                                    <span id="product-list-item-0" tabindex="0">Lista de espera</span>
-                                    <span class="sr-only">Número de plazas en lista de espera: 14</span>
-                                </div>
-                            
-                            
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div><span>ROQUETAS DE MAR</span></div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>10 días</span>
-                    </td>
-
-                    
-                    
-                    <td>
-                        
-                            
-                            
-                            
-                            
-                                
-                                    
-                                        17:45
-                                    
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                        
-                            
-                            
-                                
-                                    
-                                    
-                                        <a id="linkModalTransfer-0" class="mp-with-icon" data-target="#myModalTransfers-0" data-id="0" data-toggle="modal" aria-label="Abrir modal con los detalles de los transportes" data-title="Abrir modal con los detalles de los transportes" href="javascript:void(0)">
-                                            
-
-
-
-
-
-
-
-    
-        
-        
-            
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-        
-    
-        
-        
-    
-    
-        
-        
-            
-            
-
-
-
-
-
-<span>Vuelo</span>
-
-        
-    
-        
-        
-    
-
-
-
-                                        </a>
-                                        
-                                        
-                                        
-                                        
-                                        
-
-
-
-
-
-
- 
- 
-<div id="myModalTransfers-0" class="modal fade trap modal-transfers" aria-hidden="true" aria-labelledby="" role="dialog" tabindex="-1" style="">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content ">
-            <div class="modal-header ">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar modal">
-                        <span class="fas fa-times" aria-hidden="true"></span>
-                    </button>
-                    <h1 id="myModalTransfers-0-title" class="modal-title ims-light-text ">
-                        <spring:message code="avail.transfer.title"></spring:message> (<c:out value="OVIEDO"></c:out>-<c:out value="ROQUETAS DE MAR COSTAS"></c:out>)</h1>
-                </div>
-            <div id="myModalTransfers-0-body" class="modal-body ">
-                
-    <div class="transfer-service">
-        <table class="mp-table mp-white-table mp-custom-table-responsive">
-            <thead>
-                <tr>
-                    <th>
-                        Trayecto
-                    </th>
-                    <th>
-                        Transporte
-                    </th>
-                    <th>
-                        Fecha y hora
-                    </th>
-                    <th>
-                        Compañía
-                    </th>
-                    <th>
-                        Número
-                    </th>
-                    <th>
-                        Almuerzo en ruta
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                    
-                        <tr>
-                            
-                            <td>
-                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
-                                 - 
-                                AEROP. DE ALMERÍA (ALMERÍA)
-                            </td>
-
-                            
-                            <td>
-                                
-                                
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-    
-
-
-
-
-
-<span>Vuelo</span>
-
-
-
-                            </td>
-
-                            
-                            <td>
-                                13/03/2026 (17:45 - 19:10)
-                            </td>
-
-                            
-                            <td>
-                                IBEROJET
-                            </td>
-
-                            
-                            <td>
-                                7313
-                            </td>
-
-                            
-                            <td>
-                                
-                                    
-                                    
-                                        No
-                                    
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            
-                            <td>
-                                AEROP. DE ALMERÍA (ALMERÍA)
-                                 - 
-                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
-                            </td>
-
-                            
-                            <td>
-                                
-                                
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-    
-
-
-
-
-
-<span>Vuelo</span>
-
-
-
-                            </td>
-
-                            
-                            <td>
-                                22/03/2026 (10:30 - 11:55)
-                            </td>
-
-                            
-                            <td>
-                                IBEROJET
-                            </td>
-
-                            
-                            <td>
-                                7310
-                            </td>
-
-                            
-                            <td>
-                                
-                                    
-                                    
-                                        No
-                                    
-                                
-                            </td>
-                        </tr>
-                    
-                
-            </tbody>
-        </table>
-    </div>
-</div>
-        </div>
-    </div>
-    
-
-
-
-
-
-
-
-
-
-<script>
-$(function() {
-    var modal = $("#myModalTransfers-0");
-    var modalElement = modal.get(0);
-    var trap = focusTrap.createFocusTrap(modalElement, {
-        escapeDeactivates: false,
-        fallbackFocus: modalElement
-    });
-    modal.on("show.bs.modal", trap.activate);
-    modal.on("hide.bs.modal", trap.deactivate);
-});
-</script></div>
-
-
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div>
-                                <a id="linkModalHotel-7514" data-target="#myModalHotelCard" data-toggle="modal" data-hotel-code="7514" data-title="Abrir modal con los detalles del hotel HOTEL PLAYASOL 4* (ALMERÍA)" aria-label="Abrir modal con los detalles del hotel HOTEL PLAYASOL 4* (ALMERÍA)" href="javascript:void(0)">
-                                    HOTEL PLAYASOL 4* (ALMERÍA)
-                                </a>
-                            </div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                            <a href="javascript:void(0)" id="linkModalDestination-0" class="mp-with-icon" aria-label="Ver detalles del producto" data-zone-code="ALMERIA_COS" data-hotel-codes="7514" data-toggle="modal" data-target="#myModalFichaDestino">
-                                <span class="mp-icon-details"></span>
-                                <span>ver detalles</span>
-                            </a>
-                        
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>
-                            
-                                
-                                No
-                            
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-price-col mp-price-text">
-                        <span>
-                            309,22 €
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-actions-col">
-                        
-                    </td>
-                </tr>
-
-            
-
-                
-                
-
-                <tr>
-                    
-                    <td>
-                        
-                            
-                            
-                            
-                                <span class="mp-icon-state-COMPLETE"></span>
-                                <span id="product-list-item-1" tabindex="0">Completo</span>
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div><span>ROQUETAS DE MAR</span></div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>10 días</span>
-                    </td>
-
-                    
-                    
-                    <td>
-                        
-                            
-                            
-                            
-                            
-                                
-                                    
-                                        17:45
-                                    
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                        
-                            
-                            
-                                
-                                    
-                                        
-
-
-
-
-
-
-
-    
-        
-        
-            
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-        
-    
-        
-        
-    
-    
-        
-        
-            
-            
-
-
-
-
-
-<span>Vuelo</span>
-
-        
-    
-        
-        
-    
-
-
-
-                                    
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div>
-                                <a id="linkModalHotel-13916" data-target="#myModalHotelCard" data-toggle="modal" data-hotel-code="13916" data-title="Abrir modal con los detalles del hotel HOTEL EVENIA ZORAIDA RESORT 4* (ALMERÍA)" aria-label="Abrir modal con los detalles del hotel HOTEL EVENIA ZORAIDA RESORT 4* (ALMERÍA)" href="javascript:void(0)">
-                                    HOTEL EVENIA ZORAIDA RESORT 4* (ALMERÍA)
-                                </a>
-                            </div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                            <a href="javascript:void(0)" id="linkModalDestination-1" class="mp-with-icon" aria-label="Ver detalles del producto" data-zone-code="ALMERIA_COS" data-hotel-codes="13916" data-toggle="modal" data-target="#myModalFichaDestino">
-                                <span class="mp-icon-details"></span>
-                                <span>ver detalles</span>
-                            </a>
-                        
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>
-                            
-                                
-                                No
-                            
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-price-col mp-price-text">
-                        <span>
-                            309,22 €
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-actions-col">
-                        
-                    </td>
-                </tr>
-
-            
-        </tbody>
-    </table>
-</div>
-                </div>
-            </div>
-        </div>
-    </section>)
-Resultado(origen=Oviedo, fecha=2026-02-20, destino=Barcelona, dias=?, estado=?, hotel=null, precio=null, transporte=Sí, zona=Costas, htmlCompleto=<section class="availability section-bg-grey">
-        <h2 class="sr-only">Disponibilidad para el día seleccionado</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="h3">Elige tu viaje</div>
-                    <div class="h3">Salidas para la fecha <strong>20/02/2026</strong></div>
-                    <div class="h4">
-                        <strong>BARCELONA COSTAS</strong>
-                        
-                            
-                                Transporte incluido (desde OVIEDO)
-                            
-                            
-                        
-                         - 
-                        
-                            
-                                precio por persona en habitación doble
-                            
-                            
-                        
-                    </div>
-                    
-
-
-
-
-
-
-
-
-
-
-<div class="availability-wrapper">
-    <table class="mp-table mp-product-list-table mp-custom-table-responsive">
-        <thead>
-            <tr>
-                <th>
-                    Estado
-                </th>
-                <th>
-                    Destino
-                </th>
-                <th>
-                    Días
-                </th>
-                <th>
-                    Hora salida
-                </th>
-                <th>
-                    Transporte
-                </th>
-                <th>
-                    Hotel
-                </th>
-                <th>
-                    
-                </th>
-                <th>
-                    Mascotas
-                </th>
-                <th class="mp-price-col">
-                    Importe
-                </th>
-                <th class="mp-actions-col">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            
-
-                
-                
-
-                <tr>
-                    
-                    <td>
-                        
-                            
-                                <div class="myTooltip" title="" data-placement="bottom" data-original-title="Número de plazas en lista de espera: 14">
-                                    <span class="mp-icon-state-WAITINGLIST"></span>
-                                    <span id="product-list-item-0" tabindex="0">Lista de espera</span>
-                                    <span class="sr-only">Número de plazas en lista de espera: 14</span>
-                                </div>
-                            
-                            
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div><span>MALGRAT DE MAR</span></div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>10 días</span>
-                    </td>
-
-                    
-                    
-                    <td>
-                        
-                            
-                            
-                            
-                            
-                                
-                                    
-                                        14:00
-                                    
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                        
-                            
-                            
-                                
-                                    
-                                    
-                                        <a id="linkModalTransfer-0" class="mp-with-icon" data-target="#myModalTransfers-0" data-id="0" data-toggle="modal" aria-label="Abrir modal con los detalles de los transportes" data-title="Abrir modal con los detalles de los transportes" href="javascript:void(0)">
-                                            
-
-
-
-
-
-
-
-    
-        
-        
-            
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-        
-    
-        
-        
-    
-    
-        
-        
-            
-            
-
-
-
-
-
-<span>Vuelo</span>
-
-        
-    
-        
-        
-    
-
-
-
-                                        </a>
-                                        
-                                        
-                                        
-                                        
-                                        
-
-
-
-
-
-
- 
- 
-<div id="myModalTransfers-0" class="modal fade trap modal-transfers" aria-hidden="true" aria-labelledby="" role="dialog" tabindex="-1" style="">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content ">
-            <div class="modal-header ">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar modal">
-                        <span class="fas fa-times" aria-hidden="true"></span>
-                    </button>
-                    <h1 id="myModalTransfers-0-title" class="modal-title ims-light-text ">
-                        <spring:message code="avail.transfer.title"></spring:message> (<c:out value="OVIEDO"></c:out>-<c:out value="MALGRAT DE MAR COSTAS"></c:out>)</h1>
-                </div>
-            <div id="myModalTransfers-0-body" class="modal-body ">
-                
-    <div class="transfer-service">
-        <table class="mp-table mp-white-table mp-custom-table-responsive">
-            <thead>
-                <tr>
-                    <th>
-                        Trayecto
-                    </th>
-                    <th>
-                        Transporte
-                    </th>
-                    <th>
-                        Fecha y hora
-                    </th>
-                    <th>
-                        Compañía
-                    </th>
-                    <th>
-                        Número
-                    </th>
-                    <th>
-                        Almuerzo en ruta
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                    
-                        <tr>
-                            
-                            <td>
-                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
-                                 - 
-                                AEROP. JOSEP TARRADELLAS BARCELONA-EL PRAT DE LLOBREGAT (BARCELONA)
-                            </td>
-
-                            
-                            <td>
-                                
-                                
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-    
-
-
-
-
-
-<span>Vuelo</span>
-
-
-
-                            </td>
-
-                            
-                            <td>
-                                20/02/2026 (14:00 - 15:25)
-                            </td>
-
-                            
-                            <td>
-                                VUELING
-                            </td>
-
-                            
-                            <td>
-                                1575
-                            </td>
-
-                            
-                            <td>
-                                
-                                    
-                                    
-                                        No
-                                    
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            
-                            <td>
-                                AEROP. JOSEP TARRADELLAS BARCELONA-EL PRAT DE LLOBREGAT (BARCELONA)
-                                 - 
-                                AEROP. DE ASTURIAS (CASTRILLÓN (ASTURIAS)
-                            </td>
-
-                            
-                            <td>
-                                
-                                
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
-        <span class="mp-icon-transport mp-icon-flight"></span>
-    
-    
-    
-    
-
-
-    
-
-
-
-
-
-<span>Vuelo</span>
-
-
-
-                            </td>
-
-                            
-                            <td>
-                                01/03/2026 (12:25 - 14:00)
-                            </td>
-
-                            
-                            <td>
-                                VUELING
-                            </td>
-
-                            
-                            <td>
-                                1574
-                            </td>
-
-                            
-                            <td>
-                                
-                                    
-                                    
-                                        No
-                                    
-                                
-                            </td>
-                        </tr>
-                    
-                
-            </tbody>
-        </table>
-    </div>
-</div>
-        </div>
-    </div>
-    
-
-
-
-
-
-
-
-
-
-<script>
-$(function() {
-    var modal = $("#myModalTransfers-0");
-    var modalElement = modal.get(0);
-    var trap = focusTrap.createFocusTrap(modalElement, {
-        escapeDeactivates: false,
-        fallbackFocus: modalElement
-    });
-    modal.on("show.bs.modal", trap.activate);
-    modal.on("hide.bs.modal", trap.deactivate);
-});
-</script></div>
-
-
-                                    
-                                
-                            
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-
-                            
-                            <div>
-                                <a id="linkModalHotel-7671" data-target="#myModalHotelCard" data-toggle="modal" data-hotel-code="7671" data-title="Abrir modal con los detalles del hotel HOTEL SORRA DOR BEACH CLUB 3* (BARCELONA)" aria-label="Abrir modal con los detalles del hotel HOTEL SORRA DOR BEACH CLUB 3* (BARCELONA)" href="javascript:void(0)">
-                                    HOTEL SORRA DOR BEACH CLUB 3* (BARCELONA)
-                                </a>
-                            </div>
-                        
-                    </td>
-
-                    
-                    <td>
-                        
-                            <a href="javascript:void(0)" id="linkModalDestination-0" class="mp-with-icon" aria-label="Ver detalles del producto" data-zone-code="BARCELONA_COS" data-hotel-codes="7671" data-toggle="modal" data-target="#myModalFichaDestino">
-                                <span class="mp-icon-details"></span>
-                                <span>ver detalles</span>
-                            </a>
-                        
-                        
-                    </td>
-
-                    
-                    <td>
-                        <span>
-                            
-                                
-                                No
-                            
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-price-col mp-price-text">
-                        <span>
-                            309,22 €
-                        </span>
-                    </td>
-
-                    
-                    <td class="mp-actions-col">
-                        
-                    </td>
-                </tr>
-
-            
-        </tbody>
-    </table>
-</div>
-                </div>
-            </div>
-        </div>
-    </section>)
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas ALICANTE_COS:Alicante Transporte null listaEspera true disponible true ...
+Buscando desde SDR_ORI:Santander en COS:Costas null Transporte null listaEspera true disponible true ...
 ==> Hemos navegado a turismosocial.es
 ==> Ahora estamos dentro de Programación
 ==> Seleccionado origen SDR_ORI:Santander
@@ -1280,130 +51,36 @@ Buscando desde SDR_ORI:Santander en COS:Costas ALICANTE_COS:Alicante Transporte 
 ==> Eligiendo provincia ALICANTE_COS:Alicante
 ==> Elegida provincia ALICANTE_COS:Alicante
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas ALMERIA_COS:Almería Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
 ==> Eligiendo provincia ALMERIA_COS:Almería
 ==> Elegida provincia ALMERIA_COS:Almería
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas CADIZ_COS:Cádiz Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
 ==> Eligiendo provincia CADIZ_COS:Cádiz
 ==> Elegida provincia CADIZ_COS:Cádiz
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas BARCELONA_COS:Barcelona Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
 ==> Eligiendo provincia BARCELONA_COS:Barcelona
 ==> Elegida provincia BARCELONA_COS:Barcelona
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas CASTELLON_COS:Castellón Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
+==> ATENCION: Hay algo disponible en Barcelona fecha: 2026-03-01
 ==> Eligiendo provincia CASTELLON_COS:Castellón
 ==> Elegida provincia CASTELLON_COS:Castellón
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas GIRONA_COS:Girona Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
+==> ATENCION: Hay algo disponible en Castellón fecha: 2026-02-05
 ==> Eligiendo provincia GIRONA_COS:Girona
 ==> Elegida provincia GIRONA_COS:Girona
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas HUELVA_COS:Huelva Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
 ==> Eligiendo provincia HUELVA_COS:Huelva
 ==> Elegida provincia HUELVA_COS:Huelva
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas MALAGA_COS:Málaga Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
 ==> Eligiendo provincia MALAGA_COS:Málaga
 ==> No existen destinos para la provincia Málaga
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas MURCIA_COS:Murcia Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia MURCIA_COS:Murcia
-==> Elegida provincia MURCIA_COS:Murcia
-==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas TARRAGONA_COS:Tarragona Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia TARRAGONA_COS:Tarragona
-==> Elegida provincia TARRAGONA_COS:Tarragona
-==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde SDR_ORI:Santander en COS:Costas VALENCIA_COS:Valencia Transporte null listaEspera true disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR_ORI:Santander
-==> Eligiendo zona COS:Costas
-==> Elegiza zona COS:Costas
-==> Eligiendo provincia VALENCIA_COS:Valencia
-==> No existen destinos para la provincia Valencia
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 335.03 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.814 sec
 
 Results :
 
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
-cp destinos-imserso.html index.html	
+echo "Destinatarios = luismiravalles@gmail.com"
+Destinatarios = luismiravalles@gmail.com
 docker compose stop
  Container imserso-selenium-1  Stopping
  Container imserso-selenium-1  Stopped
@@ -1419,7 +96,7 @@ Running TestTurismoSocial
 Construyendo WebTest con entorno 'IC'
 Obteniendo el driver...
 Obteniendo driver remoto de la URL http://selenium:4444/wd/hub
-Oct 13, 2025 1:06:32 PM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+Oct 14, 2025 9:02:24 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
 INFO: Using OpenTelemetry for tracing
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -1437,7 +114,7 @@ Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_FUE_ISL:Fuerteventura T
 ==> Eligiendo provincia ISL_FUE_ISL:Fuerteventura
 ==> Elegida provincia ISL_FUE_ISL:Fuerteventura
 ==> Pulsado Buscar
------
+==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
 
 =============================================================================
 Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_LPA_ISL:Gran Canaria Transporte null listaEspera false disponible true ...
@@ -1449,7 +126,7 @@ Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_LPA_ISL:Gran Canaria Tr
 ==> Eligiendo provincia ISL_LPA_ISL:Gran Canaria
 ==> Elegida provincia ISL_LPA_ISL:Gran Canaria
 ==> Pulsado Buscar
------
+==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
 
 =============================================================================
 Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_TEN_ISL:Tenerife Transporte null listaEspera false disponible true ...
@@ -1461,7 +138,7 @@ Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_TEN_ISL:Tenerife Transp
 ==> Eligiendo provincia ISL_TEN_ISL:Tenerife
 ==> Elegida provincia ISL_TEN_ISL:Tenerife
 ==> Pulsado Buscar
------
+==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
 
 =============================================================================
 Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_FUE_ISL:Fuerteventura Transporte null listaEspera false disponible true ...
@@ -1473,7 +150,7 @@ Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_FUE_ISL:Fuerteventur
 ==> Eligiendo provincia ISL_FUE_ISL:Fuerteventura
 ==> Elegida provincia ISL_FUE_ISL:Fuerteventura
 ==> Pulsado Buscar
------
+==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
 
 =============================================================================
 Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_LPA_ISL:Gran Canaria Transporte null listaEspera false disponible true ...
@@ -1485,7 +162,7 @@ Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_LPA_ISL:Gran Canaria
 ==> Eligiendo provincia ISL_LPA_ISL:Gran Canaria
 ==> Elegida provincia ISL_LPA_ISL:Gran Canaria
 ==> Pulsado Buscar
------
+==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
 
 =============================================================================
 Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_TEN_ISL:Tenerife Transporte null listaEspera false disponible true ...
@@ -1497,7 +174,7 @@ Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_TEN_ISL:Tenerife Tra
 ==> Eligiendo provincia ISL_TEN_ISL:Tenerife
 ==> Elegida provincia ISL_TEN_ISL:Tenerife
 ==> Pulsado Buscar
------
+==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
 
 =============================================================================
 Buscando desde OVD:Oviedo en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Transporte null listaEspera false disponible true ...
@@ -1509,11 +186,8 @@ Buscando desde OVD:Oviedo en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Transp
 ==> Eligiendo provincia ISL_MAL_ISL:Mallorca
 ==> Elegida provincia ISL_MAL_ISL:Mallorca
 ==> Pulsado Buscar
-==> ATENCION: Hay algo disponible en ISL_MAL_ISL:Mallorca fecha: 2025-12-07
-==> ATENCION: Hay algo disponible en ISL_MAL_ISL:Mallorca fecha: 2025-12-14
-==> ATENCION: Hay algo disponible en ISL_MAL_ISL:Mallorca fecha: 2026-02-23
-==> ATENCION: Hay algo disponible en ISL_MAL_ISL:Mallorca fecha: 2026-04-04
------
+==> ATENCION: Hay algo disponible en Mallorca fecha: 2025-11-16
+==> Fin Busqueda en zona ISL_ZONBAL_ISL:Baleares
 
 =============================================================================
 Buscando desde SDR:Santander en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Transporte null listaEspera false disponible true ...
@@ -1525,14 +199,15 @@ Buscando desde SDR:Santander en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Tra
 ==> Eligiendo provincia ISL_MAL_ISL:Mallorca
 ==> Elegida provincia ISL_MAL_ISL:Mallorca
 ==> Pulsado Buscar
------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 161.179 sec
+==> Fin Busqueda en zona ISL_ZONBAL_ISL:Baleares
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 142.616 sec
 
 Results :
 
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
-cp destinos-imserso.html index.html	
+echo "Destinatarios = luismiravalles@gmail.com"
+Destinatarios = luismiravalles@gmail.com
 docker compose stop
  Container imserso-selenium-1  Stopping
  Container imserso-selenium-1  Stopped
@@ -1548,7 +223,7 @@ Running TestTurismoSocial
 Construyendo WebTest con entorno 'IC'
 Obteniendo el driver...
 Obteniendo driver remoto de la URL http://selenium:4444/wd/hub
-Oct 13, 2025 1:09:42 PM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+Oct 14, 2025 9:05:14 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
 INFO: Using OpenTelemetry for tracing
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -1556,7 +231,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 Driver remoto obtenido http://selenium:4444/wd/hub
 
 =============================================================================
-Buscando desde null en CP:Capitales de provincia CANTABRIA_CP:Santander Transporte no:Sin Transporte listaEspera false disponible true ...
+Buscando desde null en CP:Capitales de provincia null Transporte no:Sin Transporte listaEspera false disponible true ...
 ==> Hemos navegado a turismosocial.es
 ==> Aceptadas las cookies.
 ==> Ahora estamos dentro de Programación
@@ -1566,49 +241,21 @@ Buscando desde null en CP:Capitales de provincia CANTABRIA_CP:Santander Transpor
 ==> Eligiendo provincia CANTABRIA_CP:Santander
 ==> Elegida provincia CANTABRIA_CP:Santander
 ==> Pulsado Buscar
-==> ATENCION: Hay algo disponible en CANTABRIA_CP:Santander fecha: 2025-11-21
------
-
-=============================================================================
-Buscando desde null en CP:Capitales de provincia ORENSE_CP:Orense Transporte no:Sin Transporte listaEspera false disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado Transporte no:Sin Transporte
-==> Eligiendo zona CP:Capitales de provincia
-==> Elegiza zona CP:Capitales de provincia
 ==> Eligiendo provincia ORENSE_CP:Orense
 ==> Elegida provincia ORENSE_CP:Orense
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde null en CP:Capitales de provincia NAVARRA_CP:Navarra Transporte no:Sin Transporte listaEspera false disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado Transporte no:Sin Transporte
-==> Eligiendo zona CP:Capitales de provincia
-==> Elegiza zona CP:Capitales de provincia
 ==> Eligiendo provincia NAVARRA_CP:Navarra
 ==> Elegida provincia NAVARRA_CP:Navarra
 ==> Pulsado Buscar
------
-
-=============================================================================
-Buscando desde null en CP:Capitales de provincia CORUNA_CP:Coruña Transporte no:Sin Transporte listaEspera false disponible true ...
-==> Hemos navegado a turismosocial.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado Transporte no:Sin Transporte
-==> Eligiendo zona CP:Capitales de provincia
-==> Elegiza zona CP:Capitales de provincia
 ==> Eligiendo provincia CORUNA_CP:Coruña
 ==> Elegida provincia CORUNA_CP:Coruña
 ==> Pulsado Buscar
------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 73.66 sec
+==> ATENCION: Hay algo disponible en Coruña fecha: 2025-10-30
+==> Fin Busqueda en zona CP:Capitales de provincia
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 43.418 sec
 
 Results :
 
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
-cp destinos-imserso.html index.html	
-lun 13 oct 2025 13:10:57 CEST
+mar 14 oct 2025 09:05:58 CEST
