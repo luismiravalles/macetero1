@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Predicate;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
@@ -25,7 +26,7 @@ import lombok.extern.apachecommons.CommonsLog;
 
 @CommonsLog
 public class Busqueda {
-	private static final int TIEMPO_CORTO = 1000;
+	private static final int TIEMPO_CORTO = 800;
 	private static final int TIEMPO_MUY_CORTO = 200;
     private static final int TIEMPO_EXTRA_CORTO = 100;
 
@@ -43,6 +44,7 @@ public class Busqueda {
 	private EOrigen origen;
 	private String web="turismosocial.es";
     private WebTest webTest;
+	private Predicate<LocalDate> filtroFecha;
 		
 	private String fechaMin;
 
@@ -67,6 +69,7 @@ public class Busqueda {
 	public Busqueda origen(EOrigen origen)			{ 	this.origen=origen; return this; }
     public Busqueda webTest(WebTest webTest)        {   this.webTest=webTest; return this; }
 	public Busqueda web(String web)					{ 	this.web=web; return this;}
+	public Busqueda filtroFecha(Predicate<LocalDate> filtro) { this.filtroFecha=filtro; return this;}
 
 
 	static final Log LOGGER = LogFactory.getLog(WebTest.class);
@@ -226,6 +229,10 @@ public class Busqueda {
 		for(WebElement el:diasEncontrados) {
 			
 			Resultado nuevoResultado=crearResultado(provincia, el);
+
+			if(filtroFecha!=null && !filtroFecha.test(LocalDate.parse(nuevoResultado.getFecha()))) {
+				continue;
+			}
 
 			if(fechaMin!=null && fechaMin.compareTo(nuevoResultado.getFecha())>0) {
 				continue;

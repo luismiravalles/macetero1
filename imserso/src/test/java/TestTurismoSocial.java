@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -88,7 +89,8 @@ public class TestTurismoSocial {
 				+ "<style> body { font-family: Arial; } table, th, td {   border: 1px solid black;  border-collapse: collapse; padding:5px;	} </style>"
 				+ "<link rel='stylesheet' href='src/main/resources/estilos.css'>"
 				+ "</head>"
-				+ "<body>");
+				+ "<body>\n"
+				+ "<h1>" + nombre.replace(".html","") + "</h1>\n");
 		
 		salida.println("<p>Datos obtenidos a fecha : " + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()) + "</p>");
 
@@ -146,37 +148,27 @@ public class TestTurismoSocial {
 		abrirSalida("islas.html");		
 		// Canarias
 		for(EOrigen origen: Arrays.asList(EOrigen.OVIEDO_ISLAS, EOrigen.CANTABRIA_ISLAS)) {			
-			List<Resultado> resultados=new ArrayList<>();
-			EProvincia.canarias().forEach(
-				provincia ->  {
-					Busqueda.instance(salida,resultados)
-						.web("mundicolor.es")
-						.origen(origen)
-						.zona(EZona.CANARIAS)
-						.provincia(provincia)
-						.listaEspera(false)
-						.buscar(webTest);
-
-				}
-			);
+			List<Resultado> resultados=new ArrayList<>();			
+			Busqueda.instance(salida,resultados)
+				.web("mundicolor.es")
+				.origen(origen)
+				.zona(EZona.CANARIAS)
+				.provincias(EProvincia.canarias())
+				.listaEspera(false)
+				.buscar(webTest);
 			enviarResultados(resultados, origen.getNombre());				
 		}
 
 		// Baleares
 		for(EOrigen origen: Arrays.asList(EOrigen.OVIEDO_ISLAS, EOrigen.CANTABRIA_ISLAS)) {			
 			List<Resultado> resultados=new ArrayList<>();
-			EProvincia.baleares().forEach(
-				provincia ->  {
-					Busqueda.instance(salida,resultados)
-						.web("mundicolor.es")
-						.origen(origen)
-						.zona(EZona.BALEARES)
-						.provincia(provincia)
-						.listaEspera(false)
-						.buscar(webTest);
-
-				}
-			);
+			Busqueda.instance(salida,resultados)
+				.web("mundicolor.es")
+				.origen(origen)
+				.zona(EZona.BALEARES)
+				.provincias(EProvincia.baleares())
+				.listaEspera(false)
+				.buscar(webTest);
 			enviarResultados(resultados, origen.getNombre());				
 		}		
 	}
@@ -190,6 +182,10 @@ public class TestTurismoSocial {
 					.origen(origen)			
 					.zona(EZona.COSTAS)
 					.provincias(EProvincia.costas())
+					.filtroFecha(fecha -> 
+						fecha.getMonth()!=Month.FEBRUARY &&
+						fecha.getMonth()!=Month.NOVEMBER
+						)
 					.listaEspera(true)
 					.buscar(webTest);
 			enviarResultados(resultados, origen.getNombre());				
@@ -244,7 +240,7 @@ public class TestTurismoSocial {
 
 		try {
 			// Deshabilitamos lo de enviar pq ya no merece la pena.
-			if(DESTINATARIOS!=null) {
+			if(DESTINATARIOS!=null && DESTINATARIOS.length()>0) {
 				mailSender.sendEmail(DESTINATARIOS, "Imserso desde " + origen + " " + formato.format(new Date()), 
 							cuerpo.toString() );
 			}

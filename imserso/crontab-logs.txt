@@ -1,4 +1,4 @@
-mar 14 oct 2025 09:00:01 CEST
+mié 15 oct 2025 11:30:01 CEST
 echo "Destinatarios = luismiravalles@gmail.com"
 Destinatarios = luismiravalles@gmail.com
 docker compose stop
@@ -16,7 +16,7 @@ Running TestTurismoSocial
 Construyendo WebTest con entorno 'IC'
 Obteniendo el driver...
 Obteniendo driver remoto de la URL http://selenium:4444/wd/hub
-Oct 14, 2025 9:00:27 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+Oct 15, 2025 11:30:29 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
 INFO: Using OpenTelemetry for tracing
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -37,7 +37,6 @@ Buscando desde QOC_ORI:Oviedo en COS:Costas null Transporte null listaEspera tru
 ==> Eligiendo provincia ALMERIA_COS:Almería
 ==> Elegida provincia ALMERIA_COS:Almería
 ==> Pulsado Buscar
-==> ATENCION: Hay algo disponible en Almería fecha: 2026-03-13
 ==> Eligiendo provincia CADIZ_COS:Cádiz
 ==> No existen destinos para la provincia Cádiz
 
@@ -60,11 +59,9 @@ Buscando desde SDR_ORI:Santander en COS:Costas null Transporte null listaEspera 
 ==> Eligiendo provincia BARCELONA_COS:Barcelona
 ==> Elegida provincia BARCELONA_COS:Barcelona
 ==> Pulsado Buscar
-==> ATENCION: Hay algo disponible en Barcelona fecha: 2026-03-01
 ==> Eligiendo provincia CASTELLON_COS:Castellón
 ==> Elegida provincia CASTELLON_COS:Castellón
 ==> Pulsado Buscar
-==> ATENCION: Hay algo disponible en Castellón fecha: 2026-02-05
 ==> Eligiendo provincia GIRONA_COS:Girona
 ==> Elegida provincia GIRONA_COS:Girona
 ==> Pulsado Buscar
@@ -73,7 +70,7 @@ Buscando desde SDR_ORI:Santander en COS:Costas null Transporte null listaEspera 
 ==> Pulsado Buscar
 ==> Eligiendo provincia MALAGA_COS:Málaga
 ==> No existen destinos para la provincia Málaga
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.814 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 71.895 sec
 
 Results :
 
@@ -96,7 +93,7 @@ Running TestTurismoSocial
 Construyendo WebTest con entorno 'IC'
 Obteniendo el driver...
 Obteniendo driver remoto de la URL http://selenium:4444/wd/hub
-Oct 14, 2025 9:02:24 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+Oct 15, 2025 11:32:09 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
 INFO: Using OpenTelemetry for tracing
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -104,7 +101,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 Driver remoto obtenido http://selenium:4444/wd/hub
 
 =============================================================================
-Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_FUE_ISL:Fuerteventura Transporte null listaEspera false disponible true ...
+Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias null Transporte null listaEspera false disponible true ...
 ==> Hemos navegado a mundicolor.es
 ==> Aceptadas las cookies.
 ==> Ahora estamos dentro de Programación
@@ -114,34 +111,16 @@ Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_FUE_ISL:Fuerteventura T
 ==> Eligiendo provincia ISL_FUE_ISL:Fuerteventura
 ==> Elegida provincia ISL_FUE_ISL:Fuerteventura
 ==> Pulsado Buscar
-==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
-
-=============================================================================
-Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_LPA_ISL:Gran Canaria Transporte null listaEspera false disponible true ...
-==> Hemos navegado a mundicolor.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen OVD:Oviedo
-==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
-==> Elegiza zona ISL_ZONCAN_ISL:Canarias
 ==> Eligiendo provincia ISL_LPA_ISL:Gran Canaria
 ==> Elegida provincia ISL_LPA_ISL:Gran Canaria
 ==> Pulsado Buscar
-==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
-
-=============================================================================
-Buscando desde OVD:Oviedo en ISL_ZONCAN_ISL:Canarias ISL_TEN_ISL:Tenerife Transporte null listaEspera false disponible true ...
-==> Hemos navegado a mundicolor.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen OVD:Oviedo
-==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
-==> Elegiza zona ISL_ZONCAN_ISL:Canarias
 ==> Eligiendo provincia ISL_TEN_ISL:Tenerife
 ==> Elegida provincia ISL_TEN_ISL:Tenerife
 ==> Pulsado Buscar
 ==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
 
 =============================================================================
-Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_FUE_ISL:Fuerteventura Transporte null listaEspera false disponible true ...
+Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias null Transporte null listaEspera false disponible true ...
 ==> Hemos navegado a mundicolor.es
 ==> Ahora estamos dentro de Programación
 ==> Seleccionado origen SDR:Santander
@@ -150,34 +129,16 @@ Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_FUE_ISL:Fuerteventur
 ==> Eligiendo provincia ISL_FUE_ISL:Fuerteventura
 ==> Elegida provincia ISL_FUE_ISL:Fuerteventura
 ==> Pulsado Buscar
-==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
-
-=============================================================================
-Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_LPA_ISL:Gran Canaria Transporte null listaEspera false disponible true ...
-==> Hemos navegado a mundicolor.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR:Santander
-==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
-==> Elegiza zona ISL_ZONCAN_ISL:Canarias
 ==> Eligiendo provincia ISL_LPA_ISL:Gran Canaria
 ==> Elegida provincia ISL_LPA_ISL:Gran Canaria
 ==> Pulsado Buscar
-==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
-
-=============================================================================
-Buscando desde SDR:Santander en ISL_ZONCAN_ISL:Canarias ISL_TEN_ISL:Tenerife Transporte null listaEspera false disponible true ...
-==> Hemos navegado a mundicolor.es
-==> Ahora estamos dentro de Programación
-==> Seleccionado origen SDR:Santander
-==> Eligiendo zona ISL_ZONCAN_ISL:Canarias
-==> Elegiza zona ISL_ZONCAN_ISL:Canarias
 ==> Eligiendo provincia ISL_TEN_ISL:Tenerife
 ==> Elegida provincia ISL_TEN_ISL:Tenerife
 ==> Pulsado Buscar
 ==> Fin Busqueda en zona ISL_ZONCAN_ISL:Canarias
 
 =============================================================================
-Buscando desde OVD:Oviedo en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Transporte null listaEspera false disponible true ...
+Buscando desde OVD:Oviedo en ISL_ZONBAL_ISL:Baleares null Transporte null listaEspera false disponible true ...
 ==> Hemos navegado a mundicolor.es
 ==> Ahora estamos dentro de Programación
 ==> Seleccionado origen OVD:Oviedo
@@ -186,11 +147,10 @@ Buscando desde OVD:Oviedo en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Transp
 ==> Eligiendo provincia ISL_MAL_ISL:Mallorca
 ==> Elegida provincia ISL_MAL_ISL:Mallorca
 ==> Pulsado Buscar
-==> ATENCION: Hay algo disponible en Mallorca fecha: 2025-11-16
 ==> Fin Busqueda en zona ISL_ZONBAL_ISL:Baleares
 
 =============================================================================
-Buscando desde SDR:Santander en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Transporte null listaEspera false disponible true ...
+Buscando desde SDR:Santander en ISL_ZONBAL_ISL:Baleares null Transporte null listaEspera false disponible true ...
 ==> Hemos navegado a mundicolor.es
 ==> Ahora estamos dentro de Programación
 ==> Seleccionado origen SDR:Santander
@@ -200,7 +160,7 @@ Buscando desde SDR:Santander en ISL_ZONBAL_ISL:Baleares ISL_MAL_ISL:Mallorca Tra
 ==> Elegida provincia ISL_MAL_ISL:Mallorca
 ==> Pulsado Buscar
 ==> Fin Busqueda en zona ISL_ZONBAL_ISL:Baleares
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 142.616 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 85.742 sec
 
 Results :
 
@@ -223,7 +183,7 @@ Running TestTurismoSocial
 Construyendo WebTest con entorno 'IC'
 Obteniendo el driver...
 Obteniendo driver remoto de la URL http://selenium:4444/wd/hub
-Oct 14, 2025 9:05:14 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
+Oct 15, 2025 11:34:04 AM org.openqa.selenium.remote.tracing.opentelemetry.OpenTelemetryTracer createTracer
 INFO: Using OpenTelemetry for tracing
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -244,6 +204,7 @@ Buscando desde null en CP:Capitales de provincia null Transporte no:Sin Transpor
 ==> Eligiendo provincia ORENSE_CP:Orense
 ==> Elegida provincia ORENSE_CP:Orense
 ==> Pulsado Buscar
+==> ATENCION: Hay algo disponible en Orense fecha: 2025-12-11
 ==> Eligiendo provincia NAVARRA_CP:Navarra
 ==> Elegida provincia NAVARRA_CP:Navarra
 ==> Pulsado Buscar
@@ -252,10 +213,10 @@ Buscando desde null en CP:Capitales de provincia null Transporte no:Sin Transpor
 ==> Pulsado Buscar
 ==> ATENCION: Hay algo disponible en Coruña fecha: 2025-10-30
 ==> Fin Busqueda en zona CP:Capitales de provincia
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 43.418 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 41.571 sec
 
 Results :
 
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 
-mar 14 oct 2025 09:05:58 CEST
+mié 15 oct 2025 11:34:45 CEST

@@ -84,3 +84,10 @@ thead th {
   display:none;
 }
 
+/*
+  No queremos ver las filas de los destins que esten completos.
+*/
+tr:has(.mp-icon-state-COMPLETE) {
+  display:none;
+}
+
